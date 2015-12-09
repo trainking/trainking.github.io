@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-author: John Doe
-language:
-timezone:
+title: yield编程实验室
+subtitle: yield编程实验室
+description: 一个小小程序员的打洞之路
+author: yield
+language: zh
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://trainking.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

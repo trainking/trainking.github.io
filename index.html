@@ -51,15 +51,15 @@
 
 
 
-<meta name="description">
+<meta name="description" content="唯爱与美食不可辜负">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yield编程实验室">
 <meta property="og:url" content="http://trainking.github.io/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description">
+<meta property="og:description" content="唯爱与美食不可辜负">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yield编程实验室">
-<meta name="twitter:description">
+<meta name="twitter:description" content="唯爱与美食不可辜负">
 
 
 
@@ -177,6 +177,15 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
 
     
       
@@ -211,7 +220,7 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-17T14:40:47+08:00" content="2015-12-17">
+            <time itemprop="dateCreated" datetime="2015-12-17T15:29:48+08:00" content="2015-12-17">
               2015-12-17
             </time>
           </span>
@@ -272,14 +281,302 @@
 
 
     
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/17/2015-12-17-2/" itemprop="url">
+                  【算法】贪心算法(0-1背包问题)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-17T15:29:34+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F"><a href="#u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F" class="headerlink" title="什么是贪心算法？"></a>什么是贪心算法？</h1><p><strong>贪心算法</strong>并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：</p>
+<blockquote>
+<ol>
+<li>贪心算法解决什么问题？</li>
+<li>贪心算法是怎样的一种思路？</li>
+</ol>
+</blockquote>
+<h2 id="1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898"><a href="#1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898" class="headerlink" title="1. 贪心算法解决什么问题"></a>1. 贪心算法解决什么问题</h2><p>解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。</p>
+<h2 id="2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF"><a href="#2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF" class="headerlink" title="2. 贪心算法是怎样的一种思路"></a>2. 贪心算法是怎样的一种思路</h2><p>顾名思义，贪心算法，是一种很“贪”的算法。它的整体步骤，可以归纳为：</p>
+<blockquote>
+<ol>
+<li>将问题分解成多个小问题或者多个步骤。</li>
+<li>在每个小问题或者步骤中，执行某种最优化策略，得到局部最优解</li>
+<li>所有每个步骤得到的最优化解，组合得到全局最优化解，不回溯处理</li>
+</ol>
+</blockquote>
+<p><strong>贪心算法</strong>最大的特点，就是在每一步中取最优化的解，不会回溯处理。这样的策略，自然在执行速度上更快，但是因为这种方法的<strong>短视</strong>。会导致得的解并不是真正的全局最优解，但是<strong>贪心算法</strong>得到的依然是一个近似最优解。</p>
+<h1 id="0-1_u80CC_u5305_u95EE_u9898"><a href="#0-1_u80CC_u5305_u95EE_u9898" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h1><p>问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
+<p>通俗解释：假如你有一个只能承重100的背包，你往里面装一些重量和价值不等的东西，怎样才可以让你的背包中的价值最大。</p>
+<p>这个问题中就是关键在于，每个转入背包的东西，只能是被装入背包和不被装入背包两种状态，可以用0-1表示。所以叫0-1背包问题。其二，就是这个问题的两个限定。第一，背包的边界是明确，它只能承重那么多东西。第二，东西的边界是明确的，你只有那么一些东西可以选择。</p>
+<p>故而，这个问题其实有三种策略可以选择：</p>
+<blockquote>
+<ol>
+<li>每次装入的都是价值和重量比率最高的，也就是我们常说的性价比最高的</li>
+<li>每次装入的是当前可选择的东西中，价值最高的</li>
+<li>每次装入的是当前可选择东西中，重量最轻的</li>
+</ol>
+</blockquote>
+<p>这三种策略中，策略一看起来最好的策略。但是，策略一的模糊化太大，需要根据特殊的情况，做出特殊的改变。</p>
+<p>策略二和策略三相同，本身上并没有太多不同。只是二者的视角不同。</p>
+<p>我基于第三种策略，给出<strong>python</strong>的实现。（人生苦短，我用python。看不惯来打我呀~~）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8-*-</span></span><br><span class="line"><span class="comment">#0-1背包问题的实现</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, weight, value, status)</span>:</span></span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.value = value</span><br><span class="line">        self.status = status   <span class="comment"># 0未选中，1已选中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#@param goods 物品的集合</span></span><br><span class="line"><span class="comment">#@param total 背包的空闲重量</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greed</span><span class="params">(goods, total)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        s=strategy(goods,total)</span><br><span class="line">        <span class="keyword">if</span> s == -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        result.append(goods[s].weight)</span><br><span class="line">        total = total - goods[s].weight</span><br><span class="line">        goods[s].status = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment">#策略</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(goods,total)</span>:</span></span><br><span class="line">    index = -<span class="number">1</span></span><br><span class="line">    minWeight = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(goods)):</span><br><span class="line">        currentGood = goods[i]</span><br><span class="line">        <span class="keyword">if</span> currentGood.status == <span class="number">0</span> <span class="keyword">and</span> currentGood.weight &lt;= total <span class="keyword">and</span> currentGood.weight &lt;= minWeight :</span><br><span class="line">            index = i</span><br><span class="line">            minWeight = goods[index].weight</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> index</span><br></pre></td></tr></table></figure>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/17/2015-12-17-1/" itemprop="url">
+                  一张图学会python
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-17T15:28:00+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <p>偶得一图，发现此图是个非常好的python入门教程呀，特此转载，侵删！</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/311153-571c7ac8fc5dda46.jpg" alt="一图说python.jpg"></p>
+<blockquote>
+<p>关于此图，我想说的是，编辑器大家可以用我大sublime!</p>
+</blockquote>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/17/xijie/" itemprop="url">
+                  JavaScript一些细节
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2015-12-17T15:26:51+08:00" content="2015-12-17">
+              2015-12-17
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+              <h1 id="u5220_u9664_u6570_u7EC4_u4E2D_u7684_u5143_u7D20"><a href="#u5220_u9664_u6570_u7EC4_u4E2D_u7684_u5143_u7D20" class="headerlink" title="删除数组中的元素"></a>删除数组中的元素</h1><p>你或许已经知道，js中要向数组中增加元素，需要用的是<strong>push</strong>方法。没有和其他语言中类似的<strong>add</strong>方法，是不是很不适应？</p>
+<p>但是要是告诉你，从数组中删除元素的方法没有，你是不是简直不敢相信！你如果要说用到<strong>delete</strong>关键字,那么给你看一个吓死你的：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var s=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</span><br><span class="line"><span class="keyword">delete</span> s[<span class="number">1</span>];</span><br></pre></td></tr></table></figure></p>
+<p>这样操作之后，你猜猜操作结果是怎样的？</p>
+<p>不买关子，结果是这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">1</span>,udefind * <span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
+<p>被删除的元素，其实只是将这个元素的值删除了，但是并没有改变这个<strong>数组</strong>。即没有把这个数组变成<strong>[1,3,4]</strong>，而如果需要变成这样，则需要用到splice方法:<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.splice(<span class="number">1</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure></p>
+<p>关于更多，请查看 <a href="http://www.w3school.com.cn/jsref/jsref_splice.asp" target="_blank" rel="external">文档</a>。</p>
+<blockquote>
+<p>注意：splice方法的本意就是拼接，替换元素。这里用到完成删除，只是将拼接的第三个参数为空，达到目的。</p>
+</blockquote>
+<h1 id="u4E25_u683C_u6A21_u5F0F"><a href="#u4E25_u683C_u6A21_u5F0F" class="headerlink" title="严格模式"></a>严格模式</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">'use strict'</span>;</span><br></pre></td></tr></table></figure>
+<p>不知你是否看到别人写带js文件，第一行总是出现这一行匿名的字符串。这其实是ECMAscript  5中引入的严格模式！</p>
+<p>传统的js代码执行模式，也就是你不在第一行声明这个匿名字符串时，是正常模式。这个模式中有很多Javascript非常灵活的特性（也非常蛋疼）。比如，如果一个变量没有使用var关键字申明，则是一个全局变量。很让人容易错乱的语法糖。</p>
+<p>更多相关内容，<a href="http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html" target="_blank" rel="external">查看</a>。</p>
+<h1 id="geter_26amp_3Bseter"><a href="#geter_26amp_3Bseter" class="headerlink" title="geter&amp;seter"></a>geter&amp;seter</h1><p>js的对象也是有geter和seter，这种方式可以灵活的运用到，比如当一个属性只是可读的。这时便可以使用geter方法来取的元素。</p>
+<p>下面是一个geter和seter的例子：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">    <span class="built_in">_x</span> : <span class="number">1</span>,</span><br><span class="line">    get getX()&#123;</span><br><span class="line">        return this.<span class="built_in">_x</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">set</span> setX(x)&#123;</span><br><span class="line">        this.<span class="built_in">_x</span> = x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+
+            
+          </span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
 
   </section>
 
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
 
 
         </div>
@@ -314,7 +611,7 @@
           <img class="site-author-image" src="/images/default_avatar.jpg" alt="yield" itemprop="image"/>
           <p class="site-author-name" itemprop="name">yield</p>
         </div>
-        <p class="site-description motion-element" itemprop="description"></p>
+        <p class="site-description motion-element" itemprop="description">唯爱与美食不可辜负</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -332,7 +629,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

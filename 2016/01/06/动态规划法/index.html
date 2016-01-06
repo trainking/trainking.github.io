@@ -51,40 +51,22 @@
 
 
 
-<meta name="description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
-
-
-贪心算法解决什么问题？
-贪心算法是怎样的一种思路？
-
-
-1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
-2. 贪心算法是怎样的一种思路">
+<meta name="description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
+一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
+斐波那契数列大学课堂">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】贪心算法(0-1背包问题)">
-<meta property="og:url" content="http://trainking.github.io/2015/12/17/2015-12-17-2/index.html">
+<meta property="og:title" content="【算法】动态规划法(斐波那契数列)">
+<meta property="og:url" content="http://trainking.github.io/2016/01/06/动态规划法/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
-
-
-贪心算法解决什么问题？
-贪心算法是怎样的一种思路？
-
-
-1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
-2. 贪心算法是怎样的一种思路">
-<meta property="og:updated_time" content="2015-12-17T07:29:34.704Z">
+<meta property="og:description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
+一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
+斐波那契数列大学课堂">
+<meta property="og:updated_time" content="2016-01-06T02:43:12.761Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【算法】贪心算法(0-1背包问题)">
-<meta name="twitter:description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
-
-
-贪心算法解决什么问题？
-贪心算法是怎样的一种思路？
-
-
-1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
-2. 贪心算法是怎样的一种思路">
+<meta name="twitter:title" content="【算法】动态规划法(斐波那契数列)">
+<meta name="twitter:description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
+一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
+斐波那契数列大学课堂">
 
 
 
@@ -96,7 +78,7 @@
   };
 </script>
 
-  <title> 【算法】贪心算法(0-1背包问题) | yield编程实验室 </title>
+  <title> 【算法】动态规划法(斐波那契数列) | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +198,7 @@
             
             
               
-                【算法】贪心算法(0-1背包问题)
+                【算法】动态规划法(斐波那契数列)
               
             
           </h1>
@@ -225,8 +207,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-17T15:29:34+08:00" content="2015-12-17">
-              2015-12-17
+            <time itemprop="dateCreated" datetime="2016-01-06T10:43:12+08:00" content="2016-01-06">
+              2016-01-06
             </time>
           </span>
 
@@ -236,8 +218,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/17/2015-12-17-2/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/2015-12-17-2/" itemprop="commentsCount"></span>
+                <a href="/2016/01/06/动态规划法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/06/动态规划法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -256,39 +238,16 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F"><a href="#u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F" class="headerlink" title="什么是贪心算法？"></a>什么是贪心算法？</h1><p><strong>贪心算法</strong>并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：</p>
-<blockquote>
-<ol>
-<li>贪心算法解决什么问题？</li>
-<li>贪心算法是怎样的一种思路？</li>
-</ol>
-</blockquote>
-<h2 id="1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898"><a href="#1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898" class="headerlink" title="1. 贪心算法解决什么问题"></a>1. 贪心算法解决什么问题</h2><p>解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。</p>
-<h2 id="2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF"><a href="#2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF" class="headerlink" title="2. 贪心算法是怎样的一种思路"></a>2. 贪心算法是怎样的一种思路</h2><p>顾名思义，贪心算法，是一种很“贪”的算法。它的整体步骤，可以归纳为：</p>
-<blockquote>
-<ol>
-<li>将问题分解成多个小问题或者多个步骤。</li>
-<li>在每个小问题或者步骤中，执行某种最优化策略，得到局部最优解</li>
-<li>所有每个步骤得到的最优化解，组合得到全局最优化解，不回溯处理</li>
-</ol>
-</blockquote>
-<p><strong>贪心算法</strong>最大的特点，就是在每一步中取最优化的解，不会回溯处理。这样的策略，自然在执行速度上更快，但是因为这种方法的<strong>短视</strong>。会导致得的解并不是真正的全局最优解，但是<strong>贪心算法</strong>得到的依然是一个近似最优解。</p>
-<h1 id="0-1_u80CC_u5305_u95EE_u9898"><a href="#0-1_u80CC_u5305_u95EE_u9898" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h1><p>问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
-<p>通俗解释：假如你有一个只能承重100的背包，你往里面装一些重量和价值不等的东西，怎样才可以让你的背包中的价值最大。</p>
-<p>这个问题中就是关键在于，每个转入背包的东西，只能是被装入背包和不被装入背包两种状态，可以用0-1表示。所以叫0-1背包问题。其二，就是这个问题的两个限定。第一，背包的边界是明确，它只能承重那么多东西。第二，东西的边界是明确的，你只有那么一些东西可以选择。</p>
-<p>故而，这个问题其实有三种策略可以选择：</p>
-<blockquote>
-<ol>
-<li>每次装入的都是价值和重量比率最高的，也就是我们常说的性价比最高的</li>
-<li>每次装入的是当前可选择的东西中，价值最高的</li>
-<li>每次装入的是当前可选择东西中，重量最轻的</li>
-</ol>
-</blockquote>
-<p>这三种策略中，策略一看起来最好的策略。但是，策略一的模糊化太大，需要根据特殊的情况，做出特殊的改变。</p>
-<p>策略二和策略三相同，本身上并没有太多不同。只是二者的视角不同。</p>
-<p>我基于第三种策略，给出<strong>python</strong>的实现。（人生苦短，我用python。看不惯来打我呀~~）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8-*-</span></span><br><span class="line"><span class="comment">#0-1背包问题的实现</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, weight, value, status)</span>:</span></span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.value = value</span><br><span class="line">        self.status = status   <span class="comment"># 0未选中，1已选中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#@param goods 物品的集合</span></span><br><span class="line"><span class="comment">#@param total 背包的空闲重量</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greed</span><span class="params">(goods, total)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        s=strategy(goods,total)</span><br><span class="line">        <span class="keyword">if</span> s == -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        result.append(goods[s].weight)</span><br><span class="line">        total = total - goods[s].weight</span><br><span class="line">        goods[s].status = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment">#策略</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(goods,total)</span>:</span></span><br><span class="line">    index = -<span class="number">1</span></span><br><span class="line">    minWeight = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(goods)):</span><br><span class="line">        currentGood = goods[i]</span><br><span class="line">        <span class="keyword">if</span> currentGood.status == <span class="number">0</span> <span class="keyword">and</span> currentGood.weight &lt;= total <span class="keyword">and</span> currentGood.weight &lt;= minWeight :</span><br><span class="line">            index = i</span><br><span class="line">            minWeight = goods[index].weight</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> index</span><br></pre></td></tr></table></figure>
-</span>
+        <span itemprop="articleBody"><p><strong>动态规划</strong> 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——<strong><em>不要让程序做重复的事情</em></strong>。</p>
+<h2 id="u4E00_u53E5_u8BDD_u8BF4_u7B97_u6CD5"><a href="#u4E00_u53E5_u8BDD_u8BF4_u7B97_u6CD5" class="headerlink" title="一句话说算法"></a>一句话说算法</h2><p>对于一个复杂的问题，可以分解成若干个子问题来解决，这是<strong>分治法</strong>。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是<strong>贪心法</strong>。而其实分解的子问题，往往会有许多<strong><em>重复的子问题</em></strong>，对程序进行<strong><em>减枝机制</em></strong>地优化，这是<strong>动态规划法</strong>。</p>
+<h2 id="u6590_u6CE2_u90A3_u5951_u6570_u5217"><a href="#u6590_u6CE2_u90A3_u5951_u6570_u5217" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><p>大学课堂上，讲C语言课程的老师，一定讲过<strong>斐波那契数列</strong>。</p>
+<p>通俗的话讲，这个数列中的第2项（从零开始计数）之后的每一项，是前两项之和。基础项，也就是第0项是0，第1项是1，以此类推得出的一个数列：</p>
+<p>0,1,1,2,3,5,8,13,21…</p>
+<p>朴素算法的实现是：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></span><br><span class="line">   <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">       <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">return</span> fib(n-<span class="number">1</span>) + (n-<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
+<p>这个递归算法有大量的重复步骤，例如：fib(3) = fib(2) + fib(1), fib(4) = fib(3)+fib(2)。这两个步骤中<strong>fib(2)</strong>就是被重复计算了，这样的算法固然正确，但是效率太对。数据量增大，算法的时间复杂度也是指数级增大。</p>
+<p>为了避免重复的计算操作，可以将分解的子问题的解，用一个字典存起来。每次判断如果字典中已经有了计算过得值，则不再进行计算，直接取值就可以了。这样便大大减少了算法的计算量，下面是我用python的实现：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">d</span> = &#123;&#125;</span><br><span class="line"></span><br><span class="line">def fib(<span class="keyword">n</span>):</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">n</span>==0):</span><br><span class="line">        <span class="keyword">d</span>[<span class="keyword">n</span>] = 0</span><br><span class="line">        <span class="keyword">return</span> 0</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">n</span>==1):</span><br><span class="line">        <span class="keyword">d</span>[<span class="keyword">n</span>]=1</span><br><span class="line">        <span class="keyword">return</span> 1</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> not <span class="keyword">d</span>.has_key(<span class="keyword">n</span>) :</span><br><span class="line">        <span class="keyword">d</span>[<span class="keyword">n</span>] = fib(<span class="keyword">n</span>-1) + fib(<span class="keyword">n</span>-2)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">d</span>[<span class="keyword">n</span>]</span><br></pre></td></tr></table></figure></span>
       
     </div>
 
@@ -305,17 +264,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/17/2015-12-17-1/" rel="next" title="一张图学会python">
-                <i class="fa fa-chevron-left"></i> 一张图学会python
+              <a href="/2015/12/24/2015-12-24-1/" rel="next" title="tqdm一个有趣的python包">
+                <i class="fa fa-chevron-left"></i> tqdm一个有趣的python包
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/17/2015-12-17-3/" rel="prev" title="【算法】分治法(快速排序，归并排序)">
-                【算法】分治法(快速排序，归并排序) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -342,8 +297,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/17/2015-12-17-2/"
-           data-title="【算法】贪心算法(0-1背包问题)" data-url="http://trainking.github.io/2015/12/17/2015-12-17-2/">
+      <div class="ds-thread" data-thread-key="2016/01/06/动态规划法/"
+           data-title="【算法】动态规划法(斐波那契数列)" data-url="http://trainking.github.io/2016/01/06/动态规划法/">
       </div>
     
   </div>
@@ -451,7 +406,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">什么是贪心算法？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898"><span class="nav-number">1.1.</span> <span class="nav-text">1. 贪心算法解决什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF"><span class="nav-number">1.2.</span> <span class="nav-text">2. 贪心算法是怎样的一种思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1_u80CC_u5305_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">0-1背包问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E00_u53E5_u8BDD_u8BF4_u7B97_u6CD5"><span class="nav-number">1.</span> <span class="nav-text">一句话说算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6590_u6CE2_u90A3_u5951_u6570_u5217"><span class="nav-number">2.</span> <span class="nav-text">斐波那契数列</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

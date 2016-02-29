@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Python," />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -51,32 +51,22 @@
 
 
 
-<meta name="description" content="在Twitter上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似linux下下载文件效果，如图：
-步骤一:pip install tqdm
-使用pip快速获取。
-步骤二:只要一小段代码就可以体验到效果：
-1234import timefrom tqdm import *for i in tqdm(range(1000)):    time.sleep(.01)
-链接：">
+<meta name="description" content="问题：一个字符串可以由另一个字符串移位得到，例如abcd，可以由bcad移位得到。
+问题分析这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。
+还有方案二，则是需要用到数据结构，例如，将一个字符串转换成一个set。循环另一个数组，往set中插入数据，如果一直是失败的，则true。有一次插入成功">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tqdm一个有趣的python包">
-<meta property="og:url" content="http://trainking.github.io/2015/12/24/2015-12-24-1/index.html">
+<meta property="og:title" content="【算法】字符串移位">
+<meta property="og:url" content="http://trainking.github.io/2016/02/29/字符串移位/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="在Twitter上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似linux下下载文件效果，如图：
-步骤一:pip install tqdm
-使用pip快速获取。
-步骤二:只要一小段代码就可以体验到效果：
-1234import timefrom tqdm import *for i in tqdm(range(1000)):    time.sleep(.01)
-链接：">
-<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/jitu20151224165700.png">
-<meta property="og:updated_time" content="2015-12-24T09:23:11.599Z">
+<meta property="og:description" content="问题：一个字符串可以由另一个字符串移位得到，例如abcd，可以由bcad移位得到。
+问题分析这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。
+还有方案二，则是需要用到数据结构，例如，将一个字符串转换成一个set。循环另一个数组，往set中插入数据，如果一直是失败的，则true。有一次插入成功">
+<meta property="og:updated_time" content="2016-02-29T07:38:00.600Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="tqdm一个有趣的python包">
-<meta name="twitter:description" content="在Twitter上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似linux下下载文件效果，如图：
-步骤一:pip install tqdm
-使用pip快速获取。
-步骤二:只要一小段代码就可以体验到效果：
-1234import timefrom tqdm import *for i in tqdm(range(1000)):    time.sleep(.01)
-链接：">
+<meta name="twitter:title" content="【算法】字符串移位">
+<meta name="twitter:description" content="问题：一个字符串可以由另一个字符串移位得到，例如abcd，可以由bcad移位得到。
+问题分析这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。
+还有方案二，则是需要用到数据结构，例如，将一个字符串转换成一个set。循环另一个数组，往set中插入数据，如果一直是失败的，则true。有一次插入成功">
 
 
 
@@ -88,7 +78,7 @@
   };
 </script>
 
-  <title> tqdm一个有趣的python包 | yield编程实验室 </title>
+  <title> 【算法】字符串移位 | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -208,7 +198,7 @@
             
             
               
-                tqdm一个有趣的python包
+                【算法】字符串移位
               
             
           </h1>
@@ -217,8 +207,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-24T17:23:11+08:00" content="2015-12-24">
-              2015-12-24
+            <time itemprop="dateCreated" datetime="2016-02-29T15:38:00+08:00" content="2016-02-29">
+              2016-02-29
             </time>
           </span>
 
@@ -228,8 +218,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/24/2015-12-24-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/24/2015-12-24-1/" itemprop="commentsCount"></span>
+                <a href="/2016/02/29/字符串移位/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/字符串移位/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -248,17 +238,16 @@
       
 
       
-        <span itemprop="articleBody"><p>在<code>Twitter</code>上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似<code>linux</code>下下载文件效果，如图：<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/jitu20151224165700.png" alt="截图"></p>
-<h2 id="u6B65_u9AA4_u4E00_3A"><a href="#u6B65_u9AA4_u4E00_3A" class="headerlink" title="步骤一:"></a>步骤一:</h2><p><code>pip install tqdm</code></p>
-<p>使用<code>pip</code>快速获取。</p>
-<h2 id="u6B65_u9AA4_u4E8C_3A"><a href="#u6B65_u9AA4_u4E8C_3A" class="headerlink" title="步骤二:"></a>步骤二:</h2><p>只要一小段代码就可以体验到效果：</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">time</span></span><br><span class="line"><span class="keyword">from</span> tqdm import *</span><br><span class="line"><span class="keyword">for</span> i <span class="built_in">in</span> tqdm(range(<span class="number">1000</span>)):</span><br><span class="line">    <span class="built_in">time</span>.<span class="built_in">sleep</span>(.<span class="number">01</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="u94FE_u63A5_uFF1A"><a href="#u94FE_u63A5_uFF1A" class="headerlink" title="链接："></a>链接：</h2><ul>
-<li><a href="https://github.com/noamraph/tqdm" target="_blank" rel="external">github</a></li>
-</ul>
-<blockquote>
-<p>暂且记下，稍后有空研究一下源码。</p>
-</blockquote>
+        <span itemprop="articleBody"><p>问题：一个字符串可以由另一个字符串移位得到，例如<code>abcd</code>，可以由<code>bcad</code>移位得到。</p>
+<h1 id="u95EE_u9898_u5206_u6790"><a href="#u95EE_u9898_u5206_u6790" class="headerlink" title="问题分析"></a>问题分析</h1><p>这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。</p>
+<p>还有方案二，则是需要用到数据结构，例如，将一个字符串转换成一个set。循环另一个数组，往set中插入数据，如果一直是失败的，则true。有一次插入成功了，则false。</p>
+<h1 id="u65B9_u6848"><a href="#u65B9_u6848" class="headerlink" title="方案"></a>方案</h1><p>如果我们在转换一下思想，字符其实在计算机中的表现，它的实质上也是数字，比如ASCII码中，字符<code>a</code>是可以转换成数字97的，所以两个数组其实只要求元素之间的差的和，如果等于0就可以判断是否相等。<br>例如：<br> 1,2,34 和 2,3,14<br>则：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>-<span class="number">2</span>=-<span class="number">1</span></span><br><span class="line"><span class="number">2</span>-<span class="number">3</span>=-<span class="number">1</span></span><br><span class="line"><span class="number">3</span>-<span class="number">1</span>=<span class="number">2</span></span><br><span class="line"><span class="number">4</span>-<span class="number">4</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>差的和：<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-<span class="number">1</span>+-<span class="number">1</span>+<span class="number">2</span>+<span class="number">0</span>=<span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，这样只是判断了移位，并没有判断基准位置。比如，<code>13</code>和<code>22</code>是可以判断成立的，因此需要增加判断两个数组的乘积是否相等。来判断基准位置是否一致。</p>
+<h2 id="Python__u5B9E_u73B0"><a href="#Python__u5B9E_u73B0" class="headerlink" title="Python 实现"></a>Python 实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(old,new)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(old) &lt;= <span class="number">0</span> <span class="keyword">or</span> len(new) &lt;= <span class="number">0</span> <span class="keyword">or</span> len(old) != len(new):</span><br><span class="line">        <span class="keyword">return</span> false;    </span><br><span class="line">    oldArr = map(ord, old)    </span><br><span class="line">    newArr = map(ord, new)    </span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    newPro = <span class="number">1</span></span><br><span class="line">    oldPro = <span class="number">1</span>  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>,len(oldArr)):        </span><br><span class="line">        total += newArr[i] - oldArr[i]</span><br><span class="line">        newPro = newT * newArr[i]</span><br><span class="line">        oldPro = oldT * oldArr[i]    </span><br><span class="line">    <span class="keyword">if</span> total == <span class="number">0</span> <span class="keyword">and</span> newPro == oldPro:        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span>    </span><br><span class="line">    <span class="keyword">else</span> :        </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">print</span> test(<span class="string">'13'</span>, <span class="string">'22'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="C__u8BED_u8A00_u6838_u5FC3_u5B9E_u73B0"><a href="#C__u8BED_u8A00_u6838_u5FC3_u5B9E_u73B0" class="headerlink" title="C 语言核心实现"></a>C 语言核心实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line">  </span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">char</span>[],<span class="keyword">int</span>,<span class="keyword">char</span>[],<span class="keyword">int</span>)</span></span>;</span><br><span class="line">   <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">       <span class="keyword">char</span> old[]=&#123;<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'a'</span>,<span class="string">'d'</span>&#125;;</span><br><span class="line">       <span class="keyword">char</span> <span class="keyword">new</span>[]=&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>&#125;;</span><br><span class="line">       <span class="keyword">int</span> result = test(old,<span class="number">4</span>,<span class="keyword">new</span>,<span class="number">4</span>);</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,result);</span><br><span class="line">       <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">int</span>  <span class="title">test</span><span class="params">(<span class="keyword">char</span> old[],<span class="keyword">int</span> oldLen,<span class="keyword">char</span> new[], <span class="keyword">int</span> newLen)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(oldLen &lt;= <span class="number">0</span> || newLen &lt;= <span class="number">0</span> || oldLen != newLen)&#123;</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">      &#125;</span><br><span class="line">  </span><br><span class="line">     <span class="keyword">int</span> total = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">int</span> newPro = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">int</span> oldPro = <span class="number">1</span>;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;oldLen; i++)&#123;</span><br><span class="line">         total += (<span class="keyword">int</span>)old[i] - (<span class="keyword">int</span>)<span class="keyword">new</span>[i];</span><br><span class="line">         newPro = newPro * <span class="keyword">new</span>[i];</span><br><span class="line">         oldPro = oldPro * old[i];</span><br><span class="line">      &#125;</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">if</span>(total == <span class="number">0</span> &amp;&amp; newPro == oldPro)&#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="u5C40_u9650"><a href="#u5C40_u9650" class="headerlink" title="局限"></a>局限</h2><p>我所写实现依赖于ASCII码，当如果字符串是Unioncode编码的字符，则就会出现问题。容我有空去研究一下，相处通用得解决方案。<strong>如有问题欢迎各位批评指正，不胜感激。</strong></p>
 </span>
       
     </div>
@@ -267,7 +256,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Python/" rel="tag">#Python</a>
+            <a href="/tags/算法/" rel="tag">#算法</a>
           
         </div>
       
@@ -276,17 +265,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/17/2015-12-17-3/" rel="next" title="【算法】分治法(快速排序，归并排序)">
-                <i class="fa fa-chevron-left"></i> 【算法】分治法(快速排序，归并排序)
+              <a href="/2016/01/06/动态规划法/" rel="next" title="【算法】动态规划法(斐波那契数列)">
+                <i class="fa fa-chevron-left"></i> 【算法】动态规划法(斐波那契数列)
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/01/06/动态规划法/" rel="prev" title="【算法】动态规划法(斐波那契数列)">
-                【算法】动态规划法(斐波那契数列) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -313,8 +298,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/24/2015-12-24-1/"
-           data-title="tqdm一个有趣的python包" data-url="http://trainking.github.io/2015/12/24/2015-12-24-1/">
+      <div class="ds-thread" data-thread-key="2016/02/29/字符串移位/"
+           data-title="【算法】字符串移位" data-url="http://trainking.github.io/2016/02/29/字符串移位/">
       </div>
     
   </div>
@@ -422,7 +407,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u6B65_u9AA4_u4E00_3A"><span class="nav-number">1.</span> <span class="nav-text">步骤一:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u6B65_u9AA4_u4E8C_3A"><span class="nav-number">2.</span> <span class="nav-text">步骤二:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u94FE_u63A5_uFF1A"><span class="nav-number">3.</span> <span class="nav-text">链接：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u95EE_u9898_u5206_u6790"><span class="nav-number">1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u65B9_u6848"><span class="nav-number">2.</span> <span class="nav-text">方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python__u5B9E_u73B0"><span class="nav-number">2.1.</span> <span class="nav-text">Python 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C__u8BED_u8A00_u6838_u5FC3_u5B9E_u73B0"><span class="nav-number">2.2.</span> <span class="nav-text">C 语言核心实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u5C40_u9650"><span class="nav-number">2.3.</span> <span class="nav-text">局限</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

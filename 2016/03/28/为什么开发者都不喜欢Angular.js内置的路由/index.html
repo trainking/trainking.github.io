@@ -1,0 +1,828 @@
+<!doctype html>
+<html class="theme-next   use-motion ">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="译文," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+
+
+
+
+
+
+<meta name="description" content="Angular.js 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用AngularUI项目的 UI-Router模块来代替之。
+这是因为UI-Router有两个重要的特性：
+
+多样化视图
+嵌入式视图
+
+这篇文章将解释这两个特性，和运用现实生活的例子展现这两个特性的重要性。
+为什么你需要使用UI-Router多样化视图大多数的应用程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UI-Router:为什么开发者都不喜欢Angular.js内置的路由">
+<meta property="og:url" content="http://trainking.github.io/2016/03/28/为什么开发者都不喜欢Angular.js内置的路由/index.html">
+<meta property="og:site_name" content="yield编程实验室">
+<meta property="og:description" content="Angular.js 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用AngularUI项目的 UI-Router模块来代替之。
+这是因为UI-Router有两个重要的特性：
+
+多样化视图
+嵌入式视图
+
+这篇文章将解释这两个特性，和运用现实生活的例子展现这两个特性的重要性。
+为什么你需要使用UI-Router多样化视图大多数的应用程">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/311153-cf44cd10702f8668.jpg">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/311153-380ffd07e591e1cb.jpg">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/311153-f6e886a8b9891708.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/angularjs-router-design-document-2.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/311153-b099aa3e5bcbf581.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/102.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/103.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/104.png">
+<meta property="og:updated_time" content="2016-03-28T02:55:03.655Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UI-Router:为什么开发者都不喜欢Angular.js内置的路由">
+<meta name="twitter:description" content="Angular.js 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用AngularUI项目的 UI-Router模块来代替之。
+这是因为UI-Router有两个重要的特性：
+
+多样化视图
+嵌入式视图
+
+这篇文章将解释这两个特性，和运用现实生活的例子展现这两个特性的重要性。
+为什么你需要使用UI-Router多样化视图大多数的应用程">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post',
+    motion: true
+  };
+</script>
+
+  <title> UI-Router:为什么开发者都不喜欢Angular.js内置的路由 | yield编程实验室 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">yield编程实验室</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">打怪，升级，收小弟，拓后宫</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UI-Router:为什么开发者都不喜欢Angular.js内置的路由
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-03-28T10:55:03+08:00" content="2016-03-28">
+              2016-03-28
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/03/28/为什么开发者都不喜欢Angular.js内置的路由/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/28/为什么开发者都不喜欢Angular.js内置的路由/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><strong>Angular.js</strong> 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用<strong>AngularUI</strong>项目的 <strong>UI-Router</strong>模块来代替之。</p>
+<p>这是因为<strong>UI-Router</strong>有两个重要的特性：</p>
+<ul>
+<li>多样化视图</li>
+<li>嵌入式视图</li>
+</ul>
+<p>这篇文章将解释这两个特性，和运用现实生活的例子展现这两个特性的重要性。</p>
+<h2 id="u4E3A_u4EC0_u4E48_u4F60_u9700_u8981_u4F7F_u7528UI-Router"><a href="#u4E3A_u4EC0_u4E48_u4F60_u9700_u8981_u4F7F_u7528UI-Router" class="headerlink" title="为什么你需要使用UI-Router"></a>为什么你需要使用UI-Router</h2><h3 id="u591A_u6837_u5316_u89C6_u56FE"><a href="#u591A_u6837_u5316_u89C6_u56FE" class="headerlink" title="多样化视图"></a>多样化视图</h3><p>大多数的应用程序都可以分解为一个一个区块。最简单的情况，一个应用程序有头部（header）,主体内容（main content area），以及一个尾部（footer）。</p>
+<p>通常一个应用程序会有一个额外的侧边栏（sidebar ）在页面的左边或者右边。</p>
+<p>整体结构如下图所示：</p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-cf44cd10702f8668.jpg" alt="应用结构图"></p>
+<p>大多数用例中，这些区块将同时显示在页面上。<strong>Angular.js</strong> 的内置路由<strong><em>ngRoute</em></strong>只允许一个视图（ng-view）出现在页面上。这样限制的情况下，人们可以使用包含页面（ng-include）或者 其他的变通方法为应用创建一个布局（layout）或主页（master page）。<strong>UI-Router</strong>支持多样化视图，并且每一个视图都有自己相应的控制，所以每个区块都是封装好，可以复用到整个应用程序需要的地方。</p>
+<h3 id="u5D4C_u5165_u5F0F_u89C6_u56FE"><a href="#u5D4C_u5165_u5F0F_u89C6_u56FE" class="headerlink" title="嵌入式视图"></a>嵌入式视图</h3><p>常见的例子中，一个应用的嵌入式页面一般是主页的详情页面，更具体的说，就是列表的详情页面。许多应用程序，都有列表页面，点击其中一个列表元素，可以进入到列表的详情页面。更进一步说，你点击列表中一个行的连接，进入一个 <strong>可查看</strong> 详情页面或是一个 <strong>可编辑</strong> 的表单。</p>
+<p>如下图所示：<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-380ffd07e591e1cb.jpg" alt="嵌入式视图示意图"></p>
+<p>如果列表页面和详情页面是单独分开的（或者他们被Angujar.js回调），使用<strong>Angular.js</strong>的内置路由<strong><em>ngRoute</em></strong> 是非常容易完成的。然而，如果你想要保持列表不变，而详情页面出现在列表的右边或者下面，这样就变得非常具有挑战性了。</p>
+<p>需要澄清的是，这样的要求可以使用<strong><em>ngRoute</em></strong>来完成。但是你需要让两个控制器（一个用于列表，一个用于显示和隐藏详情）共享一个视图。这样的结果不是理想的，因为我们想要列表和详情页面有各自的控制器和视图，并且职责单一（显示列表或者显示列表项目的详情）。封装这些用户接口模块到它们各自的视图，这样我们就有更多的“可组合UI”，允许我们将各个区块整合到一起，或者根据需求拆分。嵌入式视图，不仅能够让这些视图同时出现，还能让一个视图嵌入到另一个视图中。</p>
+<h3 id="u5386_u53F2"><a href="#u5386_u53F2" class="headerlink" title="历史"></a>历史</h3><p>当<strong>Angular.js</strong>首次发布<strong><em>ngRoute</em></strong>的时候，是有类似功能的路由存在的。这样路由包含在<strong>Backbone.js</strong>中，以及独立路由库<strong>History.js</strong>和<strong>Sammy.js</strong>。总是，他们映射一个路由或者是URL所需要运行的JavaScript代码，当URL改变时，需要将其增加到浏览器的历史记录中，防止按回退按钮不会破坏路由。</p>
+<p>最终获胜的JavaScript<strong>MV*</strong>框架，是想<strong>Ember.js</strong>和<strong>Durandal.js </strong>这样，创建出更健壮的路由，以支持多样化视图和内嵌式视图，并且在内部使用“状态机”设计模式。</p>
+<p>AngularJS官方回应称，从1.1.6版本将<strong><em>ngRoute</em></strong>从angular.js核心中删除（更多的说法是1.2）。<strong><em>ngRoute</em></strong>依然可以从AngularJS的官网上获得，但是它早已不在核心之中。</p>
+<p>AngularJS的社区认为，更受欢迎的路由库是<strong>AngularUI </strong>项目的<strong>UI-Router</strong>。</p>
+<p>AngularJS的几个顾问包括Rob Eisenberg（Durandal.js 和Aurelia的创建者），正在重写<strong><em>ngRoute</em></strong>，并声称最终将在某个时间点一直回来，预期的版本是Angular.js 2.0。（注1）</p>
+<p>如果你想了解更详细的历史和各种路由的优缺点，你可以查看Angular.js 2.0的路由设计公开文档。（需翻墙）</p>
+<p><a href="https://docs.google.com/document/d/1I3UC0RrgCh9CKrLxeE4sxwmNSBl3oSXQGt9g3KZnTJI/edit#heading=h.xgjl2srtytjt" target="_blank" rel="external">https://docs.google.com/document/d/1I3UC0RrgCh9CKrLxeE4sxwmNSBl3oSXQGt9g3KZnTJI/edit#heading=h.xgjl2srtytjt</a></p>
+<p>这个文档你可以点击右上方的绿色按钮，选择建议模式（suggesting）和查看模式（viewing），使页面更清晰。</p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-f6e886a8b9891708.png" alt="建议模式"></p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/angularjs-router-design-document-2.png" alt="查看模式"></p>
+<h3 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h3><p>使用<strong>UI-Router</strong>，基于Angular.js 1.2.x或Angular.13.x，你可以通过以下一种方式获得其<strong>JavaScript</strong>源码:</p>
+<h4 id="u4E0B_u8F7D"><a href="#u4E0B_u8F7D" class="headerlink" title="下载"></a>下载</h4><p>下载源码文件，或者混淆压缩后版本：</p>
+<ul>
+<li>src版本：<a href="http://angular-ui.github.io/ui-router/release/angular-ui-router.js" target="_blank" rel="external">http://angular-ui.github.io/ui-router/release/angular-ui-router.js</a></li>
+<li>min版本：<a href="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js" target="_blank" rel="external">http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js</a></li>
+</ul>
+<h4 id="bower_install"><a href="#bower_install" class="headerlink" title="bower install"></a>bower install</h4><p><code>$ bower install angular-ui-router</code></p>
+<h4 id="npm_install"><a href="#npm_install" class="headerlink" title="npm install"></a>npm install</h4><p><code>$ npm install angular-ui-router</code></p>
+<h3 id="u5F15_u5165_u6587_u4EF6"><a href="#u5F15_u5165_u6587_u4EF6" class="headerlink" title="引入文件"></a>引入文件</h3><p>引入<code>angular-ui-router.js</code>或<code>angular-ui-router.min.js</code>到你的<code>index.html</code>，必须Angualr.js核心文件之后，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"</span>&gt;</span><span class="undefined"></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/angular-ui-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>(注2)</p>
+<h3 id="u5F15_u5165_u4F9D_u8D56"><a href="#u5F15_u5165_u4F9D_u8D56" class="headerlink" title="引入依赖"></a>引入依赖</h3><p>将“ui.router”依赖添加到你的主Angular.js module中。</p>
+<p><code>var myApp = angular.module(&#39;myApp&#39;, [&#39;ui.router&#39;]);</code></p>
+<blockquote>
+<p>注意：是<code>ui.router</code>不是<code>ui-router</code>，后者是许多人经常犯的错误。</p>
+</blockquote>
+<h2 id="u8DEF_u7531_u72B6_u6001_u673A"><a href="#u8DEF_u7531_u72B6_u6001_u673A" class="headerlink" title="路由状态机"></a>路由状态机</h2><p><strong>UI-Router</strong> 引进了状态机设计模式，抽象高于传统的路由。<strong>路由成了状态，URL就成了状态的一个简单属性。</strong></p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</span><br><span class="line"></span><br><span class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$stateProvider</span></span><br><span class="line">        .state(<span class="string">'home'</span>, &#123;</span><br><span class="line">            url:<span class="string">'/'</span>,</span><br><span class="line">            templateUrl: <span class="string">'templates/home.html'</span>,</span><br><span class="line">            controller: <span class="string">'HomeController'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'about'</span>, &#123;</span><br><span class="line">            url:<span class="string">'/about'</span>,</span><br><span class="line">            templateUrl: <span class="string">'templates/about.html'</span>,</span><br><span class="line">            controller: <span class="string">'AboutController'</span></span><br><span class="line">        &#125;)</span><br><span class="line"></span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure>
+<p>当你想通过<code>ui-sref</code>创建一个链接是，使用的是状态而不是URL。</p>
+<p>使用：<br><code>&lt;a ui-sref=&quot;home&quot;&gt;Home&lt;/a&gt;</code></p>
+<p>放弃：<br><code>&lt;a href=&quot;#/&quot;&gt;Home&lt;/a&gt;</code></p>
+<p>在上面的例子中，<strong><em>ui-sref</em></strong>可以这样理解：<strong><em>ui</em></strong>是<strong>AngularUI</strong>项目所有指令的前缀，<strong><em>sref</em></strong>是包装了传统HTML锚点标签的<strong><em>href</em></strong>属性和状态判断。</p>
+<h3 id="u63A7_u5236_u5668_u4E2D_u4F7F_u7528"><a href="#u63A7_u5236_u5668_u4E2D_u4F7F_u7528" class="headerlink" title="控制器中使用"></a>控制器中使用</h3><p>下面例子展示的是，如果在一个控制器中重定向一个状态。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$scope</span>.redirectToAbout = <span class="keyword">function</span>()&#123;</span><br><span class="line">    <span class="variable">$state</span>.go(<span class="string">'about'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="24stateProvider__u66FF_u6362__24routeProvider"><a href="#24stateProvider__u66FF_u6362__24routeProvider" class="headerlink" title="$stateProvider 替换 $routeProvider"></a>$stateProvider 替换 $routeProvider</h3><p>当使用<strong>UI-Router</strong>时，为Angular.js服务注入路由支持，就由<strong><em>$routeProvider</em></strong>和 <strong><em> ngRoute</em></strong>变成了<strong><em>$stateProvider</em></strong>。</p>
+<h3 id="24urlRouterProvider"><a href="#24urlRouterProvider" class="headerlink" title="$urlRouterProvider"></a>$urlRouterProvider</h3><p><strong>$urlRouterProvider</strong> 在这里有两个主要目的。一是建立一个默认路由，用于管理未知的URL（统一跳转到某处）。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'/'</span>);</span><br><span class="line">    ...</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
+<p>二是监听浏览器地址栏URL的变化，重定向到路由定义的状态中。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$urlRouterProvider</span></span><br><span class="line">        .when(<span class="string">'/legacy-route'</span>, &#123;</span><br><span class="line">            redirectTo: <span class="string">'/'</span></span><br><span class="line">        &#125;);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
+<p>总之，<strong>$urlRouterProvider</strong>让我们处理状态机抽象的<strong><em>$stateProvider</em></strong>没有检测到的情况。</p>
+<p>现在你对<strong>UI-Router</strong>有了一个基本认识，<strong>UI-Router</strong>的这些特性，让它比<strong>ngRoute</strong>更好。</p>
+<h2 id="UI-Router_u5B9E_u8DF5"><a href="#UI-Router_u5B9E_u8DF5" class="headerlink" title="UI-Router实践"></a>UI-Router实践</h2><p>我们将先看到一个嵌入式视图的例子，然后在看到一个多样化视图的例子。之后，我们再重头看怎样将二者一起应用到一个现实世界的例子。</p>
+<h3 id="UI-Router_u5D4C_u5165_u5F0F_u89C6_u56FE_u6848_u4F8B"><a href="#UI-Router_u5D4C_u5165_u5F0F_u89C6_u56FE_u6848_u4F8B" class="headerlink" title="UI-Router嵌入式视图案例"></a>UI-Router嵌入式视图案例</h3><p><strong>UI-Router</strong>嵌入式视图的列表详情页面。这个例子显示的是一个电视节目的列表。<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-b099aa3e5bcbf581.png" alt="电视节目列表"></p>
+<p>如果你点击其中一行，你可以看到这行的详情描述。<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/102.png" alt="节目详情"></p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p>AngularJS的应用程序是单页应用程序，视图是插入到shell页中的。这里就是我们的shell页——index.html:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">id</span>=<span class="value">"data-ng-app"</span> <span class="attribute">data-ng-app</span>=<span class="value">"demo"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>ui router demo<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">style</span> <span class="attribute">type</span>=<span class="value">"text/css"</span>&gt;</span><span class="css"></span><br><span class="line">            <span class="class">.selected</span><span class="rules">&#123;<span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="hexcolor">#efefef</span></span></span>; <span class="rule"><span class="attribute">width</span>:<span class="value"><span class="number">120px</span></span></span>; &#125;</span></span><br><span class="line">            <span class="class">.detail</span><span class="rules">&#123;<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;<span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">30px</span></span></span>;<span class="rule"><span class="attribute">border-top</span>:<span class="value"> <span class="number">1px</span> solid <span class="hexcolor">#efefef</span></span></span>;&#125;</span></span><br><span class="line">        </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- IE8-HTML5: https://code.google.com/p/html5shiv/ --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/libs/html5shiv.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span> <span class="attribute">id</span>=<span class="value">"index"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- Angular UI Router Directive for template insertion --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"content"</span> <span class="attribute">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/libs/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/libs/underscore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/libs/angular-ui-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>        </span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>      </span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>UI-Router</strong> 将第一级视图或是父视图（在例子中是shows.html）显示在<code>&lt;div id=&quot;content&quot; ui-view&gt;&lt;/div&gt;</code>这个<code>div</code>之中。</p>
+<h4 id="u4E3B_u9875_u89C6_u56FE_uFF08templates/shows-html_uFF09"><a href="#u4E3B_u9875_u89C6_u56FE_uFF08templates/shows-html_uFF09" class="headerlink" title="主页视图（templates/shows.html）"></a>主页视图（templates/shows.html）</h4><p><strong>shows.html</strong>是列表页面。<br><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"selected"</span> <span class="attribute">ng-repeat</span>=<span class="value">"show in shows"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">"shows.detail(&#123;id: show.id&#125;)"</span>&gt;</span></span><span class="expression">&#123;&#123;<span class="variable">show.name</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"detail"</span> <span class="attribute">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>正如前面所提到的，index.html中有一个<code>ui-view</code>属性指令，当相应的路由被请求时，视图（shows.html）则会渲染在这个<code>div</code>中。</p>
+<p>请注意，这里有另一个<code>ui-view</code>嵌入在shows.html中。这个<code>ui-view</code>代表的是一个当父视图已渲染之后，再出现的子视图。在这个例子中，是shows-detail.html。</p>
+<h4 id="u663E_u793A_u8BE6_u60C5_u89C6_u56FE_uFF08templates/shows-detail-html_uFF09"><a href="#u663E_u793A_u8BE6_u60C5_u89C6_u56FE_uFF08templates/shows-detail-html_uFF09" class="headerlink" title="显示详情视图（templates/shows-detail.html）"></a>显示详情视图（templates/shows-detail.html）</h4><p><strong>shows-detail.html</strong>是详情页面。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;h3&gt;<span class="expansion">&#123;&#123;selectedShow.name&#125;&#125;</span>&lt;<span class="regexp">/h3&gt;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &#123;&#123;selectedShow.description&#125;&#125;</span><br><span class="line">&lt;/p</span>&gt;</span><br><span class="line">&lt;<span class="regexp">/code&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="u63A7_u5236_u5668"><a href="#u63A7_u5236_u5668" class="headerlink" title="控制器"></a>控制器</h4><p>下面是各个视图相应的控制器。</p>
+<h5 id="ShowsController"><a href="#ShowsController" class="headerlink" title="ShowsController"></a>ShowsController</h5><p><strong>ShowsController</strong> 从<strong>ShowsService</strong>加载一个内存中的数组显示。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'ShowsController'</span>, [<span class="string">'$scope'</span>,<span class="string">'ShowsService'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>, ShowsService) &#123;</span><br><span class="line">    <span class="variable">$scope</span>.shows = ShowsService.list();</span><br><span class="line"> &#125;]);</span><br></pre></td></tr></table></figure></p>
+<h5 id="ShowsDetailController"><a href="#ShowsDetailController" class="headerlink" title="ShowsDetailController"></a>ShowsDetailController</h5><p><strong>ShowsDetailController</strong> 从<strong>ShowsService</strong>获取要显示项的id，并设置给<code>$scope.selectedShow</code>。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">app.controller(<span class="string">'ShowsDetailController'</span>, [<span class="string">'$scope'</span>,<span class="string">'$stateParams'</span>, <span class="string">'ShowsService'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>, <span class="variable">$stateParams</span>, ShowsService) &#123;</span><br><span class="line">        <span class="variable">$scope</span>.selectedShow = ShowsService.find(<span class="variable">$stateParams</span>.id);</span><br><span class="line"> &#125;]);</span><br></pre></td></tr></table></figure></p>
+<h4 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h4><p>我们需要使用<strong><em>$stateProvider</em></strong>配置<strong>UI-Router</strong>。</p>
+<p>当我们按照<code>父状态名.子状态名</code>的方式定义一个状态，<strong>UI-Router</strong>便知道子状态是内嵌在父状态中的。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>) &#123;</span><br><span class="line">    <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'/shows'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$stateProvider</span></span><br><span class="line">        .state(<span class="string">'shows'</span>, &#123;</span><br><span class="line">            url:<span class="string">'/shows'</span>,</span><br><span class="line">            templateUrl: <span class="string">'templates/shows.html'</span>,</span><br><span class="line">            controller: <span class="string">'ShowsController'</span></span><br><span class="line">        &#125;)</span><br><span class="line">        .state(<span class="string">'shows.detail'</span>, &#123;</span><br><span class="line">            url: <span class="string">'/detail/:id'</span>,</span><br><span class="line">            templateUrl: <span class="string">'templates/shows-detail.html'</span>,</span><br><span class="line">            controller: <span class="string">'ShowsDetailController'</span></span><br><span class="line">        &#125;);</span><br><span class="line">&#125;]);</span><br></pre></td></tr></table></figure></p>
+<p>真正伟大的是，嵌入式视图是列表控制器实现列表和详情相关的部分，而详情控制器只负责显示详情。</p>
+<p>演示如何解耦合，我们只需要更改如有配置，将嵌入式页面更改为独立的两个虚拟页（一个列表路由，一个详情路由）。更具体的说，就是将<code>shows.detail</code>更改为<code>detail</code>。<br><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$stateProvider</span></span><br><span class="line">    .state(<span class="string">'shows'</span>, &#123;</span><br><span class="line">        url:<span class="string">'/shows'</span>,</span><br><span class="line">        templateUrl: <span class="string">'templates/shows.html'</span>,</span><br><span class="line">        controller: <span class="string">'ShowsController'</span></span><br><span class="line">    &#125;)</span><br><span class="line">    .state(<span class="string">'detail'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/detail/:id'</span>,</span><br><span class="line">        templateUrl: <span class="string">'templates/shows-detail.html'</span>,</span><br><span class="line">        controller: <span class="string">'ShowsDetailController'</span></span><br><span class="line">    &#125;);</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure></p>
+<p>并且将链接状态的地方由<code>&lt;a ui-sref=&quot;shows.detail({id: show.id})&quot;&gt;&lt;/a&gt;</code>，更改为<code>&lt;a ui-sref=&quot;detail({id: show.id})&quot;&gt;&lt;/a&gt;</code>。</p>
+<p>现在我们的例子，变成了连个独立的页面分别显示。</p>
+<h4 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h4><p><strong>ShowsService</strong>在这个例子中，使我们的数据访问层。它的职责就是保持一个数组在内存中，使用<code>underscore.js</code>(注3)非常容易实现这点。</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">app.factory('ShowsService',function()&#123;</span><br><span class="line">    var shows = [&#123;</span><br><span class="line">        <span class="property">id</span>: <span class="number">1</span>,</span><br><span class="line">        <span class="property">name</span>: 'Walking Dead',</span><br><span class="line">        description: 'The Walking Dead <span class="keyword">is</span> an American post-apocalyptic horror drama television series developed <span class="keyword">by</span> Frank Darabont. It <span class="keyword">is</span> based <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> comic book series <span class="keyword">of</span> <span class="keyword">the</span> same <span class="property">name</span> <span class="keyword">by</span> Robert Kirkman, Tony Moore, <span class="keyword">and</span> Charlie Adlard. It stars Andrew Lincoln <span class="keyword">as</span> sheriff\'s deputy Rick Grimes, who awakens <span class="keyword">from</span> a coma <span class="keyword">to</span> find a post-apocalyptic world dominated <span class="keyword">by</span> flesh-eating zombies.'</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="property">id</span>: <span class="number">2</span>,</span><br><span class="line">        <span class="property">name</span>: 'Breaking Bad',</span><br><span class="line">        description: 'Breaking Bad <span class="keyword">is</span> an American crime drama television series created <span class="keyword">and</span> produced <span class="keyword">by</span> Vince Gilligan. The show originally aired <span class="function_start"><span class="keyword">on</span></span> <span class="keyword">the</span> AMC network <span class="keyword">for</span> five seasons, <span class="keyword">from</span> January <span class="number">20</span>, <span class="number">2008</span> <span class="keyword">to</span> September <span class="number">29</span>, <span class="number">2013.</span> The main <span class="property">character</span> <span class="keyword">is</span> Walter White (Bryan Cranston), a struggling high school chemistry teacher who <span class="keyword">is</span> diagnosed <span class="keyword">with</span> inoperable lung cancer <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">beginning</span> <span class="keyword">of</span> <span class="keyword">the</span> series.'   </span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="property">id</span>: <span class="number">3</span>,</span><br><span class="line">        <span class="property">name</span>: '<span class="number">7</span>D',</span><br><span class="line">        description: 'The <span class="number">7</span>D <span class="keyword">is</span> an American animated television series produced <span class="keyword">by</span> Disney Television Animation, <span class="keyword">and</span> broadcast <span class="function_start"><span class="keyword">on</span></span> Disney XD starting <span class="keyword">in</span> July <span class="number">7</span>, <span class="number">2014.</span> It <span class="keyword">is</span> a re-imagining <span class="keyword">of</span> <span class="keyword">the</span> titular <span class="property">characters</span> <span class="keyword">from</span> <span class="keyword">the</span> <span class="number">1937</span> film Snow White <span class="keyword">and</span> <span class="keyword">the</span> Seven Dwarfs <span class="keyword">by</span> Walt Disney Productions'</span><br><span class="line">    &#125;];</span><br><span class="line"><span class="command"></span><br><span class="line"></span><br><span class="line">    return</span> &#123;</span><br><span class="line">        <span class="type">list</span>: function()&#123;</span><br><span class="line"><span class="command">            return</span> shows;</span><br><span class="line">        &#125;,</span><br><span class="line">        find: function(<span class="property">id</span>)&#123;</span><br><span class="line"><span class="command">            return</span> _.find(shows, function(show)&#123;<span class="constant">return</span> show.<span class="property">id</span> == <span class="property">id</span>&#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="UI-Router_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B"><a href="#UI-Router_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B" class="headerlink" title="UI-Router多样化视图案例"></a>UI-Router多样化视图案例</h3><p>下面这个例子有多个区块在一个页面，有<code>header</code>，<code>content</code>，<code>footer</code>。它们被<strong>UI-Router</strong>用多样化视图所管理。</p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/103.png" alt="多样化视图案例"></p>
+<p>这是一些主导航，和在这个应用中根据用户导航填充的各式各样的虚拟页。</p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/104.png" alt="子页"></p>
+<h4 id="index-html-1"><a href="#index-html-1" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="title">html</span> <span class="attribute">class</span>=<span class="value">"no-js"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">http-equiv</span>=<span class="value">"X-UA-Compatible"</span> <span class="attribute">content</span>=<span class="value">"IE=edge"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">title</span>&gt;</span>Index<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"description"</span> <span class="attribute">content</span>=<span class="value">""</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">name</span>=<span class="value">"viewport"</span> <span class="attribute">content</span>=<span class="value">"width=device-width, initial-scale=1"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span> <span class="attribute">ng-app</span>=<span class="value">"demo"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ui-view</span>=<span class="value">"header"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ui-view</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">div</span> <span class="attribute">ui-view</span>=<span class="value">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/js/bower_components/angular/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/js/bower_components/angular-ui-router/release/angular-ui-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"/js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>请注意，这里的<code>ui-view</code>属性指令都被赋予了一个名字：<code>header</code>，<code>content</code>，<code>footer</code>。这些名字是当我们在配置路由，要指定<code>view/template</code>和控制器需要作用于页面上的那个区块时引用。</p>
+<h4 id="Templates/Views"><a href="#Templates/Views" class="headerlink" title="Templates/Views"></a>Templates/Views</h4><p>这些模版是直接简单的例子。<strong>Header.html</strong>有一些导航。这些导航使用<code>ui-sref</code>指令导航到指定的状态。</p>
+<h5 id="partials/header-html"><a href="#partials/header-html" class="headerlink" title="partials/header.html"></a>partials/header.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ul"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ng-href</span>=<span class="value">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">"dashboard"</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">"campaigns"</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="partials/content-html"><a href="#partials/content-html" class="headerlink" title="partials/content.html"></a>partials/content.html</h5><figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&lt;p&gt;</span>This is the <span class="keyword">default</span> content.<span class="variable">&lt;/p&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="partials/footer-html"><a href="#partials/footer-html" class="headerlink" title="partials/footer.html"></a>partials/footer.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>This is the footer.<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="partials/dashboard-html"><a href="#partials/dashboard-html" class="headerlink" title="partials/dashboard.html"></a>partials/dashboard.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="partials/campaigns-html"><a href="#partials/campaigns-html" class="headerlink" title="partials/campaigns.html"></a>partials/campaigns.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当相应的路由被请求时，将用相应的模版，如<code>dashboard.html</code>，<code>campaigns.html</code>替换掉<code>content.html</code>。</p>
+<h4 id="u914D_u7F6E-1"><a href="#u914D_u7F6E-1" class="headerlink" title="配置"></a>配置</h4><p>像上一个例子中那样，我们使用<code>$stateProvider</code>配置状态（路由）。</p>
+<p>下面的关键是注意，一个<code>url</code>不是一个只有一个<code>templateUrl</code>和<code>controller</code>属性了，而是使用<code>views</code>属性，赋予它一个各自的<code>templateUrl</code>和<code>controller</code>的集合。</p>
+<p>所以原来这样：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.state</span>(<span class="string">'home'</span>,&#123;</span><br><span class="line">        <span class="attribute">url</span>: <span class="string">'/'</span>,</span><br><span class="line">        <span class="attribute">templateUrl</span>: <span class="string">'/templates/partials/header.html'</span>,</span><br><span class="line">        <span class="attribute">controller</span>: <span class="string">'HomeController'</span></span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>就变成了这样：</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.state(<span class="string">'home'</span>,&#123;</span><br><span class="line">        url: <span class="string">'/'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'header'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span>,</span><br><span class="line">                controller: <span class="string">'HeaderController'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'content'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/content.html'</span>,</span><br><span class="line">                controller: <span class="string">'ContentController'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'footer'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span>,</span><br><span class="line">                controller: <span class="string">'FooterController'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+<p>下面是完整的代码。（请注意：为了保持完整性，我把不需要控制器的写在上面）</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</span><br><span class="line"></span><br><span class="line">app.config(<span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$stateProvider</span></span><br><span class="line">    .state(<span class="string">'home'</span>,&#123;</span><br><span class="line">        url: <span class="string">'/'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'header'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'content'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/content.html'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'footer'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    .state(<span class="string">'dashboard'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/dashboard'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'header'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'content'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/dashboard.html'</span>,</span><br><span class="line">                controller: <span class="string">'DashboardController'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    .state(<span class="string">'campaigns'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/campaigns'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'content'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/campaigns.html'</span>,</span><br><span class="line">                controller: <span class="string">'CampaignController'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'footer'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>另外需要注意的是，如果我没有填充一个区块或试图，那么用户导航到该路由时，将不会显示。这是不理想的，并且违反<strong>DRY</strong>原则（注4）。所以接下来的部门，我们将看到如何使用内嵌式视图去除冗余。</p>
+<h3 id="UI-Router_u7684_u5185_u5D4C_u5F0F_u89C6_u56FE_u548C_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B"><a href="#UI-Router_u7684_u5185_u5D4C_u5F0F_u89C6_u56FE_u548C_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B" class="headerlink" title="UI-Router的内嵌式视图和多样化视图案例"></a>UI-Router的内嵌式视图和多样化视图案例</h3><p>现在我们了解了这些伟大的特性（内嵌式视图和多样化视图），让我们用这些特性一起应用到一个真实世界的应用程序中。</p>
+<h4 id="u914D_u7F6E-2"><a href="#u914D_u7F6E-2" class="headerlink" title="配置"></a>配置</h4><p>因为视图的模板与多样化视图的例子相同，所用我们复用它的配置。</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">var app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</span><br><span class="line"></span><br><span class="line">app.config(<span class="keyword">function</span>(<span class="variable">$stateProvider</span>, <span class="variable">$urlRouterProvider</span>)&#123;</span><br><span class="line"></span><br><span class="line">    <span class="variable">$urlRouterProvider</span>.otherwise(<span class="string">'/'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="variable">$stateProvider</span></span><br><span class="line">    .state(<span class="string">'app'</span>,&#123;</span><br><span class="line">        url: <span class="string">'/'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'header'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'content'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/content.html'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'footer'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    .state(<span class="string">'app.dashboard'</span>, &#123;</span><br><span class="line">        url: <span class="string">'dashboard'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'content@'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/dashboard.html'</span>,</span><br><span class="line">                controller: <span class="string">'DashboardController'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    .state(<span class="string">'app.campaigns'</span>, &#123;</span><br><span class="line">        url: <span class="string">'campaigns'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'content@'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/campaigns.html'</span>,</span><br><span class="line">                controller: <span class="string">'CampaignController'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    .state(<span class="string">'app.subscribers'</span>, &#123;</span><br><span class="line">        url: <span class="string">'subscribers'</span>,</span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'content@'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/subscribers.html'</span>,</span><br><span class="line">                controller: <span class="string">'SubscriberController'</span>      </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;)</span><br><span class="line">    .state(<span class="string">'app.subscribers.detail'</span>, &#123;</span><br><span class="line">        url: <span class="string">'/:id'</span>,</span><br><span class="line">        /*</span><br><span class="line">        templateUrl: <span class="string">'templates/partials/subscriber-detail.html'</span>,</span><br><span class="line">        controller: <span class="string">'SubscriberDetailController'</span></span><br><span class="line">        */</span><br><span class="line"></span><br><span class="line">        views: &#123;</span><br><span class="line">            <span class="string">'detail@app.subscribers'</span>: &#123;</span><br><span class="line">                templateUrl: <span class="string">'templates/partials/subscriber-detail.html'</span>,</span><br><span class="line">                controller: <span class="string">'SubscriberDetailController'</span>        </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>我们在<code>/</code>路由上建立一个默认的状态<code>app</code>。在<code>app</code>路由上定义默认的内容区块，头部区块和尾部区块。然后，我们想在这个应用中定义被的路由，只需要在<code>app</code>后使用<code>.</code>的语法，如：<code>app.campaigns</code>。请注意，我们只需要替换内容区块（ui-view=’content’），除非我们想要改变头部和尾部。因为这些视图都是定义在<code>app</code>路由之下的。</p>
+<h4 id="u72B6_u6001_u540D"><a href="#u72B6_u6001_u540D" class="headerlink" title="状态名"></a>状态名</h4><p>在上面的代码中，最难理解的概念是状态名中的<code>@</code>语法。状态名的这个语法可以做如下解释：</p>
+<p>写一个状态名，需要回答两个问题：</p>
+<ol>
+<li><p>当路由被请求时，我应该拿我的模板去替换那个区块？更具体的说，状态名就是<code>ui-view</code>属性指令的值。下面一个例子展示了<code>ui-view</code>属性指令和它对应的区块：</p>
+<ul>
+<li>ui-view=’content’ = content</li>
+<li>ui-view=’header’ = header</li>
+<li>ui-view=’footer’ = footer</li>
+</ul>
+</li>
+<li><p>哪里可以找到<code>ui-view</code>所指向的区块？</p>
+<ul>
+<li>在<code>ui-view</code>使用的不是直接的<code>templateUrl</code>，而是包含该模板的状态</li>
+<li>当<code>ui-view</code>和视图区块包含在应用程序的壳模板（index.html）中时，因为index.html没有定义任何状态，你应该设置为空字符串或者不设置。</li>
+</ul>
+</li>
+</ol>
+<p>把这两个放在一起说，这个如同<code>question1@question2</code>的语法，更具体的说，其实是<code>区块@状态名</code>。</p>
+<p>所以，你需要在index.html页面上找内容区块时，你需要这样写:<code>content@</code>。</p>
+<ul>
+<li>这之后的两个都是在<code>@</code>符后是空白的状态名，说明他们都是在index.html上的区块。</li>
+</ul>
+<p>如果你要找到subscribers.html上的详情内容区块，你需要这样写：<code>detail@app.subscribers</code>。</p>
+<h4 id="u58F3_u9875_u9762_uFF08index-html_uFF09"><a href="#u58F3_u9875_u9762_uFF08index-html_uFF09" class="headerlink" title="壳页面（index.html）"></a>壳页面（index.html）</h4><p>在上面的例子中，index.html并没有发生改变，只是简单地定义了各个区块：头部，尾部和内容。</p>
+<h4 id="Views/Templates"><a href="#Views/Templates" class="headerlink" title="Views/Templates"></a>Views/Templates</h4><h5 id="Header__28partials/header-html_29"><a href="#Header__28partials/header-html_29" class="headerlink" title="Header (partials/header.html)"></a>Header (partials/header.html)</h5><p>Header的更新，是通过<code>ui-sref</code>引用嵌入的状态。如<code>.campaigns</code>不是调用<code>campaigns</code>状态，而是根据当前状态，推断出<code>.campaigns</code>的父状态。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"ul"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ng-href</span>=<span class="value">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">".dashboard"</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">".campaigns"</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ui-sref-active</span>=<span class="value">"active"</span>&gt;</span><span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">".subscribers"</span>&gt;</span>Subscribers<span class="tag">&lt;/<span class="title">a</span>&gt;</span><span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>下面是一个新用户的模板的例子。</p>
+<h5 id="partials/subscribers-html"><a href="#partials/subscribers-html" class="headerlink" title="partials/subscribers.html"></a>partials/subscribers.html</h5><figure class="highlight handlebars"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">h2</span>&gt;</span>Subscribers<span class="tag">&lt;/<span class="title">h2</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">ul</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">li</span> <span class="attribute">ng-repeat</span>=<span class="value">"subscriber in subscribers"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="title">a</span> <span class="attribute">ui-sref</span>=<span class="value">".detail(&#123;id: subscriber.id&#125;)"</span> &gt;</span> </span><span class="expression">&#123;&#123;<span class="variable">subscriber.name</span>&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="title">a</span>&gt;</span></span><br><span class="line">        </span><span class="expression">&#123;&#123;<span class="variable">subscriber.email</span>&#125;&#125;</span><span class="xml"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">ui-view</span>=<span class="value">"detail"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="partials/subscriber-detail-html"><a href="#partials/subscriber-detail-html" class="headerlink" title="partials/subscriber-detail.html"></a>partials/subscriber-detail.html</h5><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="expansion">&#123;&#123;selected.description&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="u7ED3_u8BBA"><a href="#u7ED3_u8BBA" class="headerlink" title="结论"></a>结论</h2><p>掌握这样的状态名语法是有些困难的。但是有一个健壮的路由的好处是，允许你封装<code>view/controller</code>对组成你的用户界面。我觉得这样的困难是有价值的。所以，放心使用最后一个例子作为起点，构建一个神奇的，可维护的应用。让我知道你是否使用UI-Router，或者其他什么问题，请评论。</p>
+<h2 id="u8BD1_u8005_u6CE8"><a href="#u8BD1_u8005_u6CE8" class="headerlink" title="译者注"></a>译者注</h2><ul>
+<li>注1: 2.0最近发布了，还没去看有没有回来</li>
+<li>注2: 由于国内网络的不可抗因素，不建议使用谷歌的cdn</li>
+<li>注3: Underscore.js 是一个javascript工具库，提供了一整套函数式编程支持。在angular中使用<a href="http://www.oodlestechnologies.com/blogs/Use-of-Underscore-js-in-AngularJS" target="_blank" rel="external">参考</a>。</li>
+<li>注4：DRY原则，Don’t Repeat Yourself。不要重复自身，即降调代码是去冗余，同样的代码只写一次，不同地方调用。</li>
+</ul>
+<p>原文地址：<a href="http://www.funnyant.com/angularjs-ui-router/" target="_blank" rel="external">http://www.funnyant.com/angularjs-ui-router/</a></p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/译文/" rel="tag">#译文</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/29/字符串移位/" rel="next" title="【算法】字符串移位">
+                <i class="fa fa-chevron-left"></i> 【算法】字符串移位
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/28/2015-12-17-1/" rel="prev" title="一张图学会python">
+                一张图学会python <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+        </div>
+
+        
+
+
+        
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/03/28/为什么开发者都不喜欢Angular.js内置的路由/"
+           data-title="UI-Router:为什么开发者都不喜欢Angular.js内置的路由" data-url="http://trainking.github.io/2016/03/28/为什么开发者都不喜欢Angular.js内置的路由/">
+      </div>
+    
+  </div>
+
+
+      </div>
+
+      
+        
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="yield" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">yield</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">唯爱与美食不可辜负</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/trainking" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> github
+                  
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/users/3074b798c7d0/latest_articles" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> jianshu
+                  
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4E3A_u4EC0_u4E48_u4F60_u9700_u8981_u4F7F_u7528UI-Router"><span class="nav-number">1.</span> <span class="nav-text">为什么你需要使用UI-Router</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u591A_u6837_u5316_u89C6_u56FE"><span class="nav-number">1.1.</span> <span class="nav-text">多样化视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5D4C_u5165_u5F0F_u89C6_u56FE"><span class="nav-number">1.2.</span> <span class="nav-text">嵌入式视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5386_u53F2"><span class="nav-number">1.3.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5B89_u88C5"><span class="nav-number">1.4.</span> <span class="nav-text">安装</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u4E0B_u8F7D"><span class="nav-number">1.4.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bower_install"><span class="nav-number">1.4.2.</span> <span class="nav-text">bower install</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm_install"><span class="nav-number">1.4.3.</span> <span class="nav-text">npm install</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u5165_u6587_u4EF6"><span class="nav-number">1.5.</span> <span class="nav-text">引入文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u5F15_u5165_u4F9D_u8D56"><span class="nav-number">1.6.</span> <span class="nav-text">引入依赖</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8DEF_u7531_u72B6_u6001_u673A"><span class="nav-number">2.</span> <span class="nav-text">路由状态机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u63A7_u5236_u5668_u4E2D_u4F7F_u7528"><span class="nav-number">2.1.</span> <span class="nav-text">控制器中使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24stateProvider__u66FF_u6362__24routeProvider"><span class="nav-number">2.2.</span> <span class="nav-text">$stateProvider 替换 $routeProvider</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24urlRouterProvider"><span class="nav-number">2.3.</span> <span class="nav-text">$urlRouterProvider</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UI-Router_u5B9E_u8DF5"><span class="nav-number">3.</span> <span class="nav-text">UI-Router实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Router_u5D4C_u5165_u5F0F_u89C6_u56FE_u6848_u4F8B"><span class="nav-number">3.1.</span> <span class="nav-text">UI-Router嵌入式视图案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#index-html"><span class="nav-number">3.1.1.</span> <span class="nav-text">index.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u4E3B_u9875_u89C6_u56FE_uFF08templates/shows-html_uFF09"><span class="nav-number">3.1.2.</span> <span class="nav-text">主页视图（templates/shows.html）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u663E_u793A_u8BE6_u60C5_u89C6_u56FE_uFF08templates/shows-detail-html_uFF09"><span class="nav-number">3.1.3.</span> <span class="nav-text">显示详情视图（templates/shows-detail.html）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u63A7_u5236_u5668"><span class="nav-number">3.1.4.</span> <span class="nav-text">控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ShowsController"><span class="nav-number">3.1.4.1.</span> <span class="nav-text">ShowsController</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ShowsDetailController"><span class="nav-number">3.1.4.2.</span> <span class="nav-text">ShowsDetailController</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u914D_u7F6E"><span class="nav-number">3.1.5.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Service"><span class="nav-number">3.1.6.</span> <span class="nav-text">Service</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Router_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B"><span class="nav-number">3.2.</span> <span class="nav-text">UI-Router多样化视图案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#index-html-1"><span class="nav-number">3.2.1.</span> <span class="nav-text">index.html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Templates/Views"><span class="nav-number">3.2.2.</span> <span class="nav-text">Templates/Views</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/header-html"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">partials/header.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/content-html"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">partials/content.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/footer-html"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">partials/footer.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/dashboard-html"><span class="nav-number">3.2.2.4.</span> <span class="nav-text">partials/dashboard.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/campaigns-html"><span class="nav-number">3.2.2.5.</span> <span class="nav-text">partials/campaigns.html</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u914D_u7F6E-1"><span class="nav-number">3.2.3.</span> <span class="nav-text">配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UI-Router_u7684_u5185_u5D4C_u5F0F_u89C6_u56FE_u548C_u591A_u6837_u5316_u89C6_u56FE_u6848_u4F8B"><span class="nav-number">3.3.</span> <span class="nav-text">UI-Router的内嵌式视图和多样化视图案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u914D_u7F6E-2"><span class="nav-number">3.3.1.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u72B6_u6001_u540D"><span class="nav-number">3.3.2.</span> <span class="nav-text">状态名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#u58F3_u9875_u9762_uFF08index-html_uFF09"><span class="nav-number">3.3.3.</span> <span class="nav-text">壳页面（index.html）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Views/Templates"><span class="nav-number">3.3.4.</span> <span class="nav-text">Views/Templates</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Header__28partials/header-html_29"><span class="nav-number">3.3.4.1.</span> <span class="nav-text">Header (partials/header.html)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/subscribers-html"><span class="nav-number">3.3.4.2.</span> <span class="nav-text">partials/subscribers.html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#partials/subscriber-detail-html"><span class="nav-number">3.3.4.3.</span> <span class="nav-text">partials/subscriber-detail.html</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u7ED3_u8BBA"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8BD1_u8005_u6CE8"><span class="nav-number">5.</span> <span class="nav-text">译者注</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+      
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="icon-next-heart fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yield</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+      </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"yieldblog"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+
+    
+  
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
+
+
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
+      }
+    };
+  });
+</script>
+
+
+
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
+
+  
+  
+
+  
+  
+
+</body>
+</html>

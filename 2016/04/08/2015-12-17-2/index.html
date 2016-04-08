@@ -51,28 +51,40 @@
 
 
 
-<meta name="description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
+<meta name="description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
 
-分解：将大问题的分解成小问题，">
+
+贪心算法解决什么问题？
+贪心算法是怎样的一种思路？
+
+
+1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
+2. 贪心算法是怎样的一种思路">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】分治法(快速排序，归并排序)">
-<meta property="og:url" content="http://trainking.github.io/2015/12/17/2015-12-17-3/index.html">
+<meta property="og:title" content="【算法】贪心算法(0-1背包问题)">
+<meta property="og:url" content="http://trainking.github.io/2016/04/08/2015-12-17-2/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
+<meta property="og:description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
 
-分解：将大问题的分解成小问题，">
-<meta property="og:updated_time" content="2015-12-17T07:29:48.689Z">
+
+贪心算法解决什么问题？
+贪心算法是怎样的一种思路？
+
+
+1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
+2. 贪心算法是怎样的一种思路">
+<meta property="og:updated_time" content="2016-04-08T02:44:06.570Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【算法】分治法(快速排序，归并排序)">
-<meta name="twitter:description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
+<meta name="twitter:title" content="【算法】贪心算法(0-1背包问题)">
+<meta name="twitter:description" content="什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
 
-分解：将大问题的分解成小问题，">
+
+贪心算法解决什么问题？
+贪心算法是怎样的一种思路？
+
+
+1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。
+2. 贪心算法是怎样的一种思路">
 
 
 
@@ -84,7 +96,7 @@
   };
 </script>
 
-  <title> 【算法】分治法(快速排序，归并排序) | yield编程实验室 </title>
+  <title> 【算法】贪心算法(0-1背包问题) | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +216,7 @@
             
             
               
-                【算法】分治法(快速排序，归并排序)
+                【算法】贪心算法(0-1背包问题)
               
             
           </h1>
@@ -213,8 +225,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2015-12-17T15:29:48+08:00" content="2015-12-17">
-              2015-12-17
+            <time itemprop="dateCreated" datetime="2016-04-08T10:44:06+08:00" content="2016-04-08">
+              2016-04-08
             </time>
           </span>
 
@@ -224,8 +236,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2015/12/17/2015-12-17-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/12/17/2015-12-17-3/" itemprop="commentsCount"></span>
+                <a href="/2016/04/08/2015-12-17-2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/08/2015-12-17-2/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -244,19 +256,38 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>分治法</strong>，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。</p>
-<p>大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。</p>
-<h1 id="u5206_u6CBB_u6CD5_u7684_u6B65_u9AA4"><a href="#u5206_u6CBB_u6CD5_u7684_u6B65_u9AA4" class="headerlink" title="分治法的步骤"></a>分治法的步骤</h1><p>分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:</p>
+        <span itemprop="articleBody"><h1 id="u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F"><a href="#u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F" class="headerlink" title="什么是贪心算法？"></a>什么是贪心算法？</h1><p><strong>贪心算法</strong>并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：</p>
+<blockquote>
 <ol>
-<li><strong>分解</strong>：将大问题的分解成小问题，是这个算法的核心。也是使用分治法的效率保证，如果分解不合理。那么反而会弄巧成拙。</li>
-<li><strong>解决</strong>：解决问题，便是分解之后的小问题。他们的解决步骤是相同，至少是相似的。所以，分治法中经常用到递归，就是基于这样的目的。</li>
-<li><strong>合并</strong>：前面那么麻烦的两步，最终的目的仍然是为了解决这个问题。所以需要将分解问题得到的解，合并成最终需要的终极答案，便是这个算法的结束过程。譬如，你使用递归的时候，也需要最后退出的条件。分治法结束条件，就是合并步骤的结束。</li>
+<li>贪心算法解决什么问题？</li>
+<li>贪心算法是怎样的一种思路？</li>
 </ol>
-<h1 id="u9012_u5F52_u4E0E_u5206_u6CBB_u6CD5_u7684_u5173_u7CFB"><a href="#u9012_u5F52_u4E0E_u5206_u6CBB_u6CD5_u7684_u5173_u7CFB" class="headerlink" title="递归与分治法的关系"></a>递归与分治法的关系</h1><p>虽然很多的运用分治法的算法，都使用到了递归。但是并不是意味着使用了递归的算法，就是使用了分治法。分治法也可使用迭代来实现呀。可以这么说，一切用尾递归方式的算法，都可以通过一个栈来迭代实现。递归只是算法的实现手段，基于各语言（大部分）都支持在函数内部调用本身特性，可以减少代码的重复。</p>
-<p>我之所以特此说明，就是我曾经就有这种错误的认识。</p>
-<h1 id="u8FD0_u7528_u5B9E_u4F8B"><a href="#u8FD0_u7528_u5B9E_u4F8B" class="headerlink" title="运用实例"></a>运用实例</h1><p>我前面已经提到的<strong>快速排序</strong>，<strong>归并排序</strong>，<strong>二分查找</strong>。这三种算法都是经典的算法，实现方法已有很多人写了。我就不献丑了，特别引用了维基百科的快排和归并的例子，当然依旧是python的实现。</p>
-<p><em>维基百科的快速排序</em>:<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">qsort</span><span class="params">(arr)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(arr) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> arr</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        pivot = arr[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">return</span> qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &lt; pivot]) + \</span><br><span class="line">               [pivot] + \</span><br><span class="line">               qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &gt;= pivot])</span><br></pre></td></tr></table></figure></p>
-<p><em>维基百科的归并排序</em>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(lst)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(lst) &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> lst</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left, right)</span>:</span></span><br><span class="line">        merged,left,right = deque(),deque(left),deque(right)</span><br><span class="line">        <span class="keyword">while</span> left <span class="keyword">and</span> right:</span><br><span class="line">            merged.append(left.popleft() <span class="keyword">if</span> left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>] <span class="keyword">else</span> right.popleft())  <span class="comment"># deque popleft is also O(1)</span></span><br><span class="line">        merged.extend(right <span class="keyword">if</span> right <span class="keyword">else</span> left)</span><br><span class="line">        <span class="keyword">return</span> list(merged)</span><br><span class="line"></span><br><span class="line">    middle = int(len(lst) // <span class="number">2</span>)</span><br><span class="line">    left = merge_sort(lst[:middle])</span><br><span class="line">    right = merge_sort(lst[middle:])</span><br><span class="line">    <span class="keyword">return</span> merge(left, right)</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898"><a href="#1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898" class="headerlink" title="1. 贪心算法解决什么问题"></a>1. 贪心算法解决什么问题</h2><p>解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。</p>
+<h2 id="2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF"><a href="#2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF" class="headerlink" title="2. 贪心算法是怎样的一种思路"></a>2. 贪心算法是怎样的一种思路</h2><p>顾名思义，贪心算法，是一种很“贪”的算法。它的整体步骤，可以归纳为：</p>
+<blockquote>
+<ol>
+<li>将问题分解成多个小问题或者多个步骤。</li>
+<li>在每个小问题或者步骤中，执行某种最优化策略，得到局部最优解</li>
+<li>所有每个步骤得到的最优化解，组合得到全局最优化解，不回溯处理</li>
+</ol>
+</blockquote>
+<p><strong>贪心算法</strong>最大的特点，就是在每一步中取最优化的解，不会回溯处理。这样的策略，自然在执行速度上更快，但是因为这种方法的<strong>短视</strong>。会导致得的解并不是真正的全局最优解，但是<strong>贪心算法</strong>得到的依然是一个近似最优解。</p>
+<h1 id="0-1_u80CC_u5305_u95EE_u9898"><a href="#0-1_u80CC_u5305_u95EE_u9898" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h1><p>问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
+<p>通俗解释：假如你有一个只能承重100的背包，你往里面装一些重量和价值不等的东西，怎样才可以让你的背包中的价值最大。</p>
+<p>这个问题中就是关键在于，每个转入背包的东西，只能是被装入背包和不被装入背包两种状态，可以用0-1表示。所以叫0-1背包问题。其二，就是这个问题的两个限定。第一，背包的边界是明确，它只能承重那么多东西。第二，东西的边界是明确的，你只有那么一些东西可以选择。</p>
+<p>故而，这个问题其实有三种策略可以选择：</p>
+<blockquote>
+<ol>
+<li>每次装入的都是价值和重量比率最高的，也就是我们常说的性价比最高的</li>
+<li>每次装入的是当前可选择的东西中，价值最高的</li>
+<li>每次装入的是当前可选择东西中，重量最轻的</li>
+</ol>
+</blockquote>
+<p>这三种策略中，策略一看起来最好的策略。但是，策略一的模糊化太大，需要根据特殊的情况，做出特殊的改变。</p>
+<p>策略二和策略三相同，本身上并没有太多不同。只是二者的视角不同。</p>
+<p>我基于第三种策略，给出<strong>python</strong>的实现。（人生苦短，我用python。看不惯来打我呀~~）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#-*-coding:utf-8-*-</span></span><br><span class="line"><span class="comment">#0-1背包问题的实现</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, weight, value, status)</span>:</span></span><br><span class="line">        self.weight = weight</span><br><span class="line">        self.value = value</span><br><span class="line">        self.status = status   <span class="comment"># 0未选中，1已选中</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#@param goods 物品的集合</span></span><br><span class="line"><span class="comment">#@param total 背包的空闲重量</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">greed</span><span class="params">(goods, total)</span>:</span></span><br><span class="line">    result = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        s=strategy(goods,total)</span><br><span class="line">        <span class="keyword">if</span> s == -<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        result.append(goods[s].weight)</span><br><span class="line">        total = total - goods[s].weight</span><br><span class="line">        goods[s].status = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"><span class="comment">#策略</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(goods,total)</span>:</span></span><br><span class="line">    index = -<span class="number">1</span></span><br><span class="line">    minWeight = goods[<span class="number">0</span>].weight</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(goods)):</span><br><span class="line">        currentGood = goods[i]</span><br><span class="line">        <span class="keyword">if</span> currentGood.status == <span class="number">0</span> <span class="keyword">and</span> currentGood.weight &lt;= total <span class="keyword">and</span> currentGood.weight &lt;= minWeight :</span><br><span class="line">            index = i</span><br><span class="line">            minWeight = goods[index].weight</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> index</span><br></pre></td></tr></table></figure>
 </span>
       
     </div>
@@ -274,17 +305,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/17/xijie/" rel="next" title="JavaScript一些细节">
-                <i class="fa fa-chevron-left"></i> JavaScript一些细节
+              <a href="/2016/03/28/2015-12-17-1/" rel="next" title="一张图学会python">
+                <i class="fa fa-chevron-left"></i> 一张图学会python
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/12/24/2015-12-24-1/" rel="prev" title="tqdm一个有趣的python包">
-                tqdm一个有趣的python包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -311,8 +338,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2015/12/17/2015-12-17-3/"
-           data-title="【算法】分治法(快速排序，归并排序)" data-url="http://trainking.github.io/2015/12/17/2015-12-17-3/">
+      <div class="ds-thread" data-thread-key="2016/04/08/2015-12-17-2/"
+           data-title="【算法】贪心算法(0-1背包问题)" data-url="http://trainking.github.io/2016/04/08/2015-12-17-2/">
       </div>
     
   </div>
@@ -420,7 +447,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u5206_u6CBB_u6CD5_u7684_u6B65_u9AA4"><span class="nav-number">1.</span> <span class="nav-text">分治法的步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u9012_u5F52_u4E0E_u5206_u6CBB_u6CD5_u7684_u5173_u7CFB"><span class="nav-number">2.</span> <span class="nav-text">递归与分治法的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#u8FD0_u7528_u5B9E_u4F8B"><span class="nav-number">3.</span> <span class="nav-text">运用实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#u4EC0_u4E48_u662F_u8D2A_u5FC3_u7B97_u6CD5_uFF1F"><span class="nav-number">1.</span> <span class="nav-text">什么是贪心算法？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-__u8D2A_u5FC3_u7B97_u6CD5_u89E3_u51B3_u4EC0_u4E48_u95EE_u9898"><span class="nav-number">1.1.</span> <span class="nav-text">1. 贪心算法解决什么问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-__u8D2A_u5FC3_u7B97_u6CD5_u662F_u600E_u6837_u7684_u4E00_u79CD_u601D_u8DEF"><span class="nav-number">1.2.</span> <span class="nav-text">2. 贪心算法是怎样的一种思路</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#0-1_u80CC_u5305_u95EE_u9898"><span class="nav-number">2.</span> <span class="nav-text">0-1背包问题</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

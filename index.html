@@ -209,8 +209,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/11/2015-12-17-1/" itemprop="url">
-                  一张图学会python
+                <a class="post-title-link" href="/2016/08/14/Linux下安装node的问题/" itemprop="url">
+                  Linux下安装node的问题
                 </a>
               
             
@@ -220,8 +220,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-08-14T16:59:11+08:00" content="2016-08-14">
+              2016-08-14
             </time>
           </span>
 
@@ -231,8 +231,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/2015-12-17-1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/2015-12-17-1/" itemprop="commentsCount"></span>
+                <a href="/2016/08/14/Linux下安装node的问题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/14/Linux下安装node的问题/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -254,114 +254,16 @@
         
           <span itemprop="articleBody">
             
-              <p>偶得一图，发现此图是个非常好的python入门教程呀，特此转载，侵删！</p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-571c7ac8fc5dda46.jpg" alt="一图说python.jpg"></p>
-<blockquote>
-<p>关于此图，我想说的是，编辑器大家可以用我大sublime!</p>
-</blockquote>
-
-            
+            Linux 下安装node的方式十分简单,当然我不会傻到源码编译安装.直接从node的官网上下载已经编译好的的包.将bin/目录下的node和npm复制到PATH的路径下.
+12sudo cp node /usr/local/bin/sudo cp npm /usr/local/npm/
+这样安装之
+            ...
           </span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/11/2015-12-17-3/" itemprop="url">
-                  【算法】分治法(快速排序，归并排序)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
-              2016-08-11
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/11/2015-12-17-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/2015-12-17-3/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody">
-            
-              <p><strong>分治法</strong>，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。</p>
-<p>大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。</p>
-<h1 id="分治法的步骤"><a href="#分治法的步骤" class="headerlink" title="分治法的步骤"></a>分治法的步骤</h1><p>分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:</p>
-<ol>
-<li><strong>分解</strong>：将大问题的分解成小问题，是这个算法的核心。也是使用分治法的效率保证，如果分解不合理。那么反而会弄巧成拙。</li>
-<li><strong>解决</strong>：解决问题，便是分解之后的小问题。他们的解决步骤是相同，至少是相似的。所以，分治法中经常用到递归，就是基于这样的目的。</li>
-<li><strong>合并</strong>：前面那么麻烦的两步，最终的目的仍然是为了解决这个问题。所以需要将分解问题得到的解，合并成最终需要的终极答案，便是这个算法的结束过程。譬如，你使用递归的时候，也需要最后退出的条件。分治法结束条件，就是合并步骤的结束。</li>
-</ol>
-<h1 id="递归与分治法的关系"><a href="#递归与分治法的关系" class="headerlink" title="递归与分治法的关系"></a>递归与分治法的关系</h1><p>虽然很多的运用分治法的算法，都使用到了递归。但是并不是意味着使用了递归的算法，就是使用了分治法。分治法也可使用迭代来实现呀。可以这么说，一切用尾递归方式的算法，都可以通过一个栈来迭代实现。递归只是算法的实现手段，基于各语言（大部分）都支持在函数内部调用本身特性，可以减少代码的重复。</p>
-<p>我之所以特此说明，就是我曾经就有这种错误的认识。</p>
-<h1 id="运用实例"><a href="#运用实例" class="headerlink" title="运用实例"></a>运用实例</h1><p>我前面已经提到的<strong>快速排序</strong>，<strong>归并排序</strong>，<strong>二分查找</strong>。这三种算法都是经典的算法，实现方法已有很多人写了。我就不献丑了，特别引用了维基百科的快排和归并的例子，当然依旧是python的实现。</p>
-<p><em>维基百科的快速排序</em>:<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">qsort</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(arr) &lt;= <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> arr</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        pivot = arr[<span class="number">0</span>]</div><div class="line">        <span class="keyword">return</span> qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &lt; pivot]) + \</div><div class="line">               [pivot] + \</div><div class="line">               qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &gt;= pivot])</div></pre></td></tr></table></figure></p>
-<p><em>维基百科的归并排序</em>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(lst)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(lst) &lt;= <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> lst</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left, right)</span>:</span></div><div class="line">        merged,left,right = deque(),deque(left),deque(right)</div><div class="line">        <span class="keyword">while</span> left <span class="keyword">and</span> right:</div><div class="line">            merged.append(left.popleft() <span class="keyword">if</span> left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>] <span class="keyword">else</span> right.popleft())  <span class="comment"># deque popleft is also O(1)</span></div><div class="line">        merged.extend(right <span class="keyword">if</span> right <span class="keyword">else</span> left)</div><div class="line">        <span class="keyword">return</span> list(merged)</div><div class="line"></div><div class="line">    middle = int(len(lst) // <span class="number">2</span>)</div><div class="line">    left = merge_sort(lst[:middle])</div><div class="line">    right = merge_sort(lst[middle:])</div><div class="line">    <span class="keyword">return</span> merge(left, right)</div></pre></td></tr></table></figure></p>
-
-            
-          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/14/Linux下安装node的问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -446,41 +348,21 @@
         
           <span itemprop="articleBody">
             
-              <h1 id="什么是贪心算法？"><a href="#什么是贪心算法？" class="headerlink" title="什么是贪心算法？"></a>什么是贪心算法？</h1><p><strong>贪心算法</strong>并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：</p>
-<blockquote>
-<ol>
-<li>贪心算法解决什么问题？</li>
-<li>贪心算法是怎样的一种思路？</li>
-</ol>
-</blockquote>
-<h2 id="1-贪心算法解决什么问题"><a href="#1-贪心算法解决什么问题" class="headerlink" title="1. 贪心算法解决什么问题"></a>1. 贪心算法解决什么问题</h2><p>解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之间的最短路径，100块钱可以在一个商场里买到的东西最多，等等之类的。</p>
-<h2 id="2-贪心算法是怎样的一种思路"><a href="#2-贪心算法是怎样的一种思路" class="headerlink" title="2. 贪心算法是怎样的一种思路"></a>2. 贪心算法是怎样的一种思路</h2><p>顾名思义，贪心算法，是一种很“贪”的算法。它的整体步骤，可以归纳为：</p>
-<blockquote>
-<ol>
-<li>将问题分解成多个小问题或者多个步骤。</li>
-<li>在每个小问题或者步骤中，执行某种最优化策略，得到局部最优解</li>
-<li>所有每个步骤得到的最优化解，组合得到全局最优化解，不回溯处理</li>
-</ol>
-</blockquote>
-<p><strong>贪心算法</strong>最大的特点，就是在每一步中取最优化的解，不会回溯处理。这样的策略，自然在执行速度上更快，但是因为这种方法的<strong>短视</strong>。会导致得的解并不是真正的全局最优解，但是<strong>贪心算法</strong>得到的依然是一个近似最优解。</p>
-<h1 id="0-1背包问题"><a href="#0-1背包问题" class="headerlink" title="0-1背包问题"></a>0-1背包问题</h1><p>问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。</p>
-<p>通俗解释：假如你有一个只能承重100的背包，你往里面装一些重量和价值不等的东西，怎样才可以让你的背包中的价值最大。</p>
-<p>这个问题中就是关键在于，每个转入背包的东西，只能是被装入背包和不被装入背包两种状态，可以用0-1表示。所以叫0-1背包问题。其二，就是这个问题的两个限定。第一，背包的边界是明确，它只能承重那么多东西。第二，东西的边界是明确的，你只有那么一些东西可以选择。</p>
-<p>故而，这个问题其实有三种策略可以选择：</p>
-<blockquote>
-<ol>
-<li>每次装入的都是价值和重量比率最高的，也就是我们常说的性价比最高的</li>
-<li>每次装入的是当前可选择的东西中，价值最高的</li>
-<li>每次装入的是当前可选择东西中，重量最轻的</li>
-</ol>
-</blockquote>
-<p>这三种策略中，策略一看起来最好的策略。但是，策略一的模糊化太大，需要根据特殊的情况，做出特殊的改变。</p>
-<p>策略二和策略三相同，本身上并没有太多不同。只是二者的视角不同。</p>
-<p>我基于第三种策略，给出<strong>python</strong>的实现。（人生苦短，我用python。看不惯来打我呀~~）</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#-*-coding:utf-8-*-</span></div><div class="line"><span class="comment">#0-1背包问题的实现</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Good</span>:</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, weight, value, status)</span>:</span></div><div class="line">        self.weight = weight</div><div class="line">        self.value = value</div><div class="line">        self.status = status   <span class="comment"># 0未选中，1已选中</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#@param goods 物品的集合</span></div><div class="line"><span class="comment">#@param total 背包的空闲重量</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">greed</span><span class="params">(goods, total)</span>:</span></div><div class="line">    result = []</div><div class="line"></div><div class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</div><div class="line">        s=strategy(goods,total)</div><div class="line">        <span class="keyword">if</span> s == <span class="number">-1</span>:</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">        result.append(goods[s].weight)</div><div class="line">        total = total - goods[s].weight</div><div class="line">        goods[s].status = <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="comment">#策略</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">strategy</span><span class="params">(goods,total)</span>:</span></div><div class="line">    index = <span class="number">-1</span></div><div class="line">    minWeight = goods[<span class="number">0</span>].weight</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(goods)):</div><div class="line">        currentGood = goods[i]</div><div class="line">        <span class="keyword">if</span> currentGood.status == <span class="number">0</span> <span class="keyword">and</span> currentGood.weight &lt;= total <span class="keyword">and</span> currentGood.weight &lt;= minWeight :</div><div class="line">            index = i</div><div class="line">            minWeight = goods[index].weight</div><div class="line"></div><div class="line">    <span class="keyword">return</span> index</div></pre></td></tr></table></figure>
+            什么是贪心算法？贪心算法并不是一个具体的算法，而是一种算法的思想，或者说是解决问题一种思路。这就有两个关键的点，可以解释贪心算法：
 
-            
+
+贪心算法解决什么问题？
+贪心算法是怎样的一种思路？
+
+
+1. 贪心算法解决什么问题解决求最优解问题。即此问题的最终的目的，是为了得到一个最优解。比如，从A地到B地之
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/2015-12-17-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -565,53 +447,16 @@
         
           <span itemprop="articleBody">
             
-              <p>犹记得第一次写JS的时候，还是从定义一个函数开始。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span><span class="params">()</span> </span>&#123;</div><div class="line">     ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装逼再多，也慢慢明白需要返璞归真。因此，近来开始研习js的基本功，理解它一些不可思议的魔法。偶得心得一二。</p>
-<h2 id="0x00-引言"><a href="#0x00-引言" class="headerlink" title="0x00 引言"></a>0x00 引言</h2><p>函数是JS的第一型对象，对象在JS中拥有以下特性：</p>
-<blockquote>
-<p>可以通过字面量创建</p>
-<p>赋值给变量，数组和其他对象的属性</p>
-<p>作为参数传递函数</p>
-<p>作为函数的返回值</p>
-<p>拥有动态创建并赋值的属性</p>
-</blockquote>
-<p>也就是说，<code>function f(){};</code>其实是建立了一个<code>f</code>的变量，指向一个函数实体。</p>
-<h2 id="0x01-属性"><a href="#0x01-属性" class="headerlink" title="0x01 属性"></a>0x01 属性</h2><p>函数也是有属性的，这一点不要惊讶。正如上面那个例子提到的。<code>function f(){};</code>,<code>f</code>函数可以通过一个叫<code>name</code>属性，查看函数的名字：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">&lt;·<span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">&gt;f.name</div><div class="line">&lt;·<span class="string">"f"</span></div></pre></td></tr></table></figure></p>
-<p>而其中还有一个特别注明的属性–<code>prototype</code>。在很多JS的面向对象的教学上面都会提到这个给函数动态增加属性和方法的函数属性。那么这个属性是什么呢？</p>
-<p>其实只要简单输出的一下，你就明白：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="selector-tag">f</span><span class="selector-class">.prototype</span></div><div class="line">&lt;· <span class="selector-tag">object</span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>这个属性代表的是一个对象，而如果你继续探究的话，就要说到另一个属性<code>constructor</code>,这个属性，稍微面向对象编程基础的人，都能明白，这个属性代表的是构造器。这个属性是函数和对象都有的，表示这个函数或者对象的构造器是那一个。</p>
-<p>如果我们查看<code>prototype</code>的构造器的话，你会发现：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; f.prototype.constructor</div><div class="line">&lt;· <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;</div></pre></td></tr></table></figure></p>
-<p>其实就是函数<code>f</code>，这样你就明白为什么，<code>prototype</code>属性为什么能够给函数增加属性和方法了，应为这东西就是该函数本身作为构造器构造的一个对象。</p>
-<p><code>prototype</code>和<code>constructor</code>谈到构造器的时候，再深入说明。需要明白的是，函数也是有属性的。</p>
-<p>函数还有一个特殊的属性<code>arguments</code>，透过字面意思你也能知道，这个属性指向的是调用这个函数的参数列表。这是一个特殊的对象。它可以被当作数组遍历使用，但是他不是一个数组，所以不能使用数组的方法来操作它。</p>
-<p>正是应为这个属性的存在，所以即使函数调用函数的参数对象是不完整的也依旧可以调用这个函数。而额外的参数，也可以通过<code>arguments</code>来调用使用。</p>
-<h2 id="0x02-上下文"><a href="#0x02-上下文" class="headerlink" title="0x02 上下文"></a>0x02 上下文</h2><p>上下文（<code>context</code>）是很多语言都有的一个概念。在Java中有着十分严格的规定和约束，但是JS中却是灵活多变。在函数的内部，上下文用<code>this</code>表示。在Java等面向对象语言中，<code>this</code>表示的是调用这个方法或者属性的对象。</p>
-<p>例如：<code>obj.foo = function(){return this;};</code>这样的方式很好理解，调用<code>obj.foo()</code>方法，返回的是对象<code>obj</code>。</p>
-<p>但如果我们直接生命一个函数，没有把它赋予给任何一个对象呢？<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; function f() &#123;<span class="keyword">return</span> this;&#125;;</div><div class="line">&gt; f();</div><div class="line">&lt;· window<span class="meta">&#123;...&#125;</span></div></pre></td></tr></table></figure></p>
-<p>这样很好理解，当没有给一个函数指定上下文的时候，它的上下文是<code>window</code>。当然，这是在浏览器中，其他环境中我还没有研究。但远离应该是相同的，即没有赋予上下文环境的时候，赋予的最顶级的上下文环境。</p>
-<p>将一个函数赋予给一个对象作为它的方法，是一种改变函数上下文的方式。如果我们想要动态的改变函数的上下文呢。就比如，一段代码，我们要等运行到一个结果后，才能指定这个函数的上下文来调用。这就是JS中常用的回调机制，而这个时候就要用到的函数的两个特殊的方法<code>call()</code>和<code>apply()</code>。</p>
-<p>这两个方法的作用，都是为一个函数指定上下文。不同的是，调用的参数不同。</p>
-<ul>
-<li><p>call:</p>
-<p>  <code>call</code>方法第一个参数接收的是要指定给函数的上下文，之后的参数依次赋予函数对应的参数。</p>
-<p>  <code>f.call(obj, arg1, arg2, arg3)</code></p>
-</li>
-<li><p>apply:</p>
-<p>  <code>apply</code>方法第一个参数也是接收的指定给函数的上下文，第二个参数接收的是一个数组或者<code>arguments</code>。将数组的元素依次匹配到函数上，或者将<code>arguments</code>传递给函数调用。</p>
-<p>  <code>f.apply(obj, [arg1, arg2, arg3])</code>或<code>f.apply(obj, arguments)</code></p>
-</li>
-</ul>
-<h2 id="0x03-闭包"><a href="#0x03-闭包" class="headerlink" title="0x03 闭包"></a>0x03 闭包</h2><p>闭包这种特性，可以理解为作用域。当然，这和Java等语言中的作用域是不一样。JS中的“作用域”更加具有函数式语言的特性。</p>
-<p>举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(flag) &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);</div></pre></td></tr></table></figure></p>
-<p>这样的代码中，<code>a</code>是可以被调用的。而在Java中这是会报错。这就是说明，JS中的“作用域”其实不是和Java中那样是以代码块为原子的，而是以函数为原子的。这就被称之为<strong>闭包</strong>。</p>
-<p>闭包的原则，很通俗的一条语言可以概括<strong>你的是我的，我的还是我的</strong>。</p>
-<p>即一个函数的中的资源，不可以被外部访问，但其内部可以访问。如果下面一个函数的嵌套：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span><span class="params">()</span> </span>&#123;</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>a</code>外面不能调用<code>b</code>和<code>c</code>,<code>a</code>中可以调用<code>b</code>,但不能调用<code>c</code>。依次类推，内部可以访问外部，外部不能访问内部。</p>
-
-            
+            犹记得第一次写JS的时候，还是从定义一个函数开始。
+123function first() &#123;     ....&#125;
+那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/JavaScript笔记；函数的基本特性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -696,20 +541,18 @@
         
           <span itemprop="articleBody">
             
-              <p>在<code>Twitter</code>上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似<code>linux</code>下下载文件效果，如图：<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/jitu20151224165700.png" alt="截图"></p>
-<h2 id="步骤一"><a href="#步骤一" class="headerlink" title="步骤一:"></a>步骤一:</h2><p><code>pip install tqdm</code></p>
-<p>使用<code>pip</code>快速获取。</p>
-<h2 id="步骤二"><a href="#步骤二" class="headerlink" title="步骤二:"></a>步骤二:</h2><p>只要一小段代码就可以体验到效果：</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="built_in">time</span></div><div class="line">from tqdm <span class="keyword">import</span> *</div><div class="line"><span class="keyword">for</span> i <span class="built_in">in</span> tqdm(range(<span class="number">1000</span>)):</div><div class="line">    <span class="built_in">time</span>.sleep(.<span class="number">01</span>)</div></pre></td></tr></table></figure>
-<h2 id="链接："><a href="#链接：" class="headerlink" title="链接："></a>链接：</h2><ul>
-<li><a href="https://github.com/noamraph/tqdm" target="_blank" rel="external">github</a></li>
-</ul>
-<blockquote>
-<p>暂且记下，稍后有空研究一下源码。</p>
-</blockquote>
-
-            
+            在Twitter上看到有人推送一个很有趣的python包，它实现的效果很简单，只是将打印出类似linux下下载文件效果，如图：
+步骤一:pip install tqdm
+使用pip快速获取。
+步骤二:只要一小段代码就可以体验到效果：
+1234import timefrom tqdm import *
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/2015-12-24-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -749,8 +592,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/11/动态规划法/" itemprop="url">
-                  【算法】动态规划法(斐波那契数列)
+                <a class="post-title-link" href="/2016/08/11/2015-12-17-3/" itemprop="url">
+                  【算法】分治法(快速排序，归并排序)
                 </a>
               
             
@@ -771,8 +614,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/动态规划法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/动态规划法/" itemprop="commentsCount"></span>
+                <a href="/2016/08/11/2015-12-17-3/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/2015-12-17-3/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -794,18 +637,16 @@
         
           <span itemprop="articleBody">
             
-              <p><strong>动态规划</strong> 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——<strong><em>不要让程序做重复的事情</em></strong>。</p>
-<h2 id="一句话说算法"><a href="#一句话说算法" class="headerlink" title="一句话说算法"></a>一句话说算法</h2><p>对于一个复杂的问题，可以分解成若干个子问题来解决，这是<strong>分治法</strong>。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是<strong>贪心法</strong>。而其实分解的子问题，往往会有许多<strong><em>重复的子问题</em></strong>，对程序进行<strong><em>减枝机制</em></strong>地优化，这是<strong>动态规划法</strong>。</p>
-<h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><p>大学课堂上，讲C语言课程的老师，一定讲过<strong>斐波那契数列</strong>。</p>
-<p>通俗的话讲，这个数列中的第2项（从零开始计数）之后的每一项，是前两项之和。基础项，也就是第0项是0，第1项是1，以此类推得出的一个数列：</p>
-<p>0,1,1,2,3,5,8,13,21…</p>
-<p>朴素算法的实现是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">   <span class="keyword">if</span> n == <span class="number">0</span>:</div><div class="line">       <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line">   <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">       <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line">   <span class="keyword">return</span> fib(n<span class="number">-1</span>) + (n<span class="number">-2</span>)</div></pre></td></tr></table></figure>
-<p>这个递归算法有大量的重复步骤，例如：fib(3) = fib(2) + fib(1), fib(4) = fib(3)+fib(2)。这两个步骤中<strong>fib(2)</strong>就是被重复计算了，这样的算法固然正确，但是效率太对。数据量增大，算法的时间复杂度也是指数级增大。</p>
-<p>为了避免重复的计算操作，可以将分解的子问题的解，用一个字典存起来。每次判断如果字典中已经有了计算过得值，则不再进行计算，直接取值就可以了。这样便大大减少了算法的计算量，下面是我用python的实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d = &#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>):</div><div class="line">        d[n] = <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>):</div><div class="line">        d[n]=<span class="number">1</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> d.has_key(n) :</div><div class="line">        d[n] = fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line">    <span class="keyword">return</span> d[n]</div></pre></td></tr></table></figure>
-            
+            分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
+大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
+分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/2015-12-17-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -890,24 +731,15 @@
         
           <span itemprop="articleBody">
             
-              <h1 id="删除数组中的元素"><a href="#删除数组中的元素" class="headerlink" title="删除数组中的元素"></a>删除数组中的元素</h1><p>你或许已经知道，js中要向数组中增加元素，需要用的是<strong>push</strong>方法。没有和其他语言中类似的<strong>add</strong>方法，是不是很不适应？</p>
-<p>但是要是告诉你，从数组中删除元素的方法没有，你是不是简直不敢相信！你如果要说用到<strong>delete</strong>关键字,那么给你看一个吓死你的：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var s=[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>];</div><div class="line">delete s[<span class="number">1</span>];</div></pre></td></tr></table></figure></p>
-<p>这样操作之后，你猜猜操作结果是怎样的？</p>
-<p>不买关子，结果是这样的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="number">1</span>,udefind * <span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>]</div></pre></td></tr></table></figure></p>
-<p>被删除的元素，其实只是将这个元素的值删除了，但是并没有改变这个<strong>数组</strong>。即没有把这个数组变成<strong>[1,3,4]</strong>，而如果需要变成这样，则需要用到splice方法:<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s<span class="selector-class">.splice</span>(<span class="number">1</span>,<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
-<p>关于更多，请查看 <a href="http://www.w3school.com.cn/jsref/jsref_splice.asp" target="_blank" rel="external">文档</a>。</p>
-<blockquote>
-<p>注意：splice方法的本意就是拼接，替换元素。这里用到完成删除，只是将拼接的第三个参数为空，达到目的。</p>
-</blockquote>
-<h1 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span>;</div></pre></td></tr></table></figure>
-<p>不知你是否看到别人写带js文件，第一行总是出现这一行匿名的字符串。这其实是ECMAscript  5中引入的严格模式！</p>
-<p>传统的js代码执行模式，也就是你不在第一行声明这个匿名字符串时，是正常模式。这个模式中有很多Javascript非常灵活的特性（也非常蛋疼）。比如，如果一个变量没有使用var关键字申明，则是一个全局变量。很让人容易错乱的语法糖。</p>
-<p>更多相关内容，<a href="http://www.ruanyifeng.com/blog/2013/01/javascript_strict_mode.html" target="_blank" rel="external">查看</a>。</p>
-<h1 id="geter-amp-seter"><a href="#geter-amp-seter" class="headerlink" title="geter&amp;seter"></a>geter&amp;seter</h1><p>js的对象也是有geter和seter，这种方式可以灵活的运用到，比如当一个属性只是可读的。这时便可以使用geter方法来取的元素。</p>
-<p>下面是一个geter和seter的例子：<br><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> obj = &#123;</div><div class="line">    _x : <span class="number">1</span>,</div><div class="line">    <span class="keyword">get</span> getX()&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">this</span>._x;</div><div class="line">    &#125;,</div><div class="line">    <span class="keyword">set</span> setX(x)&#123;</div><div class="line">        <span class="keyword">this</span>._x = x;</div><div class="line">    &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
-
-            
+            删除数组中的元素你或许已经知道，js中要向数组中增加元素，需要用的是push方法。没有和其他语言中类似的add方法，是不是很不适应？
+但是要是告诉你，从数组中删除元素的方法没有，你是不是简直不敢相信！你如果要说用到delete关键字,那么给你看一个吓死你的：12var s=[1,2,3,4];del
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/xijie/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -992,145 +824,20 @@
         
           <span itemprop="articleBody">
             
-              <p><strong>Angular.js</strong> 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用<strong>AngularUI</strong>项目的 <strong>UI-Router</strong>模块来代替之。</p>
-<p>这是因为<strong>UI-Router</strong>有两个重要的特性：</p>
-<ul>
-<li>多样化视图</li>
-<li>嵌入式视图</li>
-</ul>
-<p>这篇文章将解释这两个特性，和运用现实生活的例子展现这两个特性的重要性。</p>
-<h2 id="为什么你需要使用UI-Router"><a href="#为什么你需要使用UI-Router" class="headerlink" title="为什么你需要使用UI-Router"></a>为什么你需要使用UI-Router</h2><h3 id="多样化视图"><a href="#多样化视图" class="headerlink" title="多样化视图"></a>多样化视图</h3><p>大多数的应用程序都可以分解为一个一个区块。最简单的情况，一个应用程序有头部（header）,主体内容（main content area），以及一个尾部（footer）。</p>
-<p>通常一个应用程序会有一个额外的侧边栏（sidebar ）在页面的左边或者右边。</p>
-<p>整体结构如下图所示：</p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-cf44cd10702f8668.jpg" alt="应用结构图"></p>
-<p>大多数用例中，这些区块将同时显示在页面上。<strong>Angular.js</strong> 的内置路由<strong><em>ngRoute</em></strong>只允许一个视图（ng-view）出现在页面上。这样限制的情况下，人们可以使用包含页面（ng-include）或者 其他的变通方法为应用创建一个布局（layout）或主页（master page）。<strong>UI-Router</strong>支持多样化视图，并且每一个视图都有自己相应的控制，所以每个区块都是封装好，可以复用到整个应用程序需要的地方。</p>
-<h3 id="嵌入式视图"><a href="#嵌入式视图" class="headerlink" title="嵌入式视图"></a>嵌入式视图</h3><p>常见的例子中，一个应用的嵌入式页面一般是主页的详情页面，更具体的说，就是列表的详情页面。许多应用程序，都有列表页面，点击其中一个列表元素，可以进入到列表的详情页面。更进一步说，你点击列表中一个行的连接，进入一个 <strong>可查看</strong> 详情页面或是一个 <strong>可编辑</strong> 的表单。</p>
-<p>如下图所示：<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-380ffd07e591e1cb.jpg" alt="嵌入式视图示意图"></p>
-<p>如果列表页面和详情页面是单独分开的（或者他们被Angujar.js回调），使用<strong>Angular.js</strong>的内置路由<strong><em>ngRoute</em></strong> 是非常容易完成的。然而，如果你想要保持列表不变，而详情页面出现在列表的右边或者下面，这样就变得非常具有挑战性了。</p>
-<p>需要澄清的是，这样的要求可以使用<strong><em>ngRoute</em></strong>来完成。但是你需要让两个控制器（一个用于列表，一个用于显示和隐藏详情）共享一个视图。这样的结果不是理想的，因为我们想要列表和详情页面有各自的控制器和视图，并且职责单一（显示列表或者显示列表项目的详情）。封装这些用户接口模块到它们各自的视图，这样我们就有更多的“可组合UI”，允许我们将各个区块整合到一起，或者根据需求拆分。嵌入式视图，不仅能够让这些视图同时出现，还能让一个视图嵌入到另一个视图中。</p>
-<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>当<strong>Angular.js</strong>首次发布<strong><em>ngRoute</em></strong>的时候，是有类似功能的路由存在的。这样路由包含在<strong>Backbone.js</strong>中，以及独立路由库<strong>History.js</strong>和<strong>Sammy.js</strong>。总是，他们映射一个路由或者是URL所需要运行的JavaScript代码，当URL改变时，需要将其增加到浏览器的历史记录中，防止按回退按钮不会破坏路由。</p>
-<p>最终获胜的JavaScript<strong>MV*</strong>框架，是想<strong>Ember.js</strong>和<strong>Durandal.js </strong>这样，创建出更健壮的路由，以支持多样化视图和内嵌式视图，并且在内部使用“状态机”设计模式。</p>
-<p>AngularJS官方回应称，从1.1.6版本将<strong><em>ngRoute</em></strong>从angular.js核心中删除（更多的说法是1.2）。<strong><em>ngRoute</em></strong>依然可以从AngularJS的官网上获得，但是它早已不在核心之中。</p>
-<p>AngularJS的社区认为，更受欢迎的路由库是<strong>AngularUI </strong>项目的<strong>UI-Router</strong>。</p>
-<p>AngularJS的几个顾问包括Rob Eisenberg（Durandal.js 和Aurelia的创建者），正在重写<strong><em>ngRoute</em></strong>，并声称最终将在某个时间点一直回来，预期的版本是Angular.js 2.0。（注1）</p>
-<p>如果你想了解更详细的历史和各种路由的优缺点，你可以查看Angular.js 2.0的路由设计公开文档。（需翻墙）</p>
-<p><a href="https://docs.google.com/document/d/1I3UC0RrgCh9CKrLxeE4sxwmNSBl3oSXQGt9g3KZnTJI/edit#heading=h.xgjl2srtytjt" target="_blank" rel="external">https://docs.google.com/document/d/1I3UC0RrgCh9CKrLxeE4sxwmNSBl3oSXQGt9g3KZnTJI/edit#heading=h.xgjl2srtytjt</a></p>
-<p>这个文档你可以点击右上方的绿色按钮，选择建议模式（suggesting）和查看模式（viewing），使页面更清晰。</p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-f6e886a8b9891708.png" alt="建议模式"></p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/angularjs-router-design-document-2.png" alt="查看模式"></p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>使用<strong>UI-Router</strong>，基于Angular.js 1.2.x或Angular.13.x，你可以通过以下一种方式获得其<strong>JavaScript</strong>源码:</p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>下载源码文件，或者混淆压缩后版本：</p>
-<ul>
-<li>src版本：<a href="http://angular-ui.github.io/ui-router/release/angular-ui-router.js" target="_blank" rel="external">http://angular-ui.github.io/ui-router/release/angular-ui-router.js</a></li>
-<li>min版本：<a href="http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js" target="_blank" rel="external">http://angular-ui.github.io/ui-router/release/angular-ui-router.min.js</a></li>
-</ul>
-<h4 id="bower-install"><a href="#bower-install" class="headerlink" title="bower install"></a>bower install</h4><p><code>$ bower install angular-ui-router</code></p>
-<h4 id="npm-install"><a href="#npm-install" class="headerlink" title="npm install"></a>npm install</h4><p><code>$ npm install angular-ui-router</code></p>
-<h3 id="引入文件"><a href="#引入文件" class="headerlink" title="引入文件"></a>引入文件</h3><p>引入<code>angular-ui-router.js</code>或<code>angular-ui-router.min.js</code>到你的<code>index.html</code>，必须Angualr.js核心文件之后，如下：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"//ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/angular-ui-router.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>(注2)</p>
-<h3 id="引入依赖"><a href="#引入依赖" class="headerlink" title="引入依赖"></a>引入依赖</h3><p>将“ui.router”依赖添加到你的主Angular.js module中。</p>
-<p><code>var myApp = angular.module(&#39;myApp&#39;, [&#39;ui.router&#39;]);</code></p>
-<blockquote>
-<p>注意：是<code>ui.router</code>不是<code>ui-router</code>，后者是许多人经常犯的错误。</p>
-</blockquote>
-<h2 id="路由状态机"><a href="#路由状态机" class="headerlink" title="路由状态机"></a>路由状态机</h2><p><strong>UI-Router</strong> 引进了状态机设计模式，抽象高于传统的路由。<strong>路由成了状态，URL就成了状态的一个简单属性。</strong></p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</div><div class="line"></div><div class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="function"><span class="keyword">function</span><span class="params">($stateProvider, $urlRouterProvider)</span> </span>&#123;</div><div class="line">    $urlRouterProvider.otherwise(<span class="string">'/'</span>);</div><div class="line"></div><div class="line">    $stateProvider</div><div class="line">        .state(<span class="string">'home'</span>, &#123;</div><div class="line">            url:<span class="string">'/'</span>,</div><div class="line">            templateUrl: <span class="string">'templates/home.html'</span>,</div><div class="line">            controller: <span class="string">'HomeController'</span></div><div class="line">        &#125;)</div><div class="line">        .state(<span class="string">'about'</span>, &#123;</div><div class="line">            url:<span class="string">'/about'</span>,</div><div class="line">            templateUrl: <span class="string">'templates/about.html'</span>,</div><div class="line">            controller: <span class="string">'AboutController'</span></div><div class="line">        &#125;)</div><div class="line"></div><div class="line">&#125;]);</div></pre></td></tr></table></figure>
-<p>当你想通过<code>ui-sref</code>创建一个链接是，使用的是状态而不是URL。</p>
-<p>使用：<br><code>&lt;a ui-sref=&quot;home&quot;&gt;Home&lt;/a&gt;</code></p>
-<p>放弃：<br><code>&lt;a href=&quot;#/&quot;&gt;Home&lt;/a&gt;</code></p>
-<p>在上面的例子中，<strong><em>ui-sref</em></strong>可以这样理解：<strong><em>ui</em></strong>是<strong>AngularUI</strong>项目所有指令的前缀，<strong><em>sref</em></strong>是包装了传统HTML锚点标签的<strong><em>href</em></strong>属性和状态判断。</p>
-<h3 id="控制器中使用"><a href="#控制器中使用" class="headerlink" title="控制器中使用"></a>控制器中使用</h3><p>下面例子展示的是，如果在一个控制器中重定向一个状态。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$scope.redirectToAbout = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</div><div class="line">    $state.go(<span class="string">'about'</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="stateProvider-替换-routeProvider"><a href="#stateProvider-替换-routeProvider" class="headerlink" title="$stateProvider 替换 $routeProvider"></a>$stateProvider 替换 $routeProvider</h3><p>当使用<strong>UI-Router</strong>时，为Angular.js服务注入路由支持，就由<strong><em>$routeProvider</em></strong>和 <strong><em> ngRoute</em></strong>变成了<strong><em>$stateProvider</em></strong>。</p>
-<h3 id="urlRouterProvider"><a href="#urlRouterProvider" class="headerlink" title="$urlRouterProvider"></a>$urlRouterProvider</h3><p><strong>$urlRouterProvider</strong> 在这里有两个主要目的。一是建立一个默认路由，用于管理未知的URL（统一跳转到某处）。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="function"><span class="keyword">function</span><span class="params">($stateProvider, $urlRouterProvider)</span> </span>&#123;</div><div class="line">    $urlRouterProvider.otherwise(<span class="string">'/'</span>);</div><div class="line">    ...</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p>二是监听浏览器地址栏URL的变化，重定向到路由定义的状态中。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">app.config([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, <span class="function"><span class="keyword">function</span><span class="params">($stateProvider, $urlRouterProvider)</span> </span>&#123;</div><div class="line">    $urlRouterProvider</div><div class="line">        .when(<span class="string">'/legacy-route'</span>, &#123;</div><div class="line">            redirectTo: <span class="string">'/'</span></div><div class="line">        &#125;);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p>总之，<strong>$urlRouterProvider</strong>让我们处理状态机抽象的<strong><em>$stateProvider</em></strong>没有检测到的情况。</p>
-<p>现在你对<strong>UI-Router</strong>有了一个基本认识，<strong>UI-Router</strong>的这些特性，让它比<strong>ngRoute</strong>更好。</p>
-<h2 id="UI-Router实践"><a href="#UI-Router实践" class="headerlink" title="UI-Router实践"></a>UI-Router实践</h2><p>我们将先看到一个嵌入式视图的例子，然后在看到一个多样化视图的例子。之后，我们再重头看怎样将二者一起应用到一个现实世界的例子。</p>
-<h3 id="UI-Router嵌入式视图案例"><a href="#UI-Router嵌入式视图案例" class="headerlink" title="UI-Router嵌入式视图案例"></a>UI-Router嵌入式视图案例</h3><p><strong>UI-Router</strong>嵌入式视图的列表详情页面。这个例子显示的是一个电视节目的列表。<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/311153-b099aa3e5bcbf581.png" alt="电视节目列表"></p>
-<p>如果你点击其中一行，你可以看到这行的详情描述。<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/102.png" alt="节目详情"></p>
-<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p>AngularJS的应用程序是单页应用程序，视图是插入到shell页中的。这里就是我们的shell页——index.html:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!doctype html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">id</span>=<span class="string">"data-ng-app"</span> <span class="attr">data-ng-app</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>ui router demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="css"></span></div><div class="line">            <span class="selector-class">.selected</span>&#123;<span class="attribute">background-color</span>: <span class="number">#efefef</span>; <span class="attribute">width</span>:<span class="number">120px</span>; &#125;</div><div class="line">            <span class="selector-class">.detail</span>&#123;<span class="attribute">width</span>: <span class="number">300px</span>;<span class="attribute">margin</span>: <span class="number">30px</span>;<span class="attribute">border-top</span>: <span class="number">1px</span> solid <span class="number">#efefef</span>;&#125;</div><div class="line">        <span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line">        <span class="comment">&lt;!-- IE8-HTML5: https://code.google.com/p/html5shiv/ --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/libs/html5shiv.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">id</span>=<span class="string">"index"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="comment">&lt;!-- Angular UI Router Directive for template insertion --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/libs/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/libs/underscore.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/libs/angular-ui-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>        </div><div class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span>      </div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><strong>UI-Router</strong> 将第一级视图或是父视图（在例子中是shows.html）显示在<code>&lt;div id=&quot;content&quot; ui-view&gt;&lt;/div&gt;</code>这个<code>div</code>之中。</p>
-<h4 id="主页视图（templates-shows-html）"><a href="#主页视图（templates-shows-html）" class="headerlink" title="主页视图（templates/shows.html）"></a>主页视图（templates/shows.html）</h4><p><strong>shows.html</strong>是列表页面。<br><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">ui-sref-active</span>=<span class="string">"selected"</span> <span class="attr">ng-repeat</span>=<span class="string">"show in shows"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"shows.detail(</span></span><span class="template-variable">&#123;id: show.id&#125;</span><span class="xml"><span class="tag"><span class="string">)"</span>&gt;</span></span><span class="template-variable">&#123;&#123;show.name&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"detail"</span> <span class="attr">ui-view</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>正如前面所提到的，index.html中有一个<code>ui-view</code>属性指令，当相应的路由被请求时，视图（shows.html）则会渲染在这个<code>div</code>中。</p>
-<p>请注意，这里有另一个<code>ui-view</code>嵌入在shows.html中。这个<code>ui-view</code>代表的是一个当父视图已渲染之后，再出现的子视图。在这个例子中，是shows-detail.html。</p>
-<h4 id="显示详情视图（templates-shows-detail-html）"><a href="#显示详情视图（templates-shows-detail-html）" class="headerlink" title="显示详情视图（templates/shows-detail.html）"></a>显示详情视图（templates/shows-detail.html）</h4><p><strong>shows-detail.html</strong>是详情页面。<br><figure class="highlight django"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span></span><span class="template-variable">&#123;&#123;selectedShow.name&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></div><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></div><div class="line">    <span class="template-variable">&#123;&#123;selectedShow.description&#125;&#125;</span><span class="xml"></span></div><div class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">code</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<h4 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h4><p>下面是各个视图相应的控制器。</p>
-<h5 id="ShowsController"><a href="#ShowsController" class="headerlink" title="ShowsController"></a>ShowsController</h5><p><strong>ShowsController</strong> 从<strong>ShowsService</strong>加载一个内存中的数组显示。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'ShowsController'</span>, [<span class="string">'$scope'</span>,<span class="string">'ShowsService'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, ShowsService)</span> </span>&#123;</div><div class="line">    $scope.shows = ShowsService.<span class="keyword">list</span>();</div><div class="line"> &#125;]);</div></pre></td></tr></table></figure></p>
-<h5 id="ShowsDetailController"><a href="#ShowsDetailController" class="headerlink" title="ShowsDetailController"></a>ShowsDetailController</h5><p><strong>ShowsDetailController</strong> 从<strong>ShowsService</strong>获取要显示项的id，并设置给<code>$scope.selectedShow</code>。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">app.controller(<span class="string">'ShowsDetailController'</span>, [<span class="string">'$scope'</span>,<span class="string">'$stateParams'</span>, <span class="string">'ShowsService'</span>, <span class="function"><span class="keyword">function</span><span class="params">($scope, $stateParams, ShowsService)</span> </span>&#123;</div><div class="line">        $scope.selectedShow = ShowsService.find($stateParams.id);</div><div class="line"> &#125;]);</div></pre></td></tr></table></figure></p>
-<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>我们需要使用<strong><em>$stateProvider</em></strong>配置<strong>UI-Router</strong>。</p>
-<p>当我们按照<code>父状态名.子状态名</code>的方式定义一个状态，<strong>UI-Router</strong>便知道子状态是内嵌在父状态中的。<br><figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">app</span><span class="selector-class">.config</span>([<span class="string">'$stateProvider'</span>, <span class="string">'$urlRouterProvider'</span>, function($stateProvider, $urlRouterProvider) &#123;</div><div class="line">    $urlRouterProvider<span class="selector-class">.otherwise</span>(<span class="string">'/shows'</span>);</div><div class="line"></div><div class="line">    $<span class="selector-tag">stateProvider</span></div><div class="line">        <span class="selector-class">.state</span>(<span class="string">'shows'</span>, &#123;</div><div class="line">            <span class="attribute">url</span>:<span class="string">'/shows'</span>,</div><div class="line">            <span class="attribute">templateUrl</span>: <span class="string">'templates/shows.html'</span>,</div><div class="line">            <span class="attribute">controller</span>: <span class="string">'ShowsController'</span></div><div class="line">        &#125;)</div><div class="line">        <span class="selector-class">.state</span>(<span class="string">'shows.detail'</span>, &#123;</div><div class="line">            <span class="attribute">url</span>: <span class="string">'/detail/:id'</span>,</div><div class="line">            <span class="attribute">templateUrl</span>: <span class="string">'templates/shows-detail.html'</span>,</div><div class="line">            <span class="attribute">controller</span>: <span class="string">'ShowsDetailController'</span></div><div class="line">        &#125;);</div><div class="line">&#125;]);</div></pre></td></tr></table></figure></p>
-<p>真正伟大的是，嵌入式视图是列表控制器实现列表和详情相关的部分，而详情控制器只负责显示详情。</p>
-<p>演示如何解耦合，我们只需要更改如有配置，将嵌入式页面更改为独立的两个虚拟页（一个列表路由，一个详情路由）。更具体的说，就是将<code>shows.detail</code>更改为<code>detail</code>。<br><figure class="highlight pf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$stateProvider</span></div><div class="line">    .<span class="keyword">state</span>('shows', &#123;</div><div class="line">        url:'/shows',</div><div class="line">        templateUrl: 'templates/shows.html',</div><div class="line">        controller: 'ShowsController'</div><div class="line">    &#125;)</div><div class="line">    .<span class="keyword">state</span>('detail', &#123;</div><div class="line">        url: '/detail/:id',</div><div class="line">        templateUrl: 'templates/shows-detail.html',</div><div class="line">        controller: 'ShowsDetailController'</div><div class="line">    &#125;);</div><div class="line">    ...</div></pre></td></tr></table></figure></p>
-<p>并且将链接状态的地方由<code>&lt;a ui-sref=&quot;shows.detail({id: show.id})&quot;&gt;&lt;/a&gt;</code>，更改为<code>&lt;a ui-sref=&quot;detail({id: show.id})&quot;&gt;&lt;/a&gt;</code>。</p>
-<p>现在我们的例子，变成了连个独立的页面分别显示。</p>
-<h4 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h4><p><strong>ShowsService</strong>在这个例子中，使我们的数据访问层。它的职责就是保持一个数组在内存中，使用<code>underscore.js</code>(注3)非常容易实现这点。</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">app.factory('ShowsService',function()&#123;</div><div class="line">    var shows = [&#123;</div><div class="line">        <span class="built_in">id</span>: <span class="number">1</span>,</div><div class="line">        <span class="built_in">name</span>: 'Walking Dead',</div><div class="line">        description: 'The Walking Dead <span class="keyword">is</span> an American post-apocalyptic horror drama television series developed <span class="keyword">by</span> Frank Darabont. It <span class="keyword">is</span> based <span class="keyword">on</span> <span class="keyword">the</span> comic book series <span class="keyword">of</span> <span class="keyword">the</span> same <span class="built_in">name</span> <span class="keyword">by</span> Robert Kirkman, Tony Moore, <span class="keyword">and</span> Charlie Adlard. It stars Andrew Lincoln <span class="keyword">as</span> sheriff\'s deputy Rick Grimes, who awakens <span class="keyword">from</span> a coma <span class="keyword">to</span> find a post-apocalyptic world dominated <span class="keyword">by</span> flesh-eating zombies.'</div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">id</span>: <span class="number">2</span>,</div><div class="line">        <span class="built_in">name</span>: 'Breaking Bad',</div><div class="line">        description: 'Breaking Bad <span class="keyword">is</span> an American crime drama television series created <span class="keyword">and</span> produced <span class="keyword">by</span> Vince Gilligan. The show originally aired <span class="keyword">on</span> <span class="keyword">the</span> AMC network <span class="keyword">for</span> five seasons, <span class="keyword">from</span> January <span class="number">20</span>, <span class="number">2008</span> <span class="keyword">to</span> September <span class="number">29</span>, <span class="number">2013.</span> The main <span class="built_in">character</span> <span class="keyword">is</span> Walter White (Bryan Cranston), a struggling high school chemistry teacher who <span class="keyword">is</span> diagnosed <span class="keyword">with</span> inoperable lung cancer <span class="keyword">at</span> <span class="keyword">the</span> <span class="keyword">beginning</span> <span class="keyword">of</span> <span class="keyword">the</span> series.'   </div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">id</span>: <span class="number">3</span>,</div><div class="line">        <span class="built_in">name</span>: '<span class="number">7</span>D',</div><div class="line">        description: 'The <span class="number">7</span>D <span class="keyword">is</span> an American animated television series produced <span class="keyword">by</span> Disney Television Animation, <span class="keyword">and</span> broadcast <span class="keyword">on</span> Disney XD starting <span class="keyword">in</span> July <span class="number">7</span>, <span class="number">2014.</span> It <span class="keyword">is</span> a re-imagining <span class="keyword">of</span> <span class="keyword">the</span> titular <span class="built_in">characters</span> <span class="keyword">from</span> <span class="keyword">the</span> <span class="number">1937</span> film Snow White <span class="keyword">and</span> <span class="keyword">the</span> Seven Dwarfs <span class="keyword">by</span> Walt Disney Productions'</div><div class="line">    &#125;];</div><div class="line"><span class="built_in"></span></div><div class="line"></div><div class="line">    return &#123;</div><div class="line">        <span class="built_in">list</span>: function()&#123;</div><div class="line"><span class="built_in">            return</span> shows;</div><div class="line">        &#125;,</div><div class="line">        find: function(<span class="built_in">id</span>)&#123;</div><div class="line"><span class="built_in">            return</span> _.find(shows, function(show)&#123;<span class="literal">return</span> show.<span class="built_in">id</span> == <span class="built_in">id</span>&#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"> &#125;);</div></pre></td></tr></table></figure>
-<h3 id="UI-Router多样化视图案例"><a href="#UI-Router多样化视图案例" class="headerlink" title="UI-Router多样化视图案例"></a>UI-Router多样化视图案例</h3><p>下面这个例子有多个区块在一个页面，有<code>header</code>，<code>content</code>，<code>footer</code>。它们被<strong>UI-Router</strong>用多样化视图所管理。</p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/103.png" alt="多样化视图案例"></p>
-<p>这是一些主导航，和在这个应用中根据用户导航填充的各式各样的虚拟页。</p>
-<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/104.png" alt="子页"></p>
-<h4 id="index-html-1"><a href="#index-html-1" class="headerlink" title="index.html"></a>index.html</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">html</span> <span class="attr">class</span>=<span class="string">"no-js"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>Index<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">""</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1"</span>&gt;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">body</span> <span class="attr">ng-app</span>=<span class="string">"demo"</span>&gt;</span></div><div class="line"></div><div class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"header"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"content"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">       <span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"footer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/bower_components/angular/angular.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/bower_components/angular-ui-router/release/angular-ui-router.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"/js/main.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>请注意，这里的<code>ui-view</code>属性指令都被赋予了一个名字：<code>header</code>，<code>content</code>，<code>footer</code>。这些名字是当我们在配置路由，要指定<code>view/template</code>和控制器需要作用于页面上的那个区块时引用。</p>
-<h4 id="Templates-Views"><a href="#Templates-Views" class="headerlink" title="Templates/Views"></a>Templates/Views</h4><p>这些模版是直接简单的例子。<strong>Header.html</strong>有一些导航。这些导航使用<code>ui-sref</code>指令导航到指定的状态。</p>
-<h5 id="partials-header-html"><a href="#partials-header-html" class="headerlink" title="partials/header.html"></a>partials/header.html</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"ul"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">ng-href</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>    </div><div class="line">    &lt;li ui-sref-active=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"dashboard"</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    &lt;li ui-sref-active=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">"campaigns"</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="partials-content-html"><a href="#partials-content-html" class="headerlink" title="partials/content.html"></a>partials/content.html</h5><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;This <span class="keyword">is</span> the <span class="keyword">default</span> content.&lt;/p&gt;</div></pre></td></tr></table></figure>
-<h5 id="partials-footer-html"><a href="#partials-footer-html" class="headerlink" title="partials/footer.html"></a>partials/footer.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>This is the footer.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="partials-dashboard-html"><a href="#partials-dashboard-html" class="headerlink" title="partials/dashboard.html"></a>partials/dashboard.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="partials-campaigns-html"><a href="#partials-campaigns-html" class="headerlink" title="partials/campaigns.html"></a>partials/campaigns.html</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>当相应的路由被请求时，将用相应的模版，如<code>dashboard.html</code>，<code>campaigns.html</code>替换掉<code>content.html</code>。</p>
-<h4 id="配置-1"><a href="#配置-1" class="headerlink" title="配置"></a>配置</h4><p>像上一个例子中那样，我们使用<code>$stateProvider</code>配置状态（路由）。</p>
-<p>下面的关键是注意，一个<code>url</code>不是一个只有一个<code>templateUrl</code>和<code>controller</code>属性了，而是使用<code>views</code>属性，赋予它一个各自的<code>templateUrl</code>和<code>controller</code>的集合。</p>
-<p>所以原来这样：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.state</span>(<span class="string">'home'</span>,&#123;</div><div class="line">        <span class="attribute">url</span>: <span class="string">'/'</span>,</div><div class="line">        <span class="attribute">templateUrl</span>: <span class="string">'/templates/partials/header.html'</span>,</div><div class="line">        <span class="attribute">controller</span>: <span class="string">'HomeController'</span></div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<p>就变成了这样：</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">.state(<span class="string">'home'</span>,&#123;</div><div class="line">        ur<span class="variable">l:</span> <span class="string">'/'</span>,</div><div class="line">        <span class="keyword">view</span><span class="variable">s:</span> &#123;</div><div class="line">            <span class="string">'header'</span>: &#123;</div><div class="line">                templateUr<span class="variable">l:</span> <span class="string">'/templates/partials/header.html'</span>,</div><div class="line">                controller: <span class="string">'HeaderController'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'content'</span>: &#123;</div><div class="line">                templateUr<span class="variable">l:</span> <span class="string">'/templates/partials/content.html'</span>,</div><div class="line">                controller: <span class="string">'ContentController'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'footer'</span>: &#123;</div><div class="line">                templateUr<span class="variable">l:</span> <span class="string">'/templates/partials/footer.html'</span>,</div><div class="line">                controller: <span class="string">'FooterController'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div></pre></td></tr></table></figure>
-<p>下面是完整的代码。（请注意：为了保持完整性，我把不需要控制器的写在上面）</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</div><div class="line"></div><div class="line">app.config(<span class="keyword">function</span>($stateProvider, $urlRouterProvider)&#123;</div><div class="line"></div><div class="line">    $urlRouterProvider.otherwise(<span class="string">'/'</span>);</div><div class="line"></div><div class="line">    $stateProvider</div><div class="line">    .state(<span class="string">'home'</span>,&#123;</div><div class="line">        url: <span class="string">'/'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'header'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'content'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/content.html'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'footer'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    .state(<span class="string">'dashboard'</span>, &#123;</div><div class="line">        url: <span class="string">'/dashboard'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'header'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'content'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/dashboard.html'</span>,</div><div class="line">                controller: <span class="string">'DashboardController'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    .state(<span class="string">'campaigns'</span>, &#123;</div><div class="line">        url: <span class="string">'/campaigns'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'content'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/campaigns.html'</span>,</div><div class="line">                controller: <span class="string">'CampaignController'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'footer'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>另外需要注意的是，如果我没有填充一个区块或试图，那么用户导航到该路由时，将不会显示。这是不理想的，并且违反<strong>DRY</strong>原则（注4）。所以接下来的部门，我们将看到如何使用内嵌式视图去除冗余。</p>
-<h3 id="UI-Router的内嵌式视图和多样化视图案例"><a href="#UI-Router的内嵌式视图和多样化视图案例" class="headerlink" title="UI-Router的内嵌式视图和多样化视图案例"></a>UI-Router的内嵌式视图和多样化视图案例</h3><p>现在我们了解了这些伟大的特性（内嵌式视图和多样化视图），让我们用这些特性一起应用到一个真实世界的应用程序中。</p>
-<h4 id="配置-2"><a href="#配置-2" class="headerlink" title="配置"></a>配置</h4><p>因为视图的模板与多样化视图的例子相同，所用我们复用它的配置。</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">var app = angular.module(<span class="string">'demo'</span>, [<span class="string">'ui.router'</span>]);</div><div class="line"></div><div class="line">app.config(<span class="keyword">function</span>($stateProvider, $urlRouterProvider)&#123;</div><div class="line"></div><div class="line">    $urlRouterProvider.otherwise(<span class="string">'/'</span>);</div><div class="line"></div><div class="line">    $stateProvider</div><div class="line">    .state(<span class="string">'app'</span>,&#123;</div><div class="line">        url: <span class="string">'/'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'header'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/header.html'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'content'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/content.html'</span></div><div class="line">            &#125;,</div><div class="line">            <span class="string">'footer'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'/templates/partials/footer.html'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    .state(<span class="string">'app.dashboard'</span>, &#123;</div><div class="line">        url: <span class="string">'dashboard'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'content@'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/dashboard.html'</span>,</div><div class="line">                controller: <span class="string">'DashboardController'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    .state(<span class="string">'app.campaigns'</span>, &#123;</div><div class="line">        url: <span class="string">'campaigns'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'content@'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/campaigns.html'</span>,</div><div class="line">                controller: <span class="string">'CampaignController'</span></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    .state(<span class="string">'app.subscribers'</span>, &#123;</div><div class="line">        url: <span class="string">'subscribers'</span>,</div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'content@'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/subscribers.html'</span>,</div><div class="line">                controller: <span class="string">'SubscriberController'</span>      </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;)</div><div class="line">    .state(<span class="string">'app.subscribers.detail'</span>, &#123;</div><div class="line">        url: <span class="string">'/:id'</span>,</div><div class="line">        /*</div><div class="line">        templateUrl: <span class="string">'templates/partials/subscriber-detail.html'</span>,</div><div class="line">        controller: <span class="string">'SubscriberDetailController'</span></div><div class="line">        */</div><div class="line"></div><div class="line">        views: &#123;</div><div class="line">            <span class="string">'detail@app.subscribers'</span>: &#123;</div><div class="line">                templateUrl: <span class="string">'templates/partials/subscriber-detail.html'</span>,</div><div class="line">                controller: <span class="string">'SubscriberDetailController'</span>        </div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<p>我们在<code>/</code>路由上建立一个默认的状态<code>app</code>。在<code>app</code>路由上定义默认的内容区块，头部区块和尾部区块。然后，我们想在这个应用中定义被的路由，只需要在<code>app</code>后使用<code>.</code>的语法，如：<code>app.campaigns</code>。请注意，我们只需要替换内容区块（ui-view=’content’），除非我们想要改变头部和尾部。因为这些视图都是定义在<code>app</code>路由之下的。</p>
-<h4 id="状态名"><a href="#状态名" class="headerlink" title="状态名"></a>状态名</h4><p>在上面的代码中，最难理解的概念是状态名中的<code>@</code>语法。状态名的这个语法可以做如下解释：</p>
-<p>写一个状态名，需要回答两个问题：</p>
-<ol>
-<li><p>当路由被请求时，我应该拿我的模板去替换那个区块？更具体的说，状态名就是<code>ui-view</code>属性指令的值。下面一个例子展示了<code>ui-view</code>属性指令和它对应的区块：</p>
-<ul>
-<li>ui-view=’content’ = content</li>
-<li>ui-view=’header’ = header</li>
-<li>ui-view=’footer’ = footer</li>
-</ul>
-</li>
-<li><p>哪里可以找到<code>ui-view</code>所指向的区块？</p>
-<ul>
-<li>在<code>ui-view</code>使用的不是直接的<code>templateUrl</code>，而是包含该模板的状态</li>
-<li>当<code>ui-view</code>和视图区块包含在应用程序的壳模板（index.html）中时，因为index.html没有定义任何状态，你应该设置为空字符串或者不设置。</li>
-</ul>
-</li>
-</ol>
-<p>把这两个放在一起说，这个如同<code>question1@question2</code>的语法，更具体的说，其实是<code>区块@状态名</code>。</p>
-<p>所以，你需要在index.html页面上找内容区块时，你需要这样写:<code>content@</code>。</p>
-<ul>
-<li>这之后的两个都是在<code>@</code>符后是空白的状态名，说明他们都是在index.html上的区块。</li>
-</ul>
-<p>如果你要找到subscribers.html上的详情内容区块，你需要这样写：<code>detail@app.subscribers</code>。</p>
-<h4 id="壳页面（index-html）"><a href="#壳页面（index-html）" class="headerlink" title="壳页面（index.html）"></a>壳页面（index.html）</h4><p>在上面的例子中，index.html并没有发生改变，只是简单地定义了各个区块：头部，尾部和内容。</p>
-<h4 id="Views-Templates"><a href="#Views-Templates" class="headerlink" title="Views/Templates"></a>Views/Templates</h4><h5 id="Header-partials-header-html"><a href="#Header-partials-header-html" class="headerlink" title="Header (partials/header.html)"></a>Header (partials/header.html)</h5><p>Header的更新，是通过<code>ui-sref</code>引用嵌入的状态。如<code>.campaigns</code>不是调用<code>campaigns</code>状态，而是根据当前状态，推断出<code>.campaigns</code>的父状态。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"ul"</span>&gt;</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">ng-href</span>=<span class="string">"/"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>    </div><div class="line">    &lt;li ui-sref-active=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">".dashboard"</span>&gt;</span>Dashboard<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    &lt;li ui-sref-active=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">".campaigns"</span>&gt;</span>Campaigns<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">    &lt;li ui-sref-active=<span class="string">"active"</span>&gt;<span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">".subscribers"</span>&gt;</span>Subscribers<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
-<p>下面是一个新用户的模板的例子。</p>
-<h5 id="partials-subscribers-html"><a href="#partials-subscribers-html" class="headerlink" title="partials/subscribers.html"></a>partials/subscribers.html</h5><figure class="highlight dust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>Subscribers<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">ng-repeat</span>=<span class="string">"subscriber in subscribers"</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">ui-sref</span>=<span class="string">".detail(</span></span><span class="template-variable">&#123;id: subscriber.id&#125;</span><span class="xml"><span class="tag"><span class="string">)"</span> &gt;</span> </span><span class="template-variable">&#123;&#123;subscriber.name&#125;</span><span class="xml">&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></div><div class="line">        <span class="template-variable">&#123;&#123;subscriber.email&#125;</span><span class="xml">&#125;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">li</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">ui-view</span>=<span class="string">"detail"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h5 id="partials-subscriber-detail-html"><a href="#partials-subscriber-detail-html" class="headerlink" title="partials/subscriber-detail.html"></a>partials/subscriber-detail.html</h5><figure class="highlight clojure"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;&#123;selected.description&#125;&#125;</div></pre></td></tr></table></figure>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>掌握这样的状态名语法是有些困难的。但是有一个健壮的路由的好处是，允许你封装<code>view/controller</code>对组成你的用户界面。我觉得这样的困难是有价值的。所以，放心使用最后一个例子作为起点，构建一个神奇的，可维护的应用。让我知道你是否使用UI-Router，或者其他什么问题，请评论。</p>
-<h2 id="译者注"><a href="#译者注" class="headerlink" title="译者注"></a>译者注</h2><ul>
-<li>注1: 2.0最近发布了，还没去看有没有回来</li>
-<li>注2: 由于国内网络的不可抗因素，不建议使用谷歌的cdn</li>
-<li>注3: Underscore.js 是一个javascript工具库，提供了一整套函数式编程支持。在angular中使用<a href="http://www.oodlestechnologies.com/blogs/Use-of-Underscore-js-in-AngularJS" target="_blank" rel="external">参考</a>。</li>
-<li>注4：DRY原则，Don’t Repeat Yourself。不要重复自身，即降调代码是去冗余，同样的代码只写一次，不同地方调用。</li>
-</ul>
-<p>原文地址：<a href="http://www.funnyant.com/angularjs-ui-router/" target="_blank" rel="external">http://www.funnyant.com/angularjs-ui-router/</a></p>
+            Angular.js 是一个用来构建“富客户端”的神奇JavaScript框架。但是事实却是许多开发者却不使用其内置的路由模块。反而使用AngularUI项目的 UI-Router模块来代替之。
+这是因为UI-Router有两个重要的特性：
 
-            
+多样化视图
+嵌入式视图
+
+这篇文章将解释这两个特性，和运
+            ...
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/为什么开发者都不喜欢Angular.js内置的路由/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1215,19 +922,113 @@
         
           <span itemprop="articleBody">
             
-              <p>问题：一个字符串可以由另一个字符串移位得到，例如<code>abcd</code>，可以由<code>bcad</code>移位得到。</p>
-<h1 id="问题分析"><a href="#问题分析" class="headerlink" title="问题分析"></a>问题分析</h1><p>这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。</p>
-<p>还有方案二，则是需要用到数据结构，例如，将一个字符串转换成一个set。循环另一个数组，往set中插入数据，如果一直是失败的，则true。有一次插入成功了，则false。</p>
-<h1 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h1><p>如果我们在转换一下思想，字符其实在计算机中的表现，它的实质上也是数字，比如ASCII码中，字符<code>a</code>是可以转换成数字97的，所以两个数组其实只要求元素之间的差的和，如果等于0就可以判断是否相等。<br>例如：<br> 1,2,34 和 2,3,14<br>则：</p>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span><span class="number">-2</span>=<span class="number">-1</span></div><div class="line"><span class="number">2</span><span class="number">-3</span>=<span class="number">-1</span></div><div class="line"><span class="number">3</span><span class="number">-1</span>=<span class="number">2</span></div><div class="line"><span class="number">4</span><span class="number">-4</span>=<span class="number">0</span></div></pre></td></tr></table></figure>
-<p>差的和：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="number">-1</span>+<span class="number">-1</span>+<span class="number">2</span>+<span class="number">0</span>=<span class="number">0</span></div></pre></td></tr></table></figure></p>
-<p>但是，这样只是判断了移位，并没有判断基准位置。比如，<code>13</code>和<code>22</code>是可以判断成立的，因此需要增加判断两个数组的乘积是否相等。来判断基准位置是否一致。</p>
-<h2 id="Python-实现"><a href="#Python-实现" class="headerlink" title="Python 实现"></a>Python 实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(old,new)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(old) &lt;= <span class="number">0</span> <span class="keyword">or</span> len(new) &lt;= <span class="number">0</span> <span class="keyword">or</span> len(old) != len(new):</div><div class="line">        <span class="keyword">return</span> false;    </div><div class="line">    oldArr = map(ord, old)    </div><div class="line">    newArr = map(ord, new)    </div><div class="line">    total = <span class="number">0</span></div><div class="line">    newPro = <span class="number">1</span></div><div class="line">    oldPro = <span class="number">1</span>  </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>,len(oldArr)):        </div><div class="line">        total += newArr[i] - oldArr[i]</div><div class="line">        newPro = newT * newArr[i]</div><div class="line">        oldPro = oldT * oldArr[i]    </div><div class="line">    <span class="keyword">if</span> total == <span class="number">0</span> <span class="keyword">and</span> newPro == oldPro:        </div><div class="line">        <span class="keyword">return</span> <span class="keyword">True</span>    </div><div class="line">    <span class="keyword">else</span> :        </div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> test(<span class="string">'13'</span>, <span class="string">'22'</span>)</div></pre></td></tr></table></figure>
-<h2 id="C-语言核心实现"><a href="#C-语言核心实现" class="headerlink" title="C 语言核心实现"></a>C 语言核心实现</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></div><div class="line">  </div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">test</span><span class="params">(<span class="keyword">char</span>[],<span class="keyword">int</span>,<span class="keyword">char</span>[],<span class="keyword">int</span>)</span></span>;</div><div class="line">   <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</div><div class="line">       <span class="keyword">char</span> old[]=&#123;<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'a'</span>,<span class="string">'d'</span>&#125;;</div><div class="line">       <span class="keyword">char</span> <span class="keyword">new</span>[]=&#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>,<span class="string">'d'</span>&#125;;</div><div class="line">       <span class="keyword">int</span> result = test(old,<span class="number">4</span>,<span class="keyword">new</span>,<span class="number">4</span>);</div><div class="line">       <span class="built_in">printf</span>(<span class="string">"%d\n"</span>,result);</div><div class="line">       <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">  &#125;</div><div class="line"> </div><div class="line">  <span class="function"><span class="keyword">int</span>  <span class="title">test</span><span class="params">(<span class="keyword">char</span> old[],<span class="keyword">int</span> oldLen,<span class="keyword">char</span> <span class="keyword">new</span>[], <span class="keyword">int</span> newLen)</span> </span>&#123;</div><div class="line">      <span class="keyword">if</span>(oldLen &lt;= <span class="number">0</span> || newLen &lt;= <span class="number">0</span> || oldLen != newLen)&#123;</div><div class="line">          <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">      &#125;</div><div class="line">  </div><div class="line">     <span class="keyword">int</span> total = <span class="number">0</span>;</div><div class="line">     <span class="keyword">int</span> newPro = <span class="number">1</span>;</div><div class="line">     <span class="keyword">int</span> oldPro = <span class="number">1</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;oldLen; i++)&#123;</div><div class="line">         total += (<span class="keyword">int</span>)old[i] - (<span class="keyword">int</span>)<span class="keyword">new</span>[i];</div><div class="line">         newPro = newPro * <span class="keyword">new</span>[i];</div><div class="line">         oldPro = oldPro * old[i];</div><div class="line">      &#125;</div><div class="line"> </div><div class="line">    <span class="keyword">if</span>(total == <span class="number">0</span> &amp;&amp; newPro == oldPro)&#123;</div><div class="line">         <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h2><p>我所写实现依赖于ASCII码，当如果字符串是Unioncode编码的字符，则就会出现问题。容我有空去研究一下，相处通用得解决方案。<strong>如有问题欢迎各位批评指正，不胜感激。</strong></p>
+            问题：一个字符串可以由另一个字符串移位得到，例如abcd，可以由bcad移位得到。
+问题分析这个问题表面上说的是字符串，但是其实更进一步可以理解为两个字符数组的元素是否一致。最简单和直白的方式，无异于用两层循环的方式来进行循环判断。这是常规方案一。
+还有方案二，则是需要用到数据结构，例如，将一个字符
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/字符串移位/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/11/2015-12-17-1/" itemprop="url">
+                  一张图学会python
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            发表于
+            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
+              2016-08-11
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/11/2015-12-17-1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/2015-12-17-1/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody">
+            
+            偶得一图，发现此图是个非常好的python入门教程呀，特此转载，侵删！
+
+
+关于此图，我想说的是，编辑器大家可以用我大sublime!
+
 
             
           </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/11/2015-12-17-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1250,6 +1051,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
         </div>
@@ -1288,7 +1093,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">11</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

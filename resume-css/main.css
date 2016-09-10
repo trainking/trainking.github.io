@@ -1,11 +1,13 @@
 body {
-	background: #eac880;
+	background: #c7cacf;
 }
 
 /* 整体页面样式*/
 .container {
 	width: 1024px;
 	margin: auto;
+	margin-top: 65px;
 	text-align: center;
+	background-color: #f3f4ef;
 	box-shadow: 0 0 10px #06c;
 }

@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="算法," />
 
 
 
@@ -51,22 +51,22 @@
 
 
 
-<meta name="description" content="犹记得第一次写JS的时候，还是从定义一个函数开始。
-123function first() &amp;#123;     ....&amp;#125;
-那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装逼再多，也慢慢明白需要返璞归真。因此，近来开始研习js的基本功，理解它一些不可思议的魔法。偶得心得一">
+<meta name="description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
+0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
+其次,我们的权位之间是存在一个">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JavaScript笔记；函数的基本特性">
-<meta property="og:url" content="http://trainking.github.io/2016/08/11/JavaScript笔记；函数的基本特性/index.html">
+<meta property="og:title" content="阿拉伯数字转中文">
+<meta property="og:url" content="http://trainking.github.io/2016/09/10/阿拉伯数字转中文/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="犹记得第一次写JS的时候，还是从定义一个函数开始。
-123function first() &amp;#123;     ....&amp;#125;
-那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装逼再多，也慢慢明白需要返璞归真。因此，近来开始研习js的基本功，理解它一些不可思议的魔法。偶得心得一">
-<meta property="og:updated_time" content="2016-08-11T15:35:19.664Z">
+<meta property="og:description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
+0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
+其次,我们的权位之间是存在一个">
+<meta property="og:updated_time" content="2016-09-10T06:19:14.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JavaScript笔记；函数的基本特性">
-<meta name="twitter:description" content="犹记得第一次写JS的时候，还是从定义一个函数开始。
-123function first() &amp;#123;     ....&amp;#125;
-那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装逼再多，也慢慢明白需要返璞归真。因此，近来开始研习js的基本功，理解它一些不可思议的魔法。偶得心得一">
+<meta name="twitter:title" content="阿拉伯数字转中文">
+<meta name="twitter:description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
+0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
+其次,我们的权位之间是存在一个">
 
 
 
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title> JavaScript笔记；函数的基本特性 | yield编程实验室 </title>
+  <title> 阿拉伯数字转中文 | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +198,7 @@
             
             
               
-                JavaScript笔记；函数的基本特性
+                阿拉伯数字转中文
               
             
           </h1>
@@ -207,8 +207,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-09-10T14:19:14+08:00" content="2016-09-10">
+              2016-09-10
             </time>
           </span>
 
@@ -218,8 +218,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/JavaScript笔记；函数的基本特性/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/JavaScript笔记；函数的基本特性/" itemprop="commentsCount"></span>
+                <a href="/2016/09/10/阿拉伯数字转中文/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/阿拉伯数字转中文/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,72 +238,50 @@
       
 
       
-        <span itemprop="articleBody"><p>犹记得第一次写JS的时候，还是从定义一个函数开始。</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">first</span><span class="params">()</span> </span>&#123;</div><div class="line">     ....</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>那个时候只是把函数作为一个组织代码的方式而已，过后不久，写网页应用，jquery占据了我的绝大部分时间。写的一手很溜的JQ选择器，是我自认为牛逼的开始。浮华褪尽，装逼再多，也慢慢明白需要返璞归真。因此，近来开始研习js的基本功，理解它一些不可思议的魔法。偶得心得一二。</p>
-<h2 id="0x00-引言"><a href="#0x00-引言" class="headerlink" title="0x00 引言"></a>0x00 引言</h2><p>函数是JS的第一型对象，对象在JS中拥有以下特性：</p>
-<blockquote>
-<p>可以通过字面量创建</p>
-<p>赋值给变量，数组和其他对象的属性</p>
-<p>作为参数传递函数</p>
-<p>作为函数的返回值</p>
-<p>拥有动态创建并赋值的属性</p>
-</blockquote>
-<p>也就是说，<code>function f(){};</code>其实是建立了一个<code>f</code>的变量，指向一个函数实体。</p>
-<h2 id="0x01-属性"><a href="#0x01-属性" class="headerlink" title="0x01 属性"></a>0x01 属性</h2><p>函数也是有属性的，这一点不要惊讶。正如上面那个例子提到的。<code>function f(){};</code>,<code>f</code>函数可以通过一个叫<code>name</code>属性，查看函数的名字：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;;</div><div class="line">&lt;·<span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">&gt;f.name</div><div class="line">&lt;·<span class="string">"f"</span></div></pre></td></tr></table></figure></p>
-<p>而其中还有一个特别注明的属性–<code>prototype</code>。在很多JS的面向对象的教学上面都会提到这个给函数动态增加属性和方法的函数属性。那么这个属性是什么呢？</p>
-<p>其实只要简单输出的一下，你就明白：</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="selector-tag">f</span><span class="selector-class">.prototype</span></div><div class="line">&lt;· <span class="selector-tag">object</span>&#123;&#125;</div></pre></td></tr></table></figure>
-<p>这个属性代表的是一个对象，而如果你继续探究的话，就要说到另一个属性<code>constructor</code>,这个属性，稍微面向对象编程基础的人，都能明白，这个属性代表的是构造器。这个属性是函数和对象都有的，表示这个函数或者对象的构造器是那一个。</p>
-<p>如果我们查看<code>prototype</code>的构造器的话，你会发现：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; f.prototype.constructor</div><div class="line">&lt;· <span class="function"><span class="keyword">function</span> <span class="title">f</span><span class="params">()</span></span>&#123;&#125;</div></pre></td></tr></table></figure></p>
-<p>其实就是函数<code>f</code>，这样你就明白为什么，<code>prototype</code>属性为什么能够给函数增加属性和方法了，应为这东西就是该函数本身作为构造器构造的一个对象。</p>
-<p><code>prototype</code>和<code>constructor</code>谈到构造器的时候，再深入说明。需要明白的是，函数也是有属性的。</p>
-<p>函数还有一个特殊的属性<code>arguments</code>，透过字面意思你也能知道，这个属性指向的是调用这个函数的参数列表。这是一个特殊的对象。它可以被当作数组遍历使用，但是他不是一个数组，所以不能使用数组的方法来操作它。</p>
-<p>正是应为这个属性的存在，所以即使函数调用函数的参数对象是不完整的也依旧可以调用这个函数。而额外的参数，也可以通过<code>arguments</code>来调用使用。</p>
-<h2 id="0x02-上下文"><a href="#0x02-上下文" class="headerlink" title="0x02 上下文"></a>0x02 上下文</h2><p>上下文（<code>context</code>）是很多语言都有的一个概念。在Java中有着十分严格的规定和约束，但是JS中却是灵活多变。在函数的内部，上下文用<code>this</code>表示。在Java等面向对象语言中，<code>this</code>表示的是调用这个方法或者属性的对象。</p>
-<p>例如：<code>obj.foo = function(){return this;};</code>这样的方式很好理解，调用<code>obj.foo()</code>方法，返回的是对象<code>obj</code>。</p>
-<p>但如果我们直接生命一个函数，没有把它赋予给任何一个对象呢？<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; function f() &#123;<span class="keyword">return</span> this;&#125;;</div><div class="line">&gt; f();</div><div class="line">&lt;· window<span class="meta">&#123;...&#125;</span></div></pre></td></tr></table></figure></p>
-<p>这样很好理解，当没有给一个函数指定上下文的时候，它的上下文是<code>window</code>。当然，这是在浏览器中，其他环境中我还没有研究。但远离应该是相同的，即没有赋予上下文环境的时候，赋予的最顶级的上下文环境。</p>
-<p>将一个函数赋予给一个对象作为它的方法，是一种改变函数上下文的方式。如果我们想要动态的改变函数的上下文呢。就比如，一段代码，我们要等运行到一个结果后，才能指定这个函数的上下文来调用。这就是JS中常用的回调机制，而这个时候就要用到的函数的两个特殊的方法<code>call()</code>和<code>apply()</code>。</p>
-<p>这两个方法的作用，都是为一个函数指定上下文。不同的是，调用的参数不同。</p>
+        <span itemprop="articleBody"><h2 id="0x00-引言"><a href="#0x00-引言" class="headerlink" title="0x00 引言"></a>0x00 引言</h2><p>最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.</p>
+<h2 id="0x01-思路"><a href="#0x01-思路" class="headerlink" title="0x01 思路"></a>0x01 思路</h2><p>将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,<code>10</code>我们是读作<code>一十</code>,这之中<code>十</code>便是一个权位.</p>
+<p>其次,我们的权位之间是存在一个循环的.例如<code>10</code>我们称之为<code>一十</code>, 而<code>100000</code>我们称之位<code>一十万</code>.所以,我们的习惯之中,是存在两重权威循环的.</p>
+<p>还有要要考虑的情况,例如<code>10001</code>我们会称之为<code>一万零一</code>, 而不是<code>一万零千零百零十零一</code>, 所以考虑多个连续0的情况的权位选择.</p>
+<p>总结下来就是:</p>
 <ul>
-<li><p>call:</p>
-<p>  <code>call</code>方法第一个参数接收的是要指定给函数的上下文，之后的参数依次赋予函数对应的参数。</p>
-<p>  <code>f.call(obj, arg1, arg2, arg3)</code></p>
-</li>
-<li><p>apply:</p>
-<p>  <code>apply</code>方法第一个参数也是接收的指定给函数的上下文，第二个参数接收的是一个数组或者<code>arguments</code>。将数组的元素依次匹配到函数上，或者将<code>arguments</code>传递给函数调用。</p>
-<p>  <code>f.apply(obj, [arg1, arg2, arg3])</code>或<code>f.apply(obj, arguments)</code></p>
-</li>
+<li>需要低阶权位: 十,百,千</li>
+<li>需要高阶权位: 万, 亿, 万亿</li>
+<li>需要考虑连续0的情况</li>
 </ul>
-<h2 id="0x03-闭包"><a href="#0x03-闭包" class="headerlink" title="0x03 闭包"></a>0x03 闭包</h2><p>闭包这种特性，可以理解为作用域。当然，这和Java等语言中的作用域是不一样。JS中的“作用域”更加具有函数式语言的特性。</p>
-<p>举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>(flag) &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">3</span>;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">var</span> a = <span class="number">4</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a);</div></pre></td></tr></table></figure></p>
-<p>这样的代码中，<code>a</code>是可以被调用的。而在Java中这是会报错。这就是说明，JS中的“作用域”其实不是和Java中那样是以代码块为原子的，而是以函数为原子的。这就被称之为<strong>闭包</strong>。</p>
-<p>闭包的原则，很通俗的一条语言可以概括<strong>你的是我的，我的还是我的</strong>。</p>
-<p>即一个函数的中的资源，不可以被外部访问，但其内部可以访问。如果下面一个函数的嵌套：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">a</span><span class="params">()</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">b</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="function"><span class="keyword">function</span> <span class="title">c</span><span class="params">()</span> </span>&#123;</div><div class="line">            ...</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><code>a</code>外面不能调用<code>b</code>和<code>c</code>,<code>a</code>中可以调用<code>b</code>,但不能调用<code>c</code>。依次类推，内部可以访问外部，外部不能访问内部。</p>
+<h2 id="0x02-实现"><a href="#0x02-实现" class="headerlink" title="0x02 实现"></a>0x02 实现</h2><p> python实现:</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding=utf-8</span></div><div class="line"></div><div class="line"><span class="comment"># 映射元组</span></div><div class="line">NUM_CHINESE = (<span class="string">"零"</span>, <span class="string">"一"</span>, <span class="string">"二"</span>, <span class="string">"三"</span>, <span class="string">"四"</span>, <span class="string">"五"</span>, <span class="string">"六"</span>, <span class="string">"七"</span>, <span class="string">"八"</span>, <span class="string">"九"</span>)</div><div class="line"><span class="comment"># 低阶权位</span></div><div class="line">M_POINT = (<span class="string">""</span>, <span class="string">"十"</span>, <span class="string">"百"</span>, <span class="string">"千"</span>)</div><div class="line"><span class="comment"># 高阶权位</span></div><div class="line">C_POINT = (<span class="string">""</span>, <span class="string">"万"</span>, <span class="string">"亿"</span>, <span class="string">"万亿"</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">numberToChinese</span><span class="params">(num)</span>:</span></div><div class="line">    result = <span class="string">""</span></div><div class="line">    upoint = <span class="number">0</span>  <span class="comment"># 权位的下标</span></div><div class="line">    needZero = <span class="keyword">False</span> <span class="comment"># 判断千位是否为0</span></div><div class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</div><div class="line">        seletion = num % <span class="number">10000</span></div><div class="line">        <span class="keyword">if</span> needZero:</div><div class="line">            result = NUM_CHINESE[<span class="number">0</span>] + result</div><div class="line">        needZero = seletion &lt; <span class="number">1000</span> <span class="keyword">and</span> seletion &gt; <span class="number">0</span></div><div class="line">        seletion = seletionToChinese(seletion)</div><div class="line">        result = seletion + C_POINT[upoint] + result</div><div class="line">        num = num / <span class="number">10000</span></div><div class="line">        upoint += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="comment"># 低阶权位转换</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">seletionToChinese</span><span class="params">(seletion)</span>:</span></div><div class="line">    result = <span class="string">""</span></div><div class="line">    upoint = <span class="number">0</span></div><div class="line">    zero = <span class="keyword">True</span> <span class="comment"># 控制是否连续0</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> seletion &gt; <span class="number">0</span>:</div><div class="line">        v = seletion % <span class="number">10</span></div><div class="line">        <span class="keyword">if</span> v == <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> zero <span class="keyword">or</span> seletion == <span class="number">0</span>:</div><div class="line">                zero = <span class="keyword">True</span></div><div class="line">                result = NUM_CHINESE[<span class="number">0</span>] + result</div><div class="line">        <span class="keyword">else</span> :</div><div class="line">            zero = <span class="keyword">False</span></div><div class="line">            result = NUM_CHINESE[v] + M_POINT[upoint] + result</div><div class="line"></div><div class="line">        seletion = seletion / <span class="number">10</span></div><div class="line">        upoint += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> numberToChinese(<span class="number">10000</span>)</div></pre></td></tr></table></figure>
+<p> 我的一开始是用js写的,就不贴出来了.我觉得还是python的比较简单直白好理解一点.</p>
+<h2 id="0x03-总结"><a href="#0x03-总结" class="headerlink" title="0x03 总结"></a>0x03 总结</h2><p> 这个算法,存在以下几个缺点:</p>
+<ul>
+<li>最大直到了万亿的表示级别,因为我国GDP也仅仅是万亿级别,所以财务上用没问题</li>
+<li>没有写小数位数的处理,这个要拓展,只需要依样画葫芦了</li>
+<li>我所使用的中文字符,是简体小写支付,而非记账用的大写字符,这个只要替换就可以了</li>
+</ul>
+<p>我发现思路中,高阶权位的处理和低阶权位处理类似.能否简化二者之间的代码呢?我还没想到好的方式.</p>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag">#算法</a>
+          
+        </div>
+      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/2015-12-24-1/" rel="next" title="tqdm一个有趣的python包">
-                <i class="fa fa-chevron-left"></i> tqdm一个有趣的python包
+              <a href="/2016/08/24/jersey使用指南/" rel="next" title="jersey使用指南">
+                <i class="fa fa-chevron-left"></i> jersey使用指南
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/2015-12-17-2/" rel="prev" title="【算法】贪心算法(0-1背包问题)">
-                【算法】贪心算法(0-1背包问题) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -330,8 +308,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/11/JavaScript笔记；函数的基本特性/"
-           data-title="JavaScript笔记；函数的基本特性" data-url="http://trainking.github.io/2016/08/11/JavaScript笔记；函数的基本特性/">
+      <div class="ds-thread" data-thread-key="2016/09/10/阿拉伯数字转中文/"
+           data-title="阿拉伯数字转中文" data-url="http://trainking.github.io/2016/09/10/阿拉伯数字转中文/">
       </div>
     
   </div>
@@ -439,7 +417,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-引言"><span class="nav-number">1.</span> <span class="nav-text">0x00 引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-属性"><span class="nav-number">2.</span> <span class="nav-text">0x01 属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-上下文"><span class="nav-number">3.</span> <span class="nav-text">0x02 上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-闭包"><span class="nav-number">4.</span> <span class="nav-text">0x03 闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-引言"><span class="nav-number">1.</span> <span class="nav-text">0x00 引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-思路"><span class="nav-number">2.</span> <span class="nav-text">0x01 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-实现"><span class="nav-number">3.</span> <span class="nav-text">0x02 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-总结"><span class="nav-number">4.</span> <span class="nav-text">0x03 总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

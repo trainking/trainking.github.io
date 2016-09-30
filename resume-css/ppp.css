@@ -97,3 +97,15 @@ h3 span,h4 span{
 footer {
     text-align:center;
 }
+
+.nolist {
+    list-style: none;
+}
+
+.nolist li span {
+    padding-left: 6px;
+}
+
+hr:last-of-type {
+    margin: 0 0 4;
+}

@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="markdown," />
 
 
 
@@ -51,22 +51,37 @@
 
 
 
-<meta name="description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
-一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
-斐波那契数列大学课堂">
+<meta name="description" content="最近正在找新工作，翻出以前写的word简历，真的是，往事不堪回首。觉得自己以前一定是脑子秀逗了，写出来的简历，花里花俏，完全前言不搭后语。而markdown这样简洁方便的格式非常适合我整理出一份简洁明了的简历。所以，我打算试下。
+并且我还希望，这份简历是可以到处pdf，打印出来的。
+献上结果：http://yieldblog.me/resume.html
+
+结构前端设计哲学：
+
+先整体，后细节。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】动态规划法(斐波那契数列)">
-<meta property="og:url" content="http://trainking.github.io/2016/08/11/动态规划法/index.html">
+<meta property="og:title" content="markdown生成一份html简历">
+<meta property="og:url" content="http://trainking.github.io/2016/10/03/markdown生成一份html简历/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
-一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
-斐波那契数列大学课堂">
-<meta property="og:updated_time" content="2016-08-11T15:35:19.664Z">
+<meta property="og:description" content="最近正在找新工作，翻出以前写的word简历，真的是，往事不堪回首。觉得自己以前一定是脑子秀逗了，写出来的简历，花里花俏，完全前言不搭后语。而markdown这样简洁方便的格式非常适合我整理出一份简洁明了的简历。所以，我打算试下。
+并且我还希望，这份简历是可以到处pdf，打印出来的。
+献上结果：http://yieldblog.me/resume.html
+
+结构前端设计哲学：
+
+先整体，后细节。">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/20160930112540.png">
+<meta property="og:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160930114543.png">
+<meta property="og:updated_time" content="2016-10-03T05:13:35.636Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【算法】动态规划法(斐波那契数列)">
-<meta name="twitter:description" content="动态规划 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——不要让程序做重复的事情。
-一句话说算法对于一个复杂的问题，可以分解成若干个子问题来解决，这是分治法。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是贪心法。而其实分解的子问题，往往会有许多重复的子问题，对程序进行减枝机制地优化，这是动态规划法。
-斐波那契数列大学课堂">
+<meta name="twitter:title" content="markdown生成一份html简历">
+<meta name="twitter:description" content="最近正在找新工作，翻出以前写的word简历，真的是，往事不堪回首。觉得自己以前一定是脑子秀逗了，写出来的简历，花里花俏，完全前言不搭后语。而markdown这样简洁方便的格式非常适合我整理出一份简洁明了的简历。所以，我打算试下。
+并且我还希望，这份简历是可以到处pdf，打印出来的。
+献上结果：http://yieldblog.me/resume.html
+
+结构前端设计哲学：
+
+先整体，后细节。">
+<meta name="twitter:image" content="http://7xpgwr.com1.z0.glb.clouddn.com/20160930112540.png">
 
 
 
@@ -78,7 +93,7 @@
   };
 </script>
 
-  <title> 【算法】动态规划法(斐波那契数列) | yield编程实验室 </title>
+  <title> markdown生成一份html简历 | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +213,7 @@
             
             
               
-                【算法】动态规划法(斐波那契数列)
+                markdown生成一份html简历
               
             
           </h1>
@@ -207,8 +222,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-10-03T13:13:35+08:00" content="2016-10-03">
+              2016-10-03
             </time>
           </span>
 
@@ -218,8 +233,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/动态规划法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/动态规划法/" itemprop="commentsCount"></span>
+                <a href="/2016/10/03/markdown生成一份html简历/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/03/markdown生成一份html简历/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,16 +253,31 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>动态规划</strong> 用于求解最优化子问题的，往往是高效的而准确的。这背后的逻辑，其实就是程序设计的最基本原理——<strong><em>不要让程序做重复的事情</em></strong>。</p>
-<h2 id="一句话说算法"><a href="#一句话说算法" class="headerlink" title="一句话说算法"></a>一句话说算法</h2><p>对于一个复杂的问题，可以分解成若干个子问题来解决，这是<strong>分治法</strong>。每个分解的子问题，得到最优解，再通过一个方式组合这些最优解，得到全局最优解，这是<strong>贪心法</strong>。而其实分解的子问题，往往会有许多<strong><em>重复的子问题</em></strong>，对程序进行<strong><em>减枝机制</em></strong>地优化，这是<strong>动态规划法</strong>。</p>
-<h2 id="斐波那契数列"><a href="#斐波那契数列" class="headerlink" title="斐波那契数列"></a>斐波那契数列</h2><p>大学课堂上，讲C语言课程的老师，一定讲过<strong>斐波那契数列</strong>。</p>
-<p>通俗的话讲，这个数列中的第2项（从零开始计数）之后的每一项，是前两项之和。基础项，也就是第0项是0，第1项是1，以此类推得出的一个数列：</p>
-<p>0,1,1,2,3,5,8,13,21…</p>
-<p>朴素算法的实现是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">   <span class="keyword">if</span> n == <span class="number">0</span>:</div><div class="line">       <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line">   <span class="keyword">if</span> n == <span class="number">1</span>:</div><div class="line">       <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line">   <span class="keyword">return</span> fib(n<span class="number">-1</span>) + (n<span class="number">-2</span>)</div></pre></td></tr></table></figure>
-<p>这个递归算法有大量的重复步骤，例如：fib(3) = fib(2) + fib(1), fib(4) = fib(3)+fib(2)。这两个步骤中<strong>fib(2)</strong>就是被重复计算了，这样的算法固然正确，但是效率太对。数据量增大，算法的时间复杂度也是指数级增大。</p>
-<p>为了避免重复的计算操作，可以将分解的子问题的解，用一个字典存起来。每次判断如果字典中已经有了计算过得值，则不再进行计算，直接取值就可以了。这样便大大减少了算法的计算量，下面是我用python的实现：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">d = &#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fib</span><span class="params">(n)</span>:</span></div><div class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>):</div><div class="line">        d[n] = <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span>(n==<span class="number">1</span>):</div><div class="line">        d[n]=<span class="number">1</span></div><div class="line">        <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> d.has_key(n) :</div><div class="line">        d[n] = fib(n<span class="number">-1</span>) + fib(n<span class="number">-2</span>)</div><div class="line">    <span class="keyword">return</span> d[n]</div></pre></td></tr></table></figure></span>
+        <span itemprop="articleBody"><p>最近正在找新工作，翻出以前写的word简历，真的是，往事不堪回首。觉得自己以前一定是脑子秀逗了，写出来的简历，花里花俏，完全前言不搭后语。而markdown这样简洁方便的格式非常适合我整理出一份简洁明了的简历。所以，我打算试下。</p>
+<p>并且我还希望，这份简历是可以到处pdf，打印出来的。</p>
+<p>献上结果：<br><a href="http://yieldblog.me/resume.html" target="_blank" rel="external">http://yieldblog.me/resume.html</a></p>
+<p><img src="http://7xpgwr.com1.z0.glb.clouddn.com/20160930112540.png" alt="导出pdf"></p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>前端设计哲学：</p>
+<blockquote>
+<p>先整体，后细节。</p>
+</blockquote>
+<p>一个简历也是这样，必须要有清晰的整体结构。让用人单位一幕了然，不需要过多的修饰，那样不会是锦上添花，而是画蛇添足。所以，我最直观的想到了这个页面的结构。</p>
+<figure class="highlight vala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="meta"># 姓名</span></div><div class="line"><span class="meta">## 职位</span></div><div class="line">&gt; 联系方式</div><div class="line"></div><div class="line"><span class="meta">### 关于我</span></div><div class="line"><span class="comment">/* 列举一下个人优势和特点 */</span></div><div class="line"></div><div class="line"><span class="meta">### 工作经历</span></div><div class="line"><span class="comment">/* 工作的经历和工作内容,注意要时间倒序 */</span></div><div class="line"></div><div class="line"><span class="meta">### 教育经历</span></div><div class="line"><span class="comment">/* 学校和专业等信息 */</span></div><div class="line"></div><div class="line"><span class="meta">### 技术经历</span></div><div class="line"><span class="comment">/* 不要单纯列出一堆技术名词，而是明确自己做过的事情，这样面试官比较容易对我的技术有个初步判断 */</span></div></pre></td></tr></table></figure>
+<h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><p>大体页面出来之后，填上内容。内容的时候，注意是使用有突出重点，要活用<code>**Text**</code>（加粗）和 <code>***Text***</code>(斜体)。</p>
+<p>同时给每个段落加上分割线，更好的区分。</p>
+<p>然而，你会发现markdown写出来的简历虽然简洁，但是缺乏一些有趣的东西。比如：<br><img src="http://7xpgwr.com1.z0.glb.clouddn.com/QQ%E6%88%AA%E5%9B%BE20160930114543.png" alt="例图"></p>
+<p>你会发现，你如果要实现这样平行的效果，这个时候，markdown的任务就结束了，要美化这个页面，就要上html+css了。</p>
+<h2 id="导出html"><a href="#导出html" class="headerlink" title="导出html"></a>导出html</h2><p>要导出html，我推荐使用一个在线工具。<a href="http://mahua.jser.me/" target="_blank" rel="external">http://mahua.jser.me/</a></p>
+<h2 id="美化"><a href="#美化" class="headerlink" title="美化"></a>美化</h2><h3 id="修改字体"><a href="#修改字体" class="headerlink" title="修改字体"></a>修改字体</h3><p>首先将导出的css里面的字体设为“微软雅黑”:<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">    <span class="attribute">font-family</span>: <span class="string">"微软雅黑"</span>, Helvetica, <span class="string">"微软雅黑"</span>, Arial, sans-serif;</div><div class="line">    <span class="attribute">font-size</span>: <span class="number">13px</span>;</div><div class="line">    <span class="attribute">line-height</span>: <span class="number">18px</span>;</div><div class="line">    <span class="attribute">color</span>: <span class="number">#737373</span>;</div><div class="line">    <span class="attribute">margin</span>: <span class="number">10px</span> <span class="number">13px</span> <span class="number">10px</span> <span class="number">13px</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>为什么用微软雅黑，因为兼容性好，打印出来效果没有偏差。</p>
+<h3 id="调整边距"><a href="#调整边距" class="headerlink" title="调整边距"></a>调整边距</h3><p>调整页面的边距大小，尽量是内容在一个A4纸页面上。而如何知道是否在一个A4纸呢？</p>
+<p>在Chrome浏览器下，<code>Ctrl+P</code>打印页面，把目标打印机改为pdf，纸张尺寸为‘A4’，你就可以看你调整的效果是否，超出了一个页。</p>
+<h3 id="font-awesome"><a href="#font-awesome" class="headerlink" title="font awesome"></a>font awesome</h3><p>有些东西的叙述，我们可以使用iconfont来代替。我使用的是<code>font awesome</code>。这样的库很多，你可以按自己的喜好使用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>写出了一份简历的同时，还锻炼我的前端技能。</p>
+<blockquote>
+<p>ps: 有合适工作的，发邮件联系我。</p>
+</blockquote>
+</span>
       
     </div>
 
@@ -255,7 +285,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/markdown/" rel="tag">#markdown</a>
           
         </div>
       
@@ -264,17 +294,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/xijie/" rel="next" title="JavaScript一些细节">
-                <i class="fa fa-chevron-left"></i> JavaScript一些细节
+              <a href="/2016/09/10/阿拉伯数字转中文/" rel="next" title="阿拉伯数字转中文">
+                <i class="fa fa-chevron-left"></i> 阿拉伯数字转中文
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/11/2015-12-24-1/" rel="prev" title="tqdm一个有趣的python包">
-                tqdm一个有趣的python包 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -301,8 +327,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/11/动态规划法/"
-           data-title="【算法】动态规划法(斐波那契数列)" data-url="http://trainking.github.io/2016/08/11/动态规划法/">
+      <div class="ds-thread" data-thread-key="2016/10/03/markdown生成一份html简历/"
+           data-title="markdown生成一份html简历" data-url="http://trainking.github.io/2016/10/03/markdown生成一份html简历/">
       </div>
     
   </div>
@@ -410,7 +436,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一句话说算法"><span class="nav-number">1.</span> <span class="nav-text">一句话说算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#斐波那契数列"><span class="nav-number">2.</span> <span class="nav-text">斐波那契数列</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#结构"><span class="nav-number">1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#细节"><span class="nav-number">2.</span> <span class="nav-text">细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导出html"><span class="nav-number">3.</span> <span class="nav-text">导出html</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#美化"><span class="nav-number">4.</span> <span class="nav-text">美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#修改字体"><span class="nav-number">4.1.</span> <span class="nav-text">修改字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调整边距"><span class="nav-number">4.2.</span> <span class="nav-text">调整边距</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#font-awesome"><span class="nav-number">4.3.</span> <span class="nav-text">font awesome</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

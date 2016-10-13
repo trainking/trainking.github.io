@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="PHP," />
 
 
 
@@ -51,22 +51,22 @@
 
 
 
-<meta name="description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
-0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
-其次,我们的权位之间是存在一个">
+<meta name="description" content="0x00 引言今日去面试，被面试官突然问了一句，php的魔术方法。一脸懵逼，没明白是啥。后来在回来的路上才想起，人间说的是那些前面带了__的那些方法。一直以来我都叫两杆方法，原来这个是魔术方法啊。
+因为面试官提到Java的反射机制，我突然想到，想起来，这是php的面向对象很重要的一环。让我先从Java和PHP的对比说起。
+Java和PHP面向对象的机制对比Java是一个面向对象的语言。设计之初，J">
 <meta property="og:type" content="article">
-<meta property="og:title" content="阿拉伯数字转中文">
-<meta property="og:url" content="http://trainking.github.io/2016/09/10/阿拉伯数字转中文/index.html">
+<meta property="og:title" content="PHP魔术方法">
+<meta property="og:url" content="http://trainking.github.io/2016/10/13/PHP魔术方法/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
-0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
-其次,我们的权位之间是存在一个">
-<meta property="og:updated_time" content="2016-09-10T06:19:14.026Z">
+<meta property="og:description" content="0x00 引言今日去面试，被面试官突然问了一句，php的魔术方法。一脸懵逼，没明白是啥。后来在回来的路上才想起，人间说的是那些前面带了__的那些方法。一直以来我都叫两杆方法，原来这个是魔术方法啊。
+因为面试官提到Java的反射机制，我突然想到，想起来，这是php的面向对象很重要的一环。让我先从Java和PHP的对比说起。
+Java和PHP面向对象的机制对比Java是一个面向对象的语言。设计之初，J">
+<meta property="og:updated_time" content="2016-10-13T12:50:26.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿拉伯数字转中文">
-<meta name="twitter:description" content="0x00 引言最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.
-0x01 思路将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,10我们是读作一十,这之中十便是一个权位.
-其次,我们的权位之间是存在一个">
+<meta name="twitter:title" content="PHP魔术方法">
+<meta name="twitter:description" content="0x00 引言今日去面试，被面试官突然问了一句，php的魔术方法。一脸懵逼，没明白是啥。后来在回来的路上才想起，人间说的是那些前面带了__的那些方法。一直以来我都叫两杆方法，原来这个是魔术方法啊。
+因为面试官提到Java的反射机制，我突然想到，想起来，这是php的面向对象很重要的一环。让我先从Java和PHP的对比说起。
+Java和PHP面向对象的机制对比Java是一个面向对象的语言。设计之初，J">
 
 
 
@@ -78,7 +78,7 @@
   };
 </script>
 
-  <title> 阿拉伯数字转中文 | yield编程实验室 </title>
+  <title> PHP魔术方法 | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -198,7 +198,7 @@
             
             
               
-                阿拉伯数字转中文
+                PHP魔术方法
               
             
           </h1>
@@ -207,8 +207,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-09-10T14:19:14+08:00" content="2016-09-10">
-              2016-09-10
+            <time itemprop="dateCreated" datetime="2016-10-13T20:50:26+08:00" content="2016-10-13">
+              2016-10-13
             </time>
           </span>
 
@@ -218,8 +218,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/10/阿拉伯数字转中文/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/10/阿拉伯数字转中文/" itemprop="commentsCount"></span>
+                <a href="/2016/10/13/PHP魔术方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/13/PHP魔术方法/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -238,26 +238,47 @@
       
 
       
-        <span itemprop="articleBody"><h2 id="0x00-引言"><a href="#0x00-引言" class="headerlink" title="0x00 引言"></a>0x00 引言</h2><p>最近在做财务系统,突然有个很感兴趣的问题.那就是阿拉伯数字向中文转换.因为会计凭证,关于记账数目的规定,国家有会计法规定.使用到中文显示是必然的,为此突然到要写一个将阿拉伯数字转成中文的算法.</p>
-<h2 id="0x01-思路"><a href="#0x01-思路" class="headerlink" title="0x01 思路"></a>0x01 思路</h2><p>将阿拉伯数字转换为中文,要从我们中文的使用习惯开始.首先,我们的阅读习惯中,是有权位这样的概念的.例如,<code>10</code>我们是读作<code>一十</code>,这之中<code>十</code>便是一个权位.</p>
-<p>其次,我们的权位之间是存在一个循环的.例如<code>10</code>我们称之为<code>一十</code>, 而<code>100000</code>我们称之位<code>一十万</code>.所以,我们的习惯之中,是存在两重权威循环的.</p>
-<p>还有要要考虑的情况,例如<code>10001</code>我们会称之为<code>一万零一</code>, 而不是<code>一万零千零百零十零一</code>, 所以考虑多个连续0的情况的权位选择.</p>
-<p>总结下来就是:</p>
-<ul>
-<li>需要低阶权位: 十,百,千</li>
-<li>需要高阶权位: 万, 亿, 万亿</li>
-<li>需要考虑连续0的情况</li>
-</ul>
-<h2 id="0x02-实现"><a href="#0x02-实现" class="headerlink" title="0x02 实现"></a>0x02 实现</h2><p> python实现:</p>
- <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding=utf-8</span></div><div class="line"></div><div class="line"><span class="comment"># 映射元组</span></div><div class="line">NUM_CHINESE = (<span class="string">"零"</span>, <span class="string">"一"</span>, <span class="string">"二"</span>, <span class="string">"三"</span>, <span class="string">"四"</span>, <span class="string">"五"</span>, <span class="string">"六"</span>, <span class="string">"七"</span>, <span class="string">"八"</span>, <span class="string">"九"</span>)</div><div class="line"><span class="comment"># 低阶权位</span></div><div class="line">M_POINT = (<span class="string">""</span>, <span class="string">"十"</span>, <span class="string">"百"</span>, <span class="string">"千"</span>)</div><div class="line"><span class="comment"># 高阶权位</span></div><div class="line">C_POINT = (<span class="string">""</span>, <span class="string">"万"</span>, <span class="string">"亿"</span>, <span class="string">"万亿"</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">numberToChinese</span><span class="params">(num)</span>:</span></div><div class="line">    result = <span class="string">""</span></div><div class="line">    upoint = <span class="number">0</span>  <span class="comment"># 权位的下标</span></div><div class="line">    needZero = <span class="keyword">False</span> <span class="comment"># 判断千位是否为0</span></div><div class="line">    <span class="keyword">while</span> num &gt; <span class="number">0</span>:</div><div class="line">        seletion = num % <span class="number">10000</span></div><div class="line">        <span class="keyword">if</span> needZero:</div><div class="line">            result = NUM_CHINESE[<span class="number">0</span>] + result</div><div class="line">        needZero = seletion &lt; <span class="number">1000</span> <span class="keyword">and</span> seletion &gt; <span class="number">0</span></div><div class="line">        seletion = seletionToChinese(seletion)</div><div class="line">        result = seletion + C_POINT[upoint] + result</div><div class="line">        num = num / <span class="number">10000</span></div><div class="line">        upoint += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="comment"># 低阶权位转换</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">seletionToChinese</span><span class="params">(seletion)</span>:</span></div><div class="line">    result = <span class="string">""</span></div><div class="line">    upoint = <span class="number">0</span></div><div class="line">    zero = <span class="keyword">True</span> <span class="comment"># 控制是否连续0</span></div><div class="line"></div><div class="line">    <span class="keyword">while</span> seletion &gt; <span class="number">0</span>:</div><div class="line">        v = seletion % <span class="number">10</span></div><div class="line">        <span class="keyword">if</span> v == <span class="number">0</span>:</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> zero <span class="keyword">or</span> seletion == <span class="number">0</span>:</div><div class="line">                zero = <span class="keyword">True</span></div><div class="line">                result = NUM_CHINESE[<span class="number">0</span>] + result</div><div class="line">        <span class="keyword">else</span> :</div><div class="line">            zero = <span class="keyword">False</span></div><div class="line">            result = NUM_CHINESE[v] + M_POINT[upoint] + result</div><div class="line"></div><div class="line">        seletion = seletion / <span class="number">10</span></div><div class="line">        upoint += <span class="number">1</span></div><div class="line"></div><div class="line">    <span class="keyword">return</span> result</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> numberToChinese(<span class="number">10000</span>)</div></pre></td></tr></table></figure>
-<p> 我的一开始是用js写的,就不贴出来了.我觉得还是python的比较简单直白好理解一点.</p>
-<h2 id="0x03-总结"><a href="#0x03-总结" class="headerlink" title="0x03 总结"></a>0x03 总结</h2><p> 这个算法,存在以下几个缺点:</p>
-<ul>
-<li>最大直到了万亿的表示级别,因为我国GDP也仅仅是万亿级别,所以财务上用没问题</li>
-<li>没有写小数位数的处理,这个要拓展,只需要依样画葫芦了</li>
-<li>我所使用的中文字符,是简体小写支付,而非记账用的大写字符,这个只要替换就可以了</li>
-</ul>
-<p>我发现思路中,高阶权位的处理和低阶权位处理类似.能否简化二者之间的代码呢?我还没想到好的方式.</p>
+        <span itemprop="articleBody"><h2 id="0x00-引言"><a href="#0x00-引言" class="headerlink" title="0x00 引言"></a>0x00 引言</h2><p>今日去面试，被面试官突然问了一句，php的魔术方法。一脸懵逼，没明白是啥。后来在回来的路上才想起，人间说的是那些前面带了<code>__</code>的那些方法。一直以来我都叫两杆方法，原来这个是魔术方法啊。</p>
+<p>因为面试官提到<code>Java</code>的反射机制，我突然想到，想起来，这是php的面向对象很重要的一环。让我先从Java和PHP的对比说起。</p>
+<h2 id="Java和PHP面向对象的机制对比"><a href="#Java和PHP面向对象的机制对比" class="headerlink" title="Java和PHP面向对象的机制对比"></a>Java和PHP面向对象的机制对比</h2><p><code>Java</code>是一个面向对象的语言。设计之初，<code>Java</code>就是面向对象的，<code>Java</code>中的Object类，所有新建的类，如无指定默认就是继承这个类。继承这样的方式，我们可以称之为正向机制。而反向机制就是所谓<strong>反射</strong>。而在Object类中，有一个getClass方法获得Class。而Class中也有一些静态方法，来获取对象实例。比如很多人熟悉的初始化驱动程序的那行代码：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">Class</span><span class="selector-class">.forName</span>("<span class="selector-tag">com</span><span class="selector-class">.mysql</span><span class="selector-class">.jdbc</span><span class="selector-class">.Driver</span>");</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Note:</p>
+<p>PHP 5中也引入了一个叫ReflectionClass的类，来实现PHP的反射机制。这个之后再写文介绍。</p>
+</blockquote>
+<p>再说回<code>PHP</code>，<code>PHP</code>是一个函数式语言，是后来引入面向对象机制地。所以<code>PHP</code>的面向对象机制是中是没有Object和Class这两个类的。<code>PHP</code>中，每个魔术方法的调用，都是有时机的，也可说是事件，意思就是当发生那种情况时，这个魔术方法就会被调用，明确这一点也是重要的。下文我将魔术方法，分类来说明在面向对象中的作用。</p>
+<h2 id="0x01-构造与析构"><a href="#0x01-构造与析构" class="headerlink" title="0x01 构造与析构"></a>0x01 构造与析构</h2><p><code>__construct()</code>是构造方法，与<code>Java</code>中无异。当<code>new</code>关键字，创建一个对象时调用。值得注意的是，不会隐式地调用分类的构造方法，必须使用<code>parent::__construct()</code>显式地调用。当然，如果一个没有定义构造方法，会从父类继承。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="literal">void</span> __construct (<span class="meta">[</span> mixed $args <span class="meta">[</span>, $<span class="params">...</span> <span class="meta">]</span>] )</div></pre></td></tr></table></figure></p>
+<p><code>__destruct()</code>是析构方法，当使用<code>exit()</code>方法终止脚本，或者对象被GC回收的时候调用。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> __destruct ( <span class="keyword">void</span> )</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><strong>注意：</strong>不要试图在析构方法中停止脚本，那样会抛出一个异常。</p>
+<p><strong>PHP的垃圾回收机制：</strong><br>PHP在PHP 5中开始引入垃圾回收机制。5.3之前只是单纯的适用引用计数方式，5.3之后才引入和Java的GC一样，引入避免引用成环的算法。</p>
+</blockquote>
+<h2 id="0x02-序列化和反序列化"><a href="#0x02-序列化和反序列化" class="headerlink" title="0x02 序列化和反序列化"></a>0x02 序列化和反序列化</h2><p><code>PHP</code>中序列化和反序列化对象，是通过一组方法<code>serialize()</code>和<code>unserialize()</code>来实现。</p>
+<p><code>serialize()</code>会先检查类中是否存在魔术方法<code>__sleep()</code>，如果存在的情况下，该方法会被首先调用。此功能用于清理对象，并返回一个包含对象中所有应该序列化的变量名称和数组。如果不返回，则会报错。</p>
+<p><code>unserialize()</code>会检查是否存在<code>__wakeup()</code>方法， 如果存在则会县调用它，用于预先准备对象所需要的资源。</p>
+<h2 id="访问不可访问的属性"><a href="#访问不可访问的属性" class="headerlink" title="访问不可访问的属性"></a>访问不可访问的属性</h2><p>在给不可访问属性赋值时，__set() 会被调用。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="literal">void</span> __set ( <span class="built_in">string</span> $name , mixed $value )</div></pre></td></tr></table></figure></p>
+<p>读取不可访问属性的值时，__get() 会被调用。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> mixed __get ( <span class="built_in">string</span> $name )</div></pre></td></tr></table></figure></p>
+<p>当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">bool</span> <span class="number">__</span>isset ( <span class="built_in">string</span> $name )</div></pre></td></tr></table></figure></p>
+<p>当对不可访问属性调用 unset() 时，__unset() 会被调用。<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="literal">void</span> __unset ( <span class="built_in">string</span> $name )</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Note:</p>
+<p><strong>不可访问的属性</strong>包括不存在的属性。</p>
+</blockquote>
+<h2 id="访问不可访问的方法"><a href="#访问不可访问的方法" class="headerlink" title="访问不可访问的方法"></a>访问不可访问的方法</h2><p>在对象中调用一个不可访问方法时，__call() 会被调用。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public mixed __call ( string $name ,<span class="built_in"> array </span>$arguments )</div></pre></td></tr></table></figure></p>
+<p>在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">public<span class="keyword"> static</span> mixed __callStatic ( string $name ,<span class="built_in"> array </span>$arguments )</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>Note:</p>
+<p>同样的，<strong>不可访问的方法</strong>包括不存在的方法。</p>
+</blockquote>
+<h2 id="对象的特殊操作的魔术方法"><a href="#对象的特殊操作的魔术方法" class="headerlink" title="对象的特殊操作的魔术方法"></a>对象的特殊操作的魔术方法</h2><ol>
+<li>将对象输出。<code>__toString()</code>在需要将对象输出时调用，比如<code>echo $obj;</code>的时候。</li>
+<li>当惨死以调用函数的方式调用对象时，会调用<code>__invoke()</code>方法。即使用<code>new ClassName;</code>不带括号的方式声明一个对象，使用<code>ClassName();</code>调用的是<code>__invoke()</code>。</li>
+<li>使用<code>clone</code>关键字复制对象完成时，<strong>新建对象</strong>的<code>__clone()</code>方法会被调用。</li>
+</ol>
+<h2 id="调试信息"><a href="#调试信息" class="headerlink" title="调试信息"></a>调试信息</h2><ol>
+<li>调用<code>var_export()</code>导出类时，<code>__set_state()</code>会被调用。</li>
+<li>使用<code>var_dump()</code>输出对象，调用的是<code>__debugInfo()</code>。</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>善用魔术方法，可以让你对象更强大。</p>
 </span>
       
     </div>
@@ -266,7 +287,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/PHP/" rel="tag">#PHP</a>
           
         </div>
       
@@ -275,17 +296,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/24/jersey使用指南/" rel="next" title="jersey使用指南">
-                <i class="fa fa-chevron-left"></i> jersey使用指南
+              <a href="/2016/10/03/markdown生成一份html简历/" rel="next" title="markdown生成一份html简历">
+                <i class="fa fa-chevron-left"></i> markdown生成一份html简历
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/10/03/markdown生成一份html简历/" rel="prev" title="markdown生成一份html简历">
-                markdown生成一份html简历 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -312,8 +329,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/10/阿拉伯数字转中文/"
-           data-title="阿拉伯数字转中文" data-url="http://trainking.github.io/2016/09/10/阿拉伯数字转中文/">
+      <div class="ds-thread" data-thread-key="2016/10/13/PHP魔术方法/"
+           data-title="PHP魔术方法" data-url="http://trainking.github.io/2016/10/13/PHP魔术方法/">
       </div>
     
   </div>
@@ -429,7 +446,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-引言"><span class="nav-number">1.</span> <span class="nav-text">0x00 引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-思路"><span class="nav-number">2.</span> <span class="nav-text">0x01 思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-实现"><span class="nav-number">3.</span> <span class="nav-text">0x02 实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-总结"><span class="nav-number">4.</span> <span class="nav-text">0x03 总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-引言"><span class="nav-number">1.</span> <span class="nav-text">0x00 引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java和PHP面向对象的机制对比"><span class="nav-number">2.</span> <span class="nav-text">Java和PHP面向对象的机制对比</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-构造与析构"><span class="nav-number">3.</span> <span class="nav-text">0x01 构造与析构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-序列化和反序列化"><span class="nav-number">4.</span> <span class="nav-text">0x02 序列化和反序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问不可访问的属性"><span class="nav-number">5.</span> <span class="nav-text">访问不可访问的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问不可访问的方法"><span class="nav-number">6.</span> <span class="nav-text">访问不可访问的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的特殊操作的魔术方法"><span class="nav-number">7.</span> <span class="nav-text">对象的特殊操作的魔术方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试信息"><span class="nav-number">8.</span> <span class="nav-text">调试信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

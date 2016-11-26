@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="算法," />
+  <meta name="keywords" content="运维," />
 
 
 
@@ -51,28 +51,19 @@
 
 
 
-<meta name="description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
-
-分解：将大问题的分解成小问题，">
+<meta name="description" content="nginx先下载pcre包12&amp;gt; wget ftp://ftp.csx.cam.ac.uk//pub/software/programming/pcre/pcre-8.38.tar.gz&amp;gt; tar -zxvf pcre-8.38.tar.gz
+编译nginx12345&amp;gt; wget http://nginx.org/download/nginx-1.10.2.tar.gz&amp;gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【算法】分治法(快速排序，归并排序)">
-<meta property="og:url" content="http://trainking.github.io/2016/08/11/2015-12-17-3/index.html">
+<meta property="og:title" content="Centos下搭建nginx+php">
+<meta property="og:url" content="http://trainking.github.io/2016/11/17/Centos下搭建nginx+php/index.html">
 <meta property="og:site_name" content="yield编程实验室">
-<meta property="og:description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
-
-分解：将大问题的分解成小问题，">
-<meta property="og:updated_time" content="2016-08-11T15:35:19.664Z">
+<meta property="og:description" content="nginx先下载pcre包12&amp;gt; wget ftp://ftp.csx.cam.ac.uk//pub/software/programming/pcre/pcre-8.38.tar.gz&amp;gt; tar -zxvf pcre-8.38.tar.gz
+编译nginx12345&amp;gt; wget http://nginx.org/download/nginx-1.10.2.tar.gz&amp;gt;">
+<meta property="og:updated_time" content="2016-11-17T02:35:07.166Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【算法】分治法(快速排序，归并排序)">
-<meta name="twitter:description" content="分治法，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。
-大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。
-分治法的步骤分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:
-
-分解：将大问题的分解成小问题，">
+<meta name="twitter:title" content="Centos下搭建nginx+php">
+<meta name="twitter:description" content="nginx先下载pcre包12&amp;gt; wget ftp://ftp.csx.cam.ac.uk//pub/software/programming/pcre/pcre-8.38.tar.gz&amp;gt; tar -zxvf pcre-8.38.tar.gz
+编译nginx12345&amp;gt; wget http://nginx.org/download/nginx-1.10.2.tar.gz&amp;gt;">
 
 
 
@@ -84,7 +75,7 @@
   };
 </script>
 
-  <title> 【算法】分治法(快速排序，归并排序) | yield编程实验室 </title>
+  <title> Centos下搭建nginx+php | yield编程实验室 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -204,7 +195,7 @@
             
             
               
-                【算法】分治法(快速排序，归并排序)
+                Centos下搭建nginx+php
               
             
           </h1>
@@ -213,8 +204,8 @@
         <div class="post-meta">
           <span class="post-time">
             发表于
-            <time itemprop="dateCreated" datetime="2016-08-11T23:35:19+08:00" content="2016-08-11">
-              2016-08-11
+            <time itemprop="dateCreated" datetime="2016-11-17T10:05:10+08:00" content="2016-11-17">
+              2016-11-17
             </time>
           </span>
 
@@ -224,8 +215,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/11/2015-12-17-3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/11/2015-12-17-3/" itemprop="commentsCount"></span>
+                <a href="/2016/11/17/Centos下搭建nginx+php/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/17/Centos下搭建nginx+php/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -244,19 +235,21 @@
       
 
       
-        <span itemprop="articleBody"><p><strong>分治法</strong>，是算法思想里最基础的思想。这也和人的基本思维有关，当我们需要解决一个大的问题时，直觉的就会将这个大问题分成多个小问题来解决。</p>
-<p>大量的经典算法，都是基于分治法。比如，快速排序，归并排序。当然，最让人想起来的，就是二分查找了。</p>
-<h1 id="分治法的步骤"><a href="#分治法的步骤" class="headerlink" title="分治法的步骤"></a>分治法的步骤</h1><p>分治，分而治之。分的原因是因为问题的规模太大，需要拆开了解决，目的是为了解决问题，分解只是手段。所以分治的步骤其实很明确:</p>
-<ol>
-<li><strong>分解</strong>：将大问题的分解成小问题，是这个算法的核心。也是使用分治法的效率保证，如果分解不合理。那么反而会弄巧成拙。</li>
-<li><strong>解决</strong>：解决问题，便是分解之后的小问题。他们的解决步骤是相同，至少是相似的。所以，分治法中经常用到递归，就是基于这样的目的。</li>
-<li><strong>合并</strong>：前面那么麻烦的两步，最终的目的仍然是为了解决这个问题。所以需要将分解问题得到的解，合并成最终需要的终极答案，便是这个算法的结束过程。譬如，你使用递归的时候，也需要最后退出的条件。分治法结束条件，就是合并步骤的结束。</li>
-</ol>
-<h1 id="递归与分治法的关系"><a href="#递归与分治法的关系" class="headerlink" title="递归与分治法的关系"></a>递归与分治法的关系</h1><p>虽然很多的运用分治法的算法，都使用到了递归。但是并不是意味着使用了递归的算法，就是使用了分治法。分治法也可使用迭代来实现呀。可以这么说，一切用尾递归方式的算法，都可以通过一个栈来迭代实现。递归只是算法的实现手段，基于各语言（大部分）都支持在函数内部调用本身特性，可以减少代码的重复。</p>
-<p>我之所以特此说明，就是我曾经就有这种错误的认识。</p>
-<h1 id="运用实例"><a href="#运用实例" class="headerlink" title="运用实例"></a>运用实例</h1><p>我前面已经提到的<strong>快速排序</strong>，<strong>归并排序</strong>，<strong>二分查找</strong>。这三种算法都是经典的算法，实现方法已有很多人写了。我就不献丑了，特别引用了维基百科的快排和归并的例子，当然依旧是python的实现。</p>
-<p><em>维基百科的快速排序</em>:<br> <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">qsort</span><span class="params">(arr)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(arr) &lt;= <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> arr</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        pivot = arr[<span class="number">0</span>]</div><div class="line">        <span class="keyword">return</span> qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &lt; pivot]) + \</div><div class="line">               [pivot] + \</div><div class="line">               qsort([x <span class="keyword">for</span> x <span class="keyword">in</span> arr[<span class="number">1</span>:] <span class="keyword">if</span> x &gt;= pivot])</div></pre></td></tr></table></figure></p>
-<p><em>维基百科的归并排序</em>：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge_sort</span><span class="params">(lst)</span>:</span></div><div class="line">    <span class="keyword">if</span> len(lst) &lt;= <span class="number">1</span>:</div><div class="line">        <span class="keyword">return</span> lst</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(left, right)</span>:</span></div><div class="line">        merged,left,right = deque(),deque(left),deque(right)</div><div class="line">        <span class="keyword">while</span> left <span class="keyword">and</span> right:</div><div class="line">            merged.append(left.popleft() <span class="keyword">if</span> left[<span class="number">0</span>] &lt;= right[<span class="number">0</span>] <span class="keyword">else</span> right.popleft())  <span class="comment"># deque popleft is also O(1)</span></div><div class="line">        merged.extend(right <span class="keyword">if</span> right <span class="keyword">else</span> left)</div><div class="line">        <span class="keyword">return</span> list(merged)</div><div class="line"></div><div class="line">    middle = int(len(lst) // <span class="number">2</span>)</div><div class="line">    left = merge_sort(lst[:middle])</div><div class="line">    right = merge_sort(lst[middle:])</div><div class="line">    <span class="keyword">return</span> merge(left, right)</div></pre></td></tr></table></figure></p>
+        <span itemprop="articleBody"><h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="先下载pcre包"><a href="#先下载pcre包" class="headerlink" title="先下载pcre包"></a>先下载pcre包</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; wget ftp:<span class="regexp">//</span>ftp.csx.cam.ac.uk<span class="regexp">//</span>pub<span class="regexp">/software/</span>programming<span class="regexp">/pcre/</span>pcre-<span class="number">8.38</span>.tar.gz</div><div class="line">&gt; tar -zxvf pcre-<span class="number">8.38</span>.tar.gz</div></pre></td></tr></table></figure>
+<h2 id="编译nginx"><a href="#编译nginx" class="headerlink" title="编译nginx"></a>编译nginx</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; wget http:<span class="regexp">//</span>nginx.org<span class="regexp">/download/</span>nginx-<span class="number">1.10</span>.<span class="number">2</span>.tar.gz</div><div class="line">&gt; cd nginx-<span class="number">1.10</span>.<span class="number">2</span></div><div class="line">&gt; .<span class="regexp">/configure --prefix=/u</span>sr<span class="regexp">/local/</span>nginx --with-pcre=..<span class="regexp">/pcre-8.38/</span></div><div class="line">&gt; make</div><div class="line">&gt; sudo make install</div></pre></td></tr></table></figure>
+<h2 id="启动nginx"><a href="#启动nginx" class="headerlink" title="启动nginx"></a>启动nginx</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="quote">&gt; sudo ./nginx</span></div><div class="line"><span class="quote">&gt; sudo iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span></div><div class="line"><span class="quote">&gt; sudo /etc/rc.d/init.d/iptables save</span></div><div class="line"><span class="quote">&gt; sudo /etc/init.d/iptables restart</span></div></pre></td></tr></table></figure>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h2 id="下载PHP包"><a href="#下载PHP包" class="headerlink" title="下载PHP包"></a>下载PHP包</h2><figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; wget <span class="symbol">http:</span>/<span class="regexp">/hk1.php.net/get</span><span class="regexp">/php-7.0.12.tar.gz/from</span><span class="regexp">/this/mirror</span></div><div class="line">&gt; tar -zxvf mirror</div></pre></td></tr></table></figure>
+<h2 id="编译PHP并且使用fpm"><a href="#编译PHP并且使用fpm" class="headerlink" title="编译PHP并且使用fpm"></a>编译PHP并且使用fpm</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="quote">&gt; cd php-7.0.12/</span></div><div class="line"><span class="quote">&gt; sudo yum install gcc gcc++ libxml2-devel</span></div><div class="line"><span class="quote">&gt; ./configure --prefix=/usr/local/php7 --enable-fpm --enable-mbstring</span></div><div class="line"><span class="quote">&gt; make</span></div><div class="line"><span class="quote">&gt; sudo make install</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>fpm不是默认开启的，所以要使用<code>--enable-fpm</code>开启。<code>--enable-mbstring</code>是开启多字节语言包的。</p>
+</blockquote>
+<h2 id="配置PHP-fpm"><a href="#配置PHP-fpm" class="headerlink" title="配置PHP-fpm"></a>配置PHP-fpm</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&gt; cd /usr/local/php7/etc/</div><div class="line">&gt; sudo mv php-fpm<span class="selector-class">.conf</span><span class="selector-class">.default</span> php-fpm<span class="selector-class">.conf</span></div><div class="line">&gt; cd /usr/local/php7/etc/php<span class="selector-class">.d</span></div><div class="line">&gt; sudo mv www<span class="selector-class">.conf</span><span class="selector-class">.default</span> ww.conf</div></pre></td></tr></table></figure>
+<h2 id="修改配置文件后，找不到php文件的问题"><a href="#修改配置文件后，找不到php文件的问题" class="headerlink" title="修改配置文件后，找不到php文件的问题"></a>修改配置文件后，找不到php文件的问题</h2><p>修改<code>nginx.conf</code>:<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">fastcgi_param</span>  SCRIPT_FILENAME  <span class="variable">$document_root</span><span class="variable">$fastcgi_script_name</span>;</div></pre></td></tr></table></figure></p>
+<h2 id="找不到php-ini的情况"><a href="#找不到php-ini的情况" class="headerlink" title="找不到php.ini的情况"></a>找不到php.ini的情况</h2><p>从源码中复制一份到php安装目录的<code>lib/</code>下：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp php.ini-development /usr/local/php7/<span class="class"><span class="keyword">lib</span>/<span class="title">php</span>.<span class="title">ini</span></span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：<br>如果要修改php.ini的加载路径，可以在php编译时加上<code>--with-config-file-path=/usr/local/php/etc</code>配置</p>
+</blockquote>
 </span>
       
     </div>
@@ -265,7 +258,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/算法/" rel="tag">#算法</a>
+            <a href="/tags/运维/" rel="tag">#运维</a>
           
         </div>
       
@@ -274,17 +267,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/11/字符串移位/" rel="next" title="【算法】字符串移位">
-                <i class="fa fa-chevron-left"></i> 【算法】字符串移位
+              <a href="/2016/10/13/PHP魔术方法/" rel="next" title="PHP魔术方法">
+                <i class="fa fa-chevron-left"></i> PHP魔术方法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/12/JavaScript笔记：函数的应用/" rel="prev" title="JavaScript笔记；函数的应用">
-                JavaScript笔记；函数的应用 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -311,8 +300,8 @@
         
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/11/2015-12-17-3/"
-           data-title="【算法】分治法(快速排序，归并排序)" data-url="http://trainking.github.io/2016/08/11/2015-12-17-3/">
+      <div class="ds-thread" data-thread-key="2016/11/17/Centos下搭建nginx+php/"
+           data-title="Centos下搭建nginx+php" data-url="http://trainking.github.io/2016/11/17/Centos下搭建nginx+php/">
       </div>
     
   </div>
@@ -428,7 +417,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分治法的步骤"><span class="nav-number">1.</span> <span class="nav-text">分治法的步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归与分治法的关系"><span class="nav-number">2.</span> <span class="nav-text">递归与分治法的关系</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#运用实例"><span class="nav-number">3.</span> <span class="nav-text">运用实例</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#nginx"><span class="nav-number">1.</span> <span class="nav-text">nginx</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先下载pcre包"><span class="nav-number">1.1.</span> <span class="nav-text">先下载pcre包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译nginx"><span class="nav-number">1.2.</span> <span class="nav-text">编译nginx</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动nginx"><span class="nav-number">1.3.</span> <span class="nav-text">启动nginx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP"><span class="nav-number">2.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载PHP包"><span class="nav-number">2.1.</span> <span class="nav-text">下载PHP包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译PHP并且使用fpm"><span class="nav-number">2.2.</span> <span class="nav-text">编译PHP并且使用fpm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置PHP-fpm"><span class="nav-number">2.3.</span> <span class="nav-text">配置PHP-fpm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件后，找不到php文件的问题"><span class="nav-number">2.4.</span> <span class="nav-text">修改配置文件后，找不到php文件的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#找不到php-ini的情况"><span class="nav-number">2.5.</span> <span class="nav-text">找不到php.ini的情况</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">

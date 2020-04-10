@@ -141,6 +141,10 @@ Error message and password prompt
 
 <p>This <a class="tc-tiddlylink-external" href="https://tiddlywiki.com" rel="noopener noreferrer" target="_blank">TiddlyWiki</a> contains the following tiddlers:</p><p><ul>
 
+<li>$:/config/Navigation/openLinkFromInsideRiver</li>
+
+<li>$:/config/Navigation/openLinkFromOutsideRiver</li>
+
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/fold-all</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home</li>
@@ -148,6 +152,10 @@ Error message and password prompt
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/print</li>
 
 <li>$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/unfold-all</li>
+
+<li>$:/config/TiddlerInfo/Mode</li>
+
+<li>$:/config/Toolbar/Text</li>
 
 <li>$:/core</li>
 
@@ -421,7 +429,7 @@ Error message and password prompt
 
 <li>$:/view</li>
 
-<li>MD代码块</li>
+<li>目录</li>
 
 <li>OpenResty笔记</li>
 
@@ -435,8 +443,14 @@ Error message and password prompt
 <!--~~ Ordinary tiddlers ~~-->
 
 <div id="storeArea" style="display:none;">
-<div created="20200410141932836" modified="20200410141932836" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/fold-all">
-<pre>show</pre>
+<div created="20200410154732922" modified="20200410154732922" title="$:/config/Navigation/openLinkFromInsideRiver">
+<pre>above</pre>
+</div>
+<div created="20200410154724654" modified="20200410154727049" title="$:/config/Navigation/openLinkFromOutsideRiver">
+<pre>top</pre>
+</div>
+<div created="20200410141932836" modified="20200410154424276" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/fold-all">
+<pre>hide</pre>
 </div>
 <div created="20200410035348180" modified="20200410035348180" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/home">
 <pre>show</pre>
@@ -444,8 +458,14 @@ Error message and password prompt
 <div created="20200410142005637" modified="20200410142005637" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/print">
 <pre>show</pre>
 </div>
-<div created="20200410141936089" modified="20200410141936089" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/unfold-all">
-<pre>show</pre>
+<div created="20200410141936089" modified="20200410154424761" title="$:/config/PageControlButtons/Visibility/$:/core/ui/Buttons/unfold-all">
+<pre>hide</pre>
+</div>
+<div created="20200410154715297" modified="20200410154717161" title="$:/config/TiddlerInfo/Mode">
+<pre>popup</pre>
+</div>
+<div created="20200410154517620" modified="20200410154705602" title="$:/config/Toolbar/Text">
+<pre>no</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="" description="TiddlyWiki5 core" list="readme" plugin-priority="0" plugin-type="plugin" title="$:/core" type="application/json" version="5.1.21">
 <pre>{
@@ -9640,8 +9660,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200410022626791" modified="20200410140319346" title="$:/DefaultTiddlers">
-<pre></pre>
+<div created="20200410022626791" modified="20200410161219084" title="$:/DefaultTiddlers">
+<pre>目录</pre>
 </div>
 <div created="20200410153226658" modified="20200410153230152" title="$:/GitHub/Filename">
 <pre>index.html</pre>
@@ -13328,8 +13348,8 @@ Error message and password prompt
     }
 }</pre>
 </div>
-<div created="20200410141335569" modified="20200410144329046" title="$:/palette">
-<pre>$:/palettes/Nord</pre>
+<div created="20200410141335569" modified="20200410154440248" title="$:/palette">
+<pre>$:/palettes/Blue</pre>
 </div>
 <div author="JeremyRuston" dependents="" description="CodeMirror Mode: Markdown Highlighting" list="readme" plugin-type="plugin" title="$:/plugins/tiddlywiki/codemirror-mode-markdown" type="application/json" version="5.1.21">
 <pre>{
@@ -13619,16 +13639,16 @@ Error message and password prompt
 <div created="20200410140338047" modified="20200410140338047" title="$:/state/plugin-info-1088025932-$:/languages/zh-CN">
 <pre>yes</pre>
 </div>
-<div created="20200410142030106" modified="20200410144615928" title="$:/state/showeditpreview">
+<div created="20200410142030106" modified="20200410160214768" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
 <div created="20200410141727448" modified="20200410141728227" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20200410034912082" modified="20200410144301654" title="$:/state/tab--1963855381">
-<pre>$:/core/ui/ControlPanel/Palette</pre>
+<div created="20200410034912082" modified="20200410154610061" title="$:/state/tab--1963855381">
+<pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
-<div created="20200410034034397" modified="20200410143653803" title="$:/state/tab--86143343">
+<div created="20200410034034397" modified="20200410154504816" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
 <div created="20200410141903427" modified="20200410141903427" title="$:/state/tab-1163638994">
@@ -13637,19 +13657,19 @@ Error message and password prompt
 <div created="20200410034115556" modified="20200410141432066" title="$:/state/tab-1342078386">
 <pre>$:/core/ui/ControlPanel/Plugins/Add/Plugins</pre>
 </div>
-<div created="20200410034029750" modified="20200410153011205" title="$:/state/tab-1749438307">
+<div created="20200410034029750" modified="20200410161255493" title="$:/state/tab-1749438307">
 <pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20200410141609565" modified="20200410141631261" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20200410034842659" modified="20200410141914114" title="$:/state/tab/moresidebar-1850697562">
-<pre>$:/core/ui/MoreSideBar/All</pre>
+<div created="20200410034842659" modified="20200410160752711" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20200410034020620" modified="20200410150021081" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20200410034020620" modified="20200410161022594" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20200410153009475" list="$:/ControlPanel" modified="20200410153009475" title="$:/StoryList">
+<div created="20200410161252023" list="$:/ControlPanel 目录" modified="20200410161252023" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -13665,19 +13685,19 @@ Error message and password prompt
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;file:///F:/github/trainking.github.io/index.html&quot;
+            &quot;text&quot;: &quot;http://trainking.github.io/&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;&quot;
+            &quot;text&quot;: &quot;trainking.github.io&quot;
         },
         &quot;$:/info/url/hostname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;&quot;
+            &quot;text&quot;: &quot;trainking.github.io&quot;
         },
         &quot;$:/info/url/protocol&quot;: {
             &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
-            &quot;text&quot;: &quot;file:&quot;
+            &quot;text&quot;: &quot;http:&quot;
         },
         &quot;$:/info/url/port&quot;: {
             &quot;title&quot;: &quot;$:/info/url/port&quot;,
@@ -13685,7 +13705,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/pathname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/pathname&quot;,
-            &quot;text&quot;: &quot;/F:/github/trainking.github.io/index.html&quot;
+            &quot;text&quot;: &quot;/&quot;
         },
         &quot;$:/info/url/search&quot;: {
             &quot;title&quot;: &quot;$:/info/url/search&quot;,
@@ -13693,7 +13713,7 @@ Error message and password prompt
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;file://&quot;
+            &quot;text&quot;: &quot;http://trainking.github.io&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
@@ -14469,7 +14489,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410034053923" modified="20200410143755702" title="$:/temp/RemoteAssetSearch/$:/config/OfficialPluginLibrary">
 <pre>Syntax</pre>
 </div>
-<div created="20200410142807326" modified="20200410142810510" title="$:/temp/search">
+<div created="20200410142807326" modified="20200410155015113" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200410143922130" modified="20200410143922130" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.21/index.html" url="https://tiddlywiki.com/library/v5.1.21/index.html">
@@ -14590,10 +14610,9 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200410141522952" title="$:/view">
 <pre>classic</pre>
 </div>
-<div caption="MD代码块" created="20200410142126428" modified="20200410142729266" tags="$:/tags/TextEditor/Snippet" title="MD代码块" type="text/x-markdown">
-<pre>```
-This will be monospaced
-```</pre>
+<div created="20200410154903219" modified="20200410161202606" title="目录" type="text/vnd.tiddlywiki">
+<pre>* [[OpenResty笔记]]
+</pre>
 </div>
 <div author="hacky" created="20200410141733254" modified="20200410145837815" tags="OpenResty" title="OpenResty笔记" type="text/vnd.tiddlywiki">
 <pre>`OpenResty` 是一个基于Nginx核心和LuaJIT的第三方Nginx Modules。方便于自定义开发网关工具，kong就是一个OpenResty的应用。

@@ -465,6 +465,8 @@ Error message and password prompt
 
 <li>微服务</li>
 
+<li>C的结构体</li>
+
 <li>OpenResty笔记</li>
 
 </ul>
@@ -13697,7 +13699,7 @@ Error message and password prompt
 <div created="20200410140338047" modified="20200410140338047" title="$:/state/plugin-info-1088025932-$:/languages/zh-CN">
 <pre>yes</pre>
 </div>
-<div created="20200410142030106" modified="20200410160214768" title="$:/state/showeditpreview">
+<div created="20200410142030106" modified="20200412055859444" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
 <div created="20200410141727448" modified="20200411030352279" title="$:/state/sidebar">
@@ -13739,13 +13741,13 @@ Error message and password prompt
 <div created="20200410034842659" modified="20200410160752711" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20200410034020620" modified="20200411033106394" title="$:/state/tab/sidebar--595412856">
-<pre>$:/core/ui/SideBar/Open</pre>
+<div created="20200410034020620" modified="20200412073429659" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200411093351174" list="$:/ControlPanel 关于此" modified="20200411093351174" title="$:/StoryList">
+<div created="20200412073330936" list="关于此 C的结构体" modified="20200412073434414" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -14689,7 +14691,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200410141522952" title="$:/view">
 <pre>classic</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200411031819532" title="关于此" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200410154903219" modified="20200412073451118" title="关于此" type="text/vnd.tiddlywiki">
 <pre>此乃个人知识库，属于`hacky`。
 
 !! 个人介绍
@@ -14706,6 +14708,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+* [[C的结构体]]
 * [[OpenResty笔记]]</pre>
 </div>
 <div created="20200411022727710" modified="20200411025715829" tags="$:/tags/SideBar" title="目录" type="text/vnd.tiddlywiki">
@@ -14719,6 +14722,215 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
 
 * [[OpenResty笔记]]</pre>
+</div>
+<div author="hacky" created="20200412054758034" modified="20200412073316389" tags="C语言" title="C的结构体" type="text/vnd.tiddlywiki">
+<pre>结构体是C语言常用复杂数据结构之一，诸多高级数据结构，如队列，链表等都可以用其来实现。此笔记记录结构体一些记录。
+
+!! 0x01 基本使用
+
+!!! 0x01.1 声明和定义
+
+!!!! 0x01.1.1 声明
+
+结构体声明
+
+```
+struct book {
+    char title[10];
+    char author[10];
+    float value;
+};
+```
+
+!!!! 0x01.1.2 结构变量定义
+
+结构变量定义
+
+```
+struct book library;
+```
+
+简化定义变量
+
+```
+struct book {
+    char title[10];
+    char author[10];
+    float value;
+} library;
+```
+
+无标记结构
+
+```
+struct {
+    char title[10];
+    char author[10];
+    float value;
+} library;
+```
+
+使用 `typedef` 给结构体取别名，简化定义
+
+```
+typedef struct book {
+    char title[10];
+    char author[10];
+    float value;
+} BOOK;
+```
+
+&gt; 可以省略 `book` 标签
+
+结构体所需分配内存大小是所有成员大小之和，然后考虑''内存对齐''分配的。所以使用`sizeof`求结构体大小时，会大于各个成员空间相加之和。
+
+!!! 0x01.2 初始化
+
+标准初始化
+
+```
+struct book library = {
+    &quot;sfasdfsafdsdfsad&quot;,
+    &quot;lsfdlasjf&quot;,
+    1.95
+};
+```
+
+''C99'' 和 ''C11'' 提供了初始化结构器
+
+```
+struct book library = {
+    .title = &quot;sfasdfsafdsdfsad&quot;,
+    .author = &quot;lsfdlasjf&quot;,
+    .value = 1.95
+};
+```
+
+!! 0x02 复杂结构体
+
+!!! 0x02.1 嵌套结构
+
+声明
+
+```
+struct book library[10];
+```
+
+数组名作为参数传递的时候，表示的是第一个元素的地址。可以传递给指针。
+
+!!! 0x02.2 嵌套结构
+
+嵌套一个结构体
+
+```
+struct guy {
+    struct  book library;
+    char job[3];
+};
+```
+
+!!! 0x02.3 匿名结构（C11）
+
+```
+struct guy {
+    struct  {char first[20]; char last[20]};
+    char job[3];
+};
+```
+
+这样声明，可以将嵌套的结构体当成外层自己的成员使用。
+
+!! 0x03 结构体指针
+
+```
+struct guy * him;
+```
+
+对指针初始化，可以使用一个结构化变量取地址
+
+```
+him = &amp;barney;  // barney 是一个struct guy 结构体
+```
+
+也可以使用复合字面量（C99）
+
+```
+him = &amp; (struct  guy) {......};
+```
+
+!!! 0x03.1 指针访问成员
+
+```
+him-&gt;income;
+```
+
+使用 `-&gt;` 运算符
+
+也可以取变量出来再调用
+
+```
+*him.income;
+```
+
+结构体指针优势：
+
+* 指向结构体的指针通常比结构体本身更容易操控
+* 早期的C实现之中，结构体不能作为参数传递给函数，但是可以结构体指针
+* 即使能传递一个结构，传递指针更高效（因为传递一个结构体作为参数，函数内部使用的是其副本，增加了消耗（注：浅拷贝的副本，不能传递 ''伸缩性数组成员'' （C99）））、
+* 参数传递使用结构体指针，在函数内部修改会生效，可以使用 `const` 防止被修改
+
+&gt; `double sum(const struct fuds * meney)`
+
+!! 0x04 伸缩型数组成员（C99）
+
+```
+struct flex {
+    int count;
+    double average;
+    double scores[];   // 伸缩型数组成员
+};
+```
+
+* 伸缩型数组成员''必须是''结构的最后一个成员
+* 结构中至少还必须有其他成员
+* 伸缩数组的声明类似于普通数组，只是它的方括号中是空的
+* 有此成员的结构体，定义变量时不给此成员分配空间，要通过 `malloc`申请空间
+
+具体操作：
+
+```
+struct flex ＊pf;   // 声明指针
+// 请求分配结构+动态数组的空间
+pf = malloc(sizeof(struct flex) + 5 * sizeof(double));
+```
+
+&gt; 注意：malloc和free 必须成对出现
+
+伸缩型成员必须注意以下几点：
+
+* 不能用结构赋值给另一个结构，因为这样只能拷贝除了伸缩型成员之外的其他成员。如果确实需要，使用 `memcpy()` 进行内存深拷贝
+* 不能值传递含有伸缩型成员的结构，还是因为拷贝的原因，值传递本身就是一拷贝副本
+* 不能将含有伸缩型成员的结构，给另一个结构当成员，不得嵌套
+
+!! 0x04 其他注意点
+
+结构体成员如果是指针变量时，初始化时使用`malloc`分配空间，因为声明结构体时并未给指针类型分配空间，避免造成运行错误。如存储字符串不用 `char[]` 而是使用 `char *`：
+
+```
+struct namect {
+    char * fname;
+    char * lname;
+    int letters;
+} pst;
+
+pst.fname = (char * ) malloc(strlen(temp) + 1);
+
+```
+
+!! 0x05 参考资料
+
+* 《C Primer Plus（第六版）》
+* [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
 <div author="hacky" created="20200410141733254" modified="20200411024026820" tags="OpenResty" title="OpenResty笔记" type="text/vnd.tiddlywiki">
 <pre>`OpenResty` 是一个基于Nginx核心和LuaJIT的第三方Nginx Modules。方便于自定义开发网关工具，kong就是一个OpenResty的应用。

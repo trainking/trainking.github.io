@@ -467,6 +467,8 @@ Error message and password prompt
 
 <li>微服务</li>
 
+<li>一个简易的内存缓存系统：Go实现</li>
+
 <li>C的结构体</li>
 
 <li>OpenResty笔记</li>
@@ -13749,7 +13751,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200824152612970" list="$:/ControlPanel 关于此" modified="20200824152622101" title="$:/StoryList">
+<div created="20200824152612970" list="关于此" modified="20200824153823437" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -14693,7 +14695,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200410141522952" title="$:/view">
 <pre>classic</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200824152610005" title="关于此" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200410154903219" modified="20200824153817761" title="关于此" type="text/vnd.tiddlywiki">
 <pre>此乃个人知识库，属于`hacky`。
 
 !! 个人介绍
@@ -14710,6 +14712,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+* [[一个简易的内存缓存系统：Go实现]]
 * [[浅谈携程：Swoole到Go的协程实现分析]]
 * [[C的结构体]]
 * [[OpenResty笔记]]</pre>
@@ -14804,6 +14807,199 @@ func main()  {
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
 
 * [[OpenResty笔记]]</pre>
+</div>
+<div author="hacky" created="20200824153038644" modified="20200824153730437" tags="" title="一个简易的内存缓存系统：Go实现" type="text/vnd.tiddlywiki">
+<pre>该程序需要满⾜以下要求：
+
+# ⽀支持设定过期时间，精度为秒级。
+# ⽀支持设定最⼤大内存，当内存超出时候做出合理理的处理理。
+# ⽀支持并发安全。
+# 为简化编程细节，⽆无需实现数据落地。
+
+```
+/**
+⽀支持过期时间和最⼤大内存⼤大⼩小的的内存缓存库。
+*/
+typeCacheinterface{
+    //size是⼀一个字符串串。⽀支持以下参数:1KB，100KB，1MB，2MB，1GB等
+    SetMaxMemory(sizestring)bool
+    //设置⼀一个缓存项，并且在expire时间之后过期
+    Set(keystring,valinterface{},expiretime.Duration)
+    //获取⼀一个值
+    Get(keystring)(interface{},bool)
+    //删除⼀一个值
+    Del(keystring)bool
+    //检测⼀一个值是否存在
+    Exists(keystring)bool
+    //情况所有值
+    Flush()bool
+    //返回所有的key多少
+    Keys()int64
+}
+```
+
+我的实现：
+
+```
+package main
+
+import (
+	&quot;time&quot;
+	&quot;sync&quot;
+	&quot;unsafe&quot;
+	&quot;fmt&quot;
+)
+
+type Item struct {
+	val interface{}   // 数据项
+	expires int64     // 超时
+}
+
+// 判断数据项是否过期
+func (item Item) isExpire() bool {
+	// 无 设置
+	if item.expires == 0 {
+		return false
+	}
+
+	// fmt.Println(&quot;DEBUG now:&quot;, time.Now().UnixNano())
+	// fmt.Println(&quot;DEBUG expires:&quot;, item.expires)
+	return time.Now().UnixNano() &gt; item.expires
+}
+
+type Cache struct {
+	items map[string]Item
+	mu sync.RWMutex
+	interval   time.Duration  // 清理数据周期
+	stopGC   chan bool
+	max  int64               // 最大内存上限
+}
+
+func (c *Cache) deleteExprie() {
+	now := time.Now().UnixNano()
+	c.mu.Lock()
+	defer c.mu.Unlock()
+
+	for k,v :=range c.items {
+		// 为0不删除
+		if v.expires &gt; 0 &amp;&amp; now &gt; v.expires {
+			delete(c.items, k)
+		}
+	}
+}
+
+func (c *Cache) SetMaxMemory(size string) bool {
+	var _max int64
+	switch size {
+		case &quot;1KB&quot;:
+			_max = 1024
+		case &quot;100KB&quot;:
+			_max = 100 * 1024
+		case &quot;1MB&quot;:
+			_max = 1024 * 1024
+		case &quot;2MB&quot;:
+			_max = 2 * 1024 * 1024
+		case &quot;1GB&quot;:
+			_max = 1024 * 1024 * 1024
+	}
+	c.max = _max
+	return true
+}
+
+func (c *Cache) Set(key string, val interface{}, expire time.Duration) {
+	var _item Item
+	_item.val = val
+	if expire &gt; 0 {
+		_item.expires = time.Now().Add(expire * time.Second).UnixNano()
+	}
+
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	// 超过最大内存
+	if int64(unsafe.Sizeof(*c)) + int64(unsafe.Sizeof(_item)) &gt; c.max {
+		panic(&quot;cache is full!&quot;)
+	}
+	c.items[key] = _item
+}
+
+func (c *Cache) Get(key string) (interface{}, bool) {
+	_item, _found := c.items[key]
+	if !_found {
+		return nil, false
+	}
+	if _item.isExpire() {
+		return nil, false
+	}
+	return _item.val, true
+}
+
+func (c *Cache) Del(key string) bool {
+	c.mu.Lock()
+	delete(c.items, key)
+	c.mu.Unlock()
+	return true
+}
+
+func (c *Cache) Flush() bool {
+	c.mu.Lock()
+	defer c.mu.Unlock()
+	c.items = map[string]Item{}
+	return true
+}
+
+func (c *Cache) Keys() int64 {
+	c.mu.RLock()
+	defer c.mu.RUnlock()
+	return int64(len(c.items))
+}
+
+func (c *Cache) gc() {
+	_t := time.NewTicker(c.interval)
+	for {
+		select {
+		case &lt;-_t.C:
+			c.deleteExprie()
+		case &lt;- c.stopGC:
+			_t.Stop()
+			return
+		}
+	}
+}
+
+// 创建缓存
+func CreateCache() *Cache {
+	c := &amp;Cache {
+		items: map[string]Item{},
+		interval: 5 * time.Second,   // 默认5执行一次清理
+		stopGC: make(chan bool),
+	}
+	go c.gc()
+	return c
+}
+
+// 删除缓存
+func RemoveCache(c *Cache) {
+	c.stopGC &lt;- true
+	*c = Cache{}
+}
+
+func main() {
+	var v *Cache = CreateCache()
+	// 设置缓存大小
+	v.SetMaxMemory(&quot;1KB&quot;)
+	// 设置项
+	v.Set(&quot;k1&quot;, &quot;v1&quot;, 0)
+	// 获取项
+	// time.Sleep(10 * time.Second)
+	fmt.Println(v.Get(&quot;k1&quot;))
+	// fmt.Println(v.Keys())
+	// fmt.Println(v.Flush())
+	// fmt.Println(v.Keys())
+	// fmt.Println(v.Del(&quot;k1&quot;))
+	// fmt.Println(v.Get(&quot;k1&quot;))
+	RemoveCache(v)
+}
+```</pre>
 </div>
 <div author="hacky" created="20200412054758034" modified="20200412073316389" tags="C语言" title="C的结构体" type="text/vnd.tiddlywiki">
 <pre>结构体是C语言常用复杂数据结构之一，诸多高级数据结构，如队列，链表等都可以用其来实现。此笔记记录结构体一些记录。

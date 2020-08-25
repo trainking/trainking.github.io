@@ -13751,7 +13751,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200824152612970" list="关于此" modified="20200824154114670" title="$:/StoryList">
+<div created="20200825065539878" list="$:/ControlPanel 一个简易的内存缓存系统：Go实现 关于此" modified="20200825070809316" title="$:/StoryList">
 <pre></pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
@@ -14808,12 +14808,12 @@ func main()  {
 
 * [[OpenResty笔记]]</pre>
 </div>
-<div author="hacky" created="20200824153038644" modified="20200824153730437" tags="" title="一个简易的内存缓存系统：Go实现" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200824153038644" modified="20200825070806973" tags="" title="一个简易的内存缓存系统：Go实现" type="text/vnd.tiddlywiki">
 <pre>该程序需要满⾜以下要求：
 
-# ⽀支持设定过期时间，精度为秒级。
-# ⽀支持设定最⼤大内存，当内存超出时候做出合理理的处理理。
-# ⽀支持并发安全。
+# 支持设定过期时间，精度为秒级。
+# 支持设定最⼤大内存，当内存超出时候做出合理理的处理理。
+# 支持并发安全。
 # 为简化编程细节，⽆无需实现数据落地。
 
 ```
@@ -14831,7 +14831,7 @@ typeCacheinterface{
     Del(keystring)bool
     //检测⼀一个值是否存在
     Exists(keystring)bool
-    //情况所有值
+    //清空所有值
     Flush()bool
     //返回所有的key多少
     Keys()int64

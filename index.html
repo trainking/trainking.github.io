@@ -251,6 +251,8 @@ Error message and password prompt
 
 <li>$:/StoryList</li>
 
+<li>$:/TagManager</li>
+
 <li>$:/temp/info-plugin</li>
 
 <li>$:/temp/RemoteAssetInfo/https://tiddlywiki.com/library/v5.1.21/index.html/$:/languages/ca-ES</li>
@@ -458,6 +460,8 @@ Error message and password prompt
 <li>$:/themes/tiddlywiki/vanilla/options/sidebarlayout</li>
 
 <li>$:/view</li>
+
+<li>分布式ID的实现：snowflake</li>
 
 <li>关于此</li>
 
@@ -13747,14 +13751,99 @@ Error message and password prompt
 <div created="20200410034842659" modified="20200410160752711" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20200410034020620" modified="20200412073429659" title="$:/state/tab/sidebar--595412856">
+<div created="20200410034020620" modified="20200831055926931" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200825065539878" list="设计模式之悟 关于此" modified="20200825122456748" title="$:/StoryList">
+<div created="20200831054401394" list="关于此" modified="20200831063217407" title="$:/StoryList">
 <pre></pre>
+</div>
+<div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
+<pre>\define lingo-base() $:/language/TagManager/
+\define iconEditorTab(type)
+&lt;$list filter=&quot;[all[shadows+tiddlers]is[image]] [all[shadows+tiddlers]tag[$:/tags/Image]] -[type[application/pdf]] +[sort[title]] +[$type$is[system]]&quot;&gt;
+&lt;$link to={{!!title}}&gt;
+&lt;$transclude/&gt; &lt;$view field=&quot;title&quot;/&gt;
+&lt;/$link&gt;
+&lt;/$list&gt;
+\end
+\define iconEditor(title)
+&lt;div class=&quot;tc-drop-down-wrapper&quot;&gt;
+&lt;$button popupTitle={{{ [[$:/state/popup/icon/]addsuffix&lt;__title__&gt;] }}} class=&quot;tc-btn-invisible tc-btn-dropdown&quot;&gt;{{$:/core/images/down-arrow}}&lt;/$button&gt;
+&lt;$reveal stateTitle={{{ [[$:/state/popup/icon/]addsuffix&lt;__title__&gt;] }}} type=&quot;popup&quot; position=&quot;belowleft&quot; text=&quot;&quot; default=&quot;&quot;&gt;
+&lt;div class=&quot;tc-drop-down&quot;&gt;
+&lt;$linkcatcher actions=&quot;&quot;&quot;&lt;$action-setfield $tiddler=&lt;&lt;__title__&gt;&gt; icon=&lt;&lt;navigateTo&gt;&gt;/&gt;&quot;&quot;&quot;&gt;
+&lt;&lt;iconEditorTab type:&quot;!&quot;&gt;&gt;
+&lt;hr/&gt;
+&lt;&lt;iconEditorTab type:&quot;&quot;&gt;&gt;
+&lt;/$linkcatcher&gt;
+&lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;/div&gt;
+\end
+\define toggleButton(state)
+&lt;$reveal stateTitle=&lt;&lt;__state__&gt;&gt; type=&quot;match&quot; text=&quot;closed&quot; default=&quot;closed&quot;&gt;
+&lt;$button setTitle=&lt;&lt;__state__&gt;&gt; setTo=&quot;open&quot; class=&quot;tc-btn-invisible tc-btn-dropdown&quot; selectedClass=&quot;tc-selected&quot;&gt;
+{{$:/core/images/info-button}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+&lt;$reveal stateTitle=&lt;&lt;__state__&gt;&gt; type=&quot;match&quot; text=&quot;open&quot; default=&quot;closed&quot;&gt;
+&lt;$button setTitle=&lt;&lt;__state__&gt;&gt; setTo=&quot;closed&quot; class=&quot;tc-btn-invisible tc-btn-dropdown&quot; selectedClass=&quot;tc-selected&quot;&gt;
+{{$:/core/images/info-button}}
+&lt;/$button&gt;
+&lt;/$reveal&gt;
+\end
+&lt;table class=&quot;tc-tag-manager-table&quot;&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;&lt;lingo Colour/Heading&gt;&gt;&lt;/th&gt;
+&lt;th class=&quot;tc-tag-manager-tag&quot;&gt;&lt;&lt;lingo Tag/Heading&gt;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;&lt;lingo Count/Heading&gt;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;&lt;lingo Icon/Heading&gt;&gt;&lt;/th&gt;
+&lt;th&gt;&lt;&lt;lingo Info/Heading&gt;&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;$list filter=&quot;[tags[]!is[system]sort[title]]&quot;&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;$edit-text field=&quot;color&quot; tag=&quot;input&quot; type=&quot;color&quot;/&gt;&lt;/td&gt;
+&lt;td&gt;{{||$:/core/ui/TagTemplate}}&lt;/td&gt;
+&lt;td&gt;&lt;$count filter=&quot;[all[current]tagging[]]&quot;/&gt;&lt;/td&gt;
+&lt;td&gt;
+&lt;$macrocall $name=&quot;iconEditor&quot; title={{!!title}}/&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;$macrocall $name=&quot;toggleButton&quot; state={{{ [[$:/state/tag-manager/]addsuffix&lt;currentTiddler&gt;] }}} /&gt; 
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td colspan=&quot;4&quot;&gt;
+&lt;$reveal stateTitle={{{ [[$:/state/tag-manager/]addsuffix&lt;currentTiddler&gt;] }}} type=&quot;match&quot; text=&quot;open&quot; default=&quot;&quot;&gt;
+&lt;table&gt;
+&lt;tbody&gt;
+&lt;tr&gt;&lt;td&gt;&lt;&lt;lingo Colour/Heading&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;$edit-text field=&quot;color&quot; tag=&quot;input&quot; type=&quot;text&quot; size=&quot;9&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;&lt;&lt;lingo Icon/Heading&gt;&gt;&lt;/td&gt;&lt;td&gt;&lt;$edit-text field=&quot;icon&quot; tag=&quot;input&quot; size=&quot;45&quot;/&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/$reveal&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/$list&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td style=&quot;position:relative;&quot;&gt;
+{{$:/core/ui/UntaggedTemplate}}
+&lt;/td&gt;
+&lt;td&gt;
+&lt;small class=&quot;tc-menu-list-count&quot;&gt;&lt;$count filter=&quot;[untagged[]!is[system]] -[tags[]]&quot;/&gt;&lt;/small&gt;
+&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</pre>
 </div>
 <div plugin-type="info" title="$:/temp/info-plugin" type="application/json">
 <pre>{
@@ -14697,7 +14786,51 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200410141522952" title="$:/view">
 <pre>classic</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200825122526023" title="关于此" type="text/vnd.tiddlywiki">
+<div created="20200831054416241" modified="20200831063050965" tags="" title="分布式ID的实现：snowflake">
+<pre>''分布式ID'' 是分布式系统中不可或缺的一部分。在实际业务中，我们常常需要用到id，在单体系统中，可以使用某个自增id的技术来实现，但是到了分布式系统中。因为服务实例分布在不同服务器上，要保证全局id数据的一致性，不出现重复ID是至关重要的。
+
+之前常用的一种使用''redis''提供一个中心化的服务，由它''单线程''特性，保证了全局id的一致性，但是这种方式有两个致命的缺点：
+
+# 性能差，因为每个需要ID的服务，都要访问此，而为保证一致性，其又是单线程的，势必影响ID的生成效率
+# 容灾差，虽然可以通过集群的方式，让中心化ID服务有更多的容灾，但是如果出现大面积的网络宕机情况还是不可避免的出现服务不可用，而此服务又对整个业务流程至关重要，则牵一发动全身，导致整个业务不可用
+
+因此，通过算法制定规则的分布式ID生成，去中心化的ID，则更高性能，更少依赖。''Twitter''的''snowflake'' 俗称''雪花算法''，便是很好的实现思路。
+
+!! ''0x01 简介''
+
+''snowflake'' 的实现逻辑其实很简单，一句话总结，''用位来表示时间戳+服务ID+容器ID+自增ID''，这样一个实例上可以创建的ID极限，则是这一时刻，自增ID所占位数的极限。用一个''int64''举例（下面将服务ID和容器ID统一用NodeID表示，事务中可以动态构建这一部分，通过部署写入确定）：
+
+```
++--------------------------------------------------------------------------+
+| 1 Bit Unused | 41 Bit Timestamp |  10 Bit NodeID  |   12 Bit Sequence ID |
++--------------------------------------------------------------------------+
+```
+
+诠释：
+
+* 其中''第一位'' 不用，默认使用表示正负，也就是说64位的int，我们只能用到63位。
+* 选取''41''位表示时间戳，时间以毫秒计数的话，可以使用69年，如果以系统默认时间戳''1970-01-01 00:00:00''的起始点，只能使用到2039年，但是我们可以自定义这个时间差，例如将这个时间戳起始点设置为上线那天，则能使用的时间更长
+* 选取''10''位作为服务容器的节点ID，如果是是服务多，容器实力多，可以调整位数，比如7位用于服务，3位用于容器，反之亦然
+* ''12''位标示实例的自增ID，这样每一个容器实例都可以在每毫秒生成4096条ID，足够使用
+
+!! ''0x02 实现''
+
+[[https://github.com/bwmarrin/snowflake]]
+
+提供了一个''golang''的简洁明了的实现，其他语言的实现也是类似，核心操作就是两点：
+
+# 位操作，因为要在int64上通过操作位来生成ID，所以位操作是必不可少的。当然，如果沿用这套思路，采取拼接字符串来实现一个也是可以的，只是这样一来，ID的存储空间大一些，生成耗时一些
+# 线程安全，因为通过一定义NodeID的方式，已经将各个实例的生成分开，但是在实例内部为了保证生成ID的唯一性，生成的步骤必须是线程安全的，可以通过加锁等方式实现
+
+!! ''0x03 部署''
+
+部署时，要通过写入配置的方式，为每个容器实例分配NodeID。
+因此可能存在一下情况：
+
+* NodeID分配重复，这样的情况直接导致算法无法保障
+* 因为业务拓展，服务ID不够分配，这种情况产生，一是低估了业务的拓张，而是本身业务可能设计不合理。一般来说，当业务拓张到10位存不下了，那么应该考虑到拆分业务，成立新的事物，开发新一套系统。第二种则需要考虑设计的合理</pre>
+</div>
+<div author="hacky" created="20200410154903219" modified="20200831063206564" title="关于此" type="text/vnd.tiddlywiki">
 <pre>此乃个人知识库，属于`hacky`。
 
 !! 个人介绍
@@ -14714,6 +14847,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+* [[分布式ID的实现：snowflake]]
 * [[设计模式之悟]]
 * [[一个简易的内存缓存系统：Go实现]]
 * [[浅谈携程：Swoole到Go的协程实现分析]]

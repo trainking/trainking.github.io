@@ -13757,7 +13757,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200831054401394" list="关于此" modified="20200831063240709" title="$:/StoryList">
+<div created="20200831054401394" list="浅谈携程：Swoole到Go的协程实现分析 关于此" modified="20200831065433097" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -14861,10 +14861,10 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 * [[微服务]]</pre>
 </div>
-<div author="hacky" created="20200824140916890" modified="20200824152219051" tags="" title="浅谈携程：Swoole到Go的协程实现分析" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200824140916890" modified="20200831065515025" tags="" title="浅谈携程：Swoole到Go的协程实现分析" type="text/vnd.tiddlywiki">
 <pre>协程（Coroutine）是一种比线程更轻量级的存在。这句话听起来像是似懂非懂，首先这个比较点在哪里。也就是比线程更轻量级，这个**线程**指的是什么线程？这个更轻量级又体现在哪里？
 
-!! 0x01 线程
+!! ''0x01 线程''
 
 我相信上面提到的线程指的是POSIX线程，也称之为**Pthread**。同一进程内的Pthread共享以下资源：
 
@@ -14881,11 +14881,11 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 1. ''Pthread''之间的消息通信，基本都要通过''共享内存''来实现，所以会带来线程''同步''的问题。
 2. ''Pthread''的好处是可以带来''多核CPU''的充分利用，因为''Pthread''由''内核态''管理的，可以分配到''多核CPU''上并发执行
 
-!! 0x02 轻量化？
+!! ''0x02 轻量化？''
 
 有了线程做参考，那么就开始看如何让它更轻量化？这就不得不提到一个理论''CSP（Communication Sequential Process）通信顺序进程''，这个理论的核心就是process（进程）通过channel（通道）交换数据。process 轻量化到用户态级别，而不是内核态级别。这样可以通过channel传递的消息，可以控制process执行的顺序。
 
-!! 0x03 Swoole的实现
+!! ''0x03 Swoole的实现''
 
 Swoole的协程是''用户态''，所以Swoole的协程必须在协程容器里面执行，而其实现又是在单线程上实现的协程，所以并无法使用多核CPU。
 
@@ -14907,7 +14907,7 @@ echo &quot;hell main \n&quot;;
 
 这段代码多次执行的结果是一样的
 
-!! 0x04 Go的实现
+!! ''0x04 Go的实现''
 
 Go的协程也是''用户态''，但是他更是语言级的，不过他并不是完全按''CSP理论'' 来实现，Go的协程是可以共享内存的，不过Go做得更好的是他支持多核CPU。
 
@@ -14933,7 +14933,7 @@ func main()  {
 
 这段代码的每次执行结果不一样
 
-!! 0x05 其他实现
+!! ''0x05 其他实现''
 
 完全遵照''CSP''实现的，只有''Erlang''，这是一种多协程，不共享内存，甚至连变量都没有的函数式编程语言，''Erlang''从根子上就支持并行，但是这样走极端的后果，就是代码晦涩难懂，学习成本高，所以这门语言也就小众化了。
 

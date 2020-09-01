@@ -13932,7 +13932,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200901080400490" list="十大经典排序算法 关于此" modified="20200901081522886" title="$:/StoryList">
+<div created="20200901080400490" list="十大经典排序算法 关于此" modified="20200901123813628" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200901122102715" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200901145452491" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15342,6 +15342,88 @@ def shellSort(arr):
             arr[j+gap] = temp
         gap = math.floor(gap/3)
     return arr
+```
+
+!! ''0x05 归并排序''
+
+''归并排序''是建立在''归并''操作上的一种有效排序方法。所谓''归并''操作其实指的就是''merge''操作，例如两个数组可以合并成一个数组。而''归并''排序当然不只是只有归并操作，准确来说应该是''分治-归并''排序算法。''分治''法的思想，先将数据分解，然后分解到好排序的子集（例如只有两个元素的数组），然后再是一步步合并成最终有序。
+
+实现上来说，有两种：
+
+# 基于''递归''的自上而下法
+# 基于''迭代''的自下而上法
+
+!!! ''实现''
+
+Python：
+
+```
+def mergeSort(arr):
+    if len(arr) &lt; 2:
+        return arr
+    middle = len(arr) // 2
+    left, right = arr[0:middle], arr[middle:]
+    return merge(mergeSort(left), mergeSort(right))
+
+def merge(left, right):
+    result = []
+    while left and right:
+        if left[0] &lt;= right[0]:
+            result.append(left.pop(0))
+        else:
+            result.append(right.pop(0))
+    while left:
+        result.append(left.pop(0))
+    while right:
+        result.append(right.pop(0))
+    return result
+```
+
+!! ''0x06 快速排序''
+
+''快速排序''在大多数情况下，都是排序的最有解。虽然在最恶劣情况下，快排的效率是$$O(n^2)$$，但是这种情况比较少见（只有选用的分区节点不合理，是数据极值得情况）。快排的基本逻辑是，选取一个''基准''，然后把数据中的数据按照此基准，分为''大于区间''和''小于区间''，在大于区间里面的数据，都比小于区间里面的数据要大。因此再对两个区间进行同样的操作，达到分而治之的效果。
+
+同样是运用''分治法''的思想，但是和''归并排序''不同的是，归并排序是把数据不断拆分，直到不可分为止，这样需要增加额外的空间，同时，合并操作又添加了新的性能消耗，而''快排''则是在原数据上移动基准来实现，所以不需要额外的空间。
+
+基准元素的选择，很大程度影响快排的效率，有以下几种方法：
+
+# 取第一个元素 (可能因为正好是极值)
+# 取最后一个元素 (可能因为正好是极值)
+# 取第一个，最后一个，中间位置元素三者之中的中位数
+# 取第一个和最后一个之间的位置的随机数 $$k(low&lt;=k&lt;=high)$$，选R[k]做基准元素
+
+!!! ''实现''
+
+Python：
+
+```
+def quickSort(arr, low=None, high=None):
+    low = 0 if low == None  else low
+    high = len(arr)-1 if high == None  else high
+    if low &lt; high:
+        mid = partition(arr, low, high)
+        quickSort(arr, low, mid - 1)
+        quickSort(arr, mid + 1, high)
+    return arr
+
+def partition(arr, low, high):
+    i = low; j = high; pivot = arr[low]  # 以第一个元素为基准
+    while i &lt; j:
+        while i &lt; j and arr[j] &gt; pivot:
+            j -= 1    # 数据大于，向左移动
+        if i &lt; j:
+            swap(arr, i, j)
+            i += 1  # 交换之后 移位
+        while i &lt; j and arr[i] &lt;= pivot:
+            i += 1    # 数据小于，向右移动
+        if i &lt; j:
+            swap(arr, i, j)
+            j -= 1   # 交换之后 移位
+    return i
+
+def swap(arr, i, j):
+    arr[i], arr[j]  = arr[j], arr[i]
+
 ```
 </pre>
 </div>

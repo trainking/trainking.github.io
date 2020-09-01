@@ -481,8 +481,6 @@ Error message and password prompt
 
 <li>C的结构体</li>
 
-<li>Draft of '十大经典排序算法'</li>
-
 <li>OpenResty笔记</li>
 
 </ul>
@@ -13928,13 +13926,13 @@ Error message and password prompt
 <div created="20200410034842659" modified="20200410160752711" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/Tags</pre>
 </div>
-<div created="20200410034020620" modified="20200901080017944" title="$:/state/tab/sidebar--595412856">
-<pre>目录</pre>
+<div created="20200410034020620" modified="20200901080356361" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/Recent</pre>
 </div>
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200901080021929" list="$:/ControlPanel [[Draft of '十大经典排序算法']] 关于此" modified="20200901080021929" title="$:/StoryList">
+<div created="20200901080400490" list="十大经典排序算法 关于此" modified="20200901081522886" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15007,7 +15005,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 * NodeID分配重复，这样的情况直接导致算法无法保障
 * 因为业务拓展，服务ID不够分配，这种情况产生，一是低估了业务的拓张，而是本身业务可能设计不合理。一般来说，当业务拓张到10位存不下了，那么应该考虑到拆分业务，成立新的事物，开发新一套系统。第二种则需要考虑设计的合理</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200831063206564" title="关于此" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200410154903219" modified="20200901081510998" title="关于此" type="text/vnd.tiddlywiki">
 <pre>此乃个人知识库，属于`hacky`。
 
 !! 个人介绍
@@ -15024,6 +15022,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+* [[十大经典排序算法]]
 * [[分布式ID的实现：snowflake]]
 * [[设计模式之悟]]
 * [[一个简易的内存缓存系统：Go实现]]
@@ -15179,25 +15178,54 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200901075913861" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200901082718113" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
 |!算法|!平均时间复杂度|!最好情况|!最坏情况|!空间复杂度|!排序方式|!稳定性|
-|冒泡排序|O(n^2)|O(n)|$$\O(n^2)$$|O(1)|In-palace|稳定|
-|选择排序|O(n^2)|O(n^2)|O(n^2)|O(1)|In-palace|不稳定|
-|插入排序|O(n^2)|O(n)|O(n^2)|O(1)|In-palace|稳定|
-|希尔排序|O(n log^n)|O(n log^2 n)|O(n log^2 n)|O(1)|In-palace|不稳定|
-|归并排序|O(n log^n)|O(n log^n)|O(n log^n)|O(n)|Out-palace|稳定|
-|快速排序|O(n log^n)|O(n^2)|O(log^n)|O(log^n)|In-palace|不稳定|
-|堆排序|O(n log^n)|O(n^2)|O(n log^n)|O(1)|In-palace|不稳定|
-|计数排序|O(n+k)|O(n+k)|O(n+k)|O(k)|Out-palace|稳定|
-|桶排序|O(n+k)|O(n+k)|O(n^2)|O(n + k)|Out-palace|稳定|
-|基数排序|O(n x k)|O(n x k)|O(n x k)|O(n + k)|Out-palace|稳定|
+|冒泡排序|$$O(n^2)$$|$$O(n)$$|$$O(n^2)$$|$$O(1)$$|In-place|稳定|
+|选择排序|$$O(n^2)$$|$$O(n^2)$$|$$O(n^2)$$|$$O(1)$$|In-place|不稳定|
+|插入排序|$$O(n^2)$$|$$O(n)$$|$$O(n^2)$$|$$O(1)$$|In-place|稳定|
+|希尔排序|$$O(n log^n)$$|$$O(n log^2 n)$$|$$O(n log^2 n)$$|$$O(1)$$|In-place|不稳定|
+|归并排序|$$O(n log^n)$$|$$O(n log^n)$$|$$O(n log^n)$$|$$O(n)$$|Out-place|稳定|
+|快速排序|$$O(n log^n)$$|$$O(n^2)$$|$$O(log^n)$$|$$O(log^n)$$|In-place|不稳定|
+|堆排序|$$O(n log^n)$$|$$O(n^2)$$|$$O(n log^n)$$|$$O(1)$$|In-place|不稳定|
+|计数排序|$$O(n+k)$$|$$O(n+k)$$|$$O(n+k)$$|$$O(k)$$|Out-place|稳定|
+|桶排序|$$O(n+k)$$|$$O(n+k)$$|$$O(n^2)$$|$$O(n + k)$$|Out-place|稳定|
+|基数排序|$$O(n * k)$$|$$O(n * k)$$|$$O(n * k)$$|$$O(n + k)$$|Out-place|稳定|
 
-$$
-n^2
-$$
+上述诠释:
+
+* ''n：'' 数据规模
+* ''k：'' ''桶''的个数
+* ''In-place：'' 占用常数内存，不用额外内存
+* ''Out-place：'' 占用额外内存
+* ''稳定性：'' 排序后2个相等键值的顺序和排序之前它们的顺序相同
+
+!! ''0x01 冒泡排序''
+
+''冒泡排序''由无序到有序的过程，是从''无序区间''中交换出最大（最小值）到''有序区间''的过程。通俗来讲，就是比较''相邻''两个''元素''的大小，然后交换他们的位置，对每个元素执行，则得出当前无需区间的''极值'' (最大或者最小)，将此数加入到''有序区间''后，剩下''无序区间''再重复操作。
+
+!!! ''最佳情况''
+
+数据已经是正序，效率最高
+
+!!! ''最坏情况''
+
+输入数据是反序，效率最差
+
+!!! ''实现''
+
+Python：
+
+```
+def bubbleSort(arr):
+    for i in range(1,len(arr)):
+        for j in range(0, len(arr) - i):
+            if arr[j] &gt; arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+```
 </pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
@@ -15606,24 +15634,6 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
-</div>
-<div created="20200901072233538" draft.of="十大经典排序算法" draft.title="十大经典排序算法" modified="20200901075926736" tags="" title="Draft of '十大经典排序算法'" type="text/vnd.tiddlywiki">
-<pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
-书中总结了10个最经典的是个排序算法，也是面试中的常考题。
-
-|!算法|!平均时间复杂度|!最好情况|!最坏情况|!空间复杂度|!排序方式|!稳定性|
-|冒泡排序|O(n^2)|O(n)|O(n^2)|O(1)|In-palace|稳定|
-|选择排序|O(n^2)|O(n^2)|O(n^2)|O(1)|In-palace|不稳定|
-|插入排序|O(n^2)|O(n)|O(n^2)|O(1)|In-palace|稳定|
-|希尔排序|O(n log^n)|O(n log^2 n)|O(n log^2 n)|O(1)|In-palace|不稳定|
-|归并排序|O(n log^n)|O(n log^n)|O(n log^n)|O(n)|Out-palace|稳定|
-|快速排序|O(n log^n)|O(n^2)|O(log^n)|O(log^n)|In-palace|不稳定|
-|堆排序|O(n log^n)|O(n^2)|O(n log^n)|O(1)|In-palace|不稳定|
-|计数排序|O(n+k)|O(n+k)|O(n+k)|O(k)|Out-palace|稳定|
-|桶排序|O(n+k)|O(n+k)|O(n^2)|O(n + k)|Out-palace|稳定|
-|基数排序|O(n x k)|O(n x k)|O(n x k)|O(n + k)|Out-palace|稳定|
-
-</pre>
 </div>
 <div author="hacky" created="20200410141733254" modified="20200411024026820" tags="OpenResty" title="OpenResty笔记" type="text/vnd.tiddlywiki">
 <pre>`OpenResty` 是一个基于Nginx核心和LuaJIT的第三方Nginx Modules。方便于自定义开发网关工具，kong就是一个OpenResty的应用。

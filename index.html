@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200901082718113" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200901094133143" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15224,6 +15224,63 @@ def bubbleSort(arr):
         for j in range(0, len(arr) - i):
             if arr[j] &gt; arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
+```
+
+!! ''0x02 选择排序''
+
+''选择排序'' 是最简单直观的排序，每次从''无序区间''选出极值（最大或者最小），加入到''有序区间''，与''冒泡排序''不同的是，因为每次只从里面选出极值，并不改变''无序区间''，所以无论在什么情况下他的时间复杂度都是$$O(n^2)$$。唯一的有点，大概是就是不使用额外空间，所以使用此算法，要考虑数据的规模。
+
+!!! ''最坏情况''
+
+任何情况下都是$$O(n^2)$$
+
+!!! ''最好情况''
+
+任何情况下都是$$O(n^2)$$
+
+!!! ''实现''
+
+Python:
+
+```
+def selectionSort(arr):
+    for i in range(len(arr) - 1):
+        # 记录最小数的索引
+        minIndex = i
+        for j in range(i + 1, len(arr)):
+            if arr[j] &lt; arr[minIndex]:
+                minIndex = j
+        # i 不是最小数时，将 i 和最小数进行交换
+        if i != minIndex:
+            arr[i], arr[minIndex] = arr[minIndex], arr[i]
+    return arr
+```
+
+!! ''0x03 插入排序''
+
+''插入排序''的原理是''构造''一个有序序列，然后未排序数据，从有序序列的最后向前扫描，找到相应的位置插入进去。算法的核心是找到合适的插入位置，所以数组的序号是从''-1''开始。
+
+!!! ''最佳情况''
+
+数据已经是正序，效率最高
+
+!!! ''最坏情况''
+
+输入数据是反序，效率最差
+
+Python：
+
+```
+def insertionSort(arr):
+    for i in range(len(arr)):
+        preIndex = i - 1
+        current = arr[i]
+        while preIndex &gt;= 0 and arr[preIndex] &gt; current:
+            # 空一个位出来，如果没找到合适插入位，继续后移动数据
+            arr[preIndex + 1] = arr[preIndex]
+            preIndex -= 1
+        arr[preIndex + 1] = current
     return arr
 ```
 </pre>

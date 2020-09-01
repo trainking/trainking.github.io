@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200901103823232" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200901122102715" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15200,7 +15200,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 * ''k：'' ''桶''的个数
 * ''In-place：'' 占用常数内存，不用额外内存
 * ''Out-place：'' 占用额外内存
-* ''稳定性：'' 排序后2个相等键值的顺序和排序之前它们的顺序相同
+* ''稳定性：'' 排序后2个相等键值的顺序和排序之前它们的顺序相同，即意味着相等键值会被调换，做无用功
 
 !! ''0x01 冒泡排序''
 
@@ -15307,6 +15307,40 @@ Python：
             arr[j + 1] = arr[j]
             j -= 1
         arr[j + 1] = current
+    return arr
+```
+
+!! ''0x04 希尔排序''
+
+''希尔排序''也叫''递减增量排序''，是插入排序的一种更高效的改进版本。总体思想是：将待排序记录分割成若干个子序列，分别进行插入排序，等整个序列中的记录''基本有序''时，再对全体记录依次进行插入排序。''希尔排序''对于&quot;低熵&quot;的已经快要排好序数据可以达到高效率，但插入本身是低效的，同时希尔排序是''不稳定''的，存在移动两个等值的顺序。
+
+!!! ''最佳情况''
+
+数据基本有序
+
+!!! ''最坏情况''
+
+输入数据无序，切存在大量相同值元素
+
+!! ''实现''
+
+Python：
+
+```
+def shellSort(arr):
+    import math
+    gap=1
+    while(gap &lt; len(arr)/3):
+        gap = gap*3+1
+    while gap &gt; 0:
+        for i in range(gap,len(arr)):
+            temp = arr[i]
+            j = i-gap
+            while j &gt;=0 and arr[j] &gt; temp:
+                arr[j+gap]=arr[j]
+                j-=gap
+            arr[j+gap] = temp
+        gap = math.floor(gap/3)
     return arr
 ```
 </pre>

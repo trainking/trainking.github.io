@@ -477,6 +477,8 @@ Error message and password prompt
 
 <li>微服务</li>
 
+<li>延时任务系统：时间堆实现</li>
+
 <li>一个简易的内存缓存系统：Go实现</li>
 
 <li>C的结构体</li>
@@ -13932,7 +13934,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200901080400490" list="十大经典排序算法 关于此" modified="20200901123813628" title="$:/StoryList">
+<div list="延时任务系统：时间堆实现 关于此" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15596,6 +15598,149 @@ function radixSort(arr, maxDigit) {
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
 
 * [[OpenResty笔记]]</pre>
+</div>
+<div created="20200902130400615" modified="20200902132445774" tags="" title="延时任务系统：时间堆实现">
+<pre>''延时任务系统''是分布式网络构架中常常用到的一套系统，例如下单成功后，需要在第15分钟检查用户的这笔订单是否完成。其本质是利用''定时器''，实现拓展的CronTab的任务实现。而为什么不直接使用CronTab呢?
+
+CronTab有以下局限性：
+
+# 执行任务时秒级，而我们许多执行层面希望到更低级别
+# 系统级别服务，没办法拓展，利用CronTab的话，仅仅是到了时间节点就唤醒程序执行而已，并不能灵活编码，拓展功能
+
+所以，我们需要一套''延时任务系统''。
+
+延时任务系统的定时器，每次执行都检查我们存储的任务执行时间，到了执行节点，就开始执行，一般来说，秒级任务，我们则需要比它低一个级别的毫米级检查。
+
+同时，对于执行任务的存储，有两种方式：
+
+* 时间堆实现
+* 时间轮实现
+
+本文只说时间堆。堆的特性，堆顶一定是最大元素（大顶堆）或者最小元素 （小顶堆）。时间堆便是借用''小顶堆''来实现。
+
+!! ''实例代码''
+
+Go：
+
+```
+package main
+
+import (
+	&quot;fmt&quot;
+	&quot;time&quot;
+)
+
+// 定义结构体
+type TimeHeap struct {
+	heap []int64    // 堆结构数据，用切片实现
+	interval time.Duration // 检查任务执行周期
+	stopTask chan bool  // 关闭执行指令通道
+}
+
+// 获取堆顶
+func (t *TimeHeap) Get() (int64, bool) {
+	if len(t.heap) &lt;= 0 {
+		return 0, false
+	}
+	return t.heap[0], true
+}
+
+// 取出堆顶
+func (t *TimeHeap) Pop() (int64, bool) {
+	if len(t.heap) &lt;= 0 {
+		return 0, false
+	}
+	top := t.heap[0]
+	t.heap = append(t.heap[:0], t.heap[1:]...)
+	return top, true
+}
+
+// 加入元素
+func (t *TimeHeap) Add(it int64) bool {
+	t.heap = append(t.heap, it)
+	buiildMinHeap(t.heap)
+	return true
+}
+
+// 任务执行回调，可拓展成接受自定义函数来执行
+func (t *TimeHeap) do() {
+	if next_time, ok := t.Get(); ok {
+		if (next_time - time.Now().UnixNano()) &lt; int64(t.interval) {
+			if p_time, ok := t.Pop(); ok {
+				if next_time == p_time {
+					// 执行代码
+					fmt.Println(&quot;执行任务....&quot;)
+				}
+			}
+		}
+	}
+}
+
+// 启动任务定时器
+func (t *TimeHeap) task() {
+	ticker := time.NewTicker(t.interval)
+	for {
+		select {
+		case &lt;-ticker.C:
+			t.do()
+		case &lt;- t.stopTask:
+			ticker.Stop()
+			return
+		}
+	}
+}
+
+// 构建小顶堆函数
+func buiildMinHeap(arr []int64) {
+	for i := len(arr) / 2; i &gt; -1; i-- {
+		heapify(arr, i)	
+	}
+}
+
+// 调整堆
+func heapify(arr []int64, i int) {
+	left := 2 * i + 1
+	right := 2 * i + 2
+	minest := i
+	if left &lt; len(arr) &amp;&amp; arr[left] &lt; arr[minest] {
+		minest = left
+	}
+	if right &lt; len(arr) &amp;&amp; arr[right] &lt; arr[minest] {
+		minest = right
+	}
+	if minest != i {
+		arr[i], arr[minest] = arr[minest], arr[i]
+		heapify(arr, minest)
+	}
+}
+
+// 创建
+func NewTimeHeap() *TimeHeap {
+	t := &amp;TimeHeap{
+		heap: make([]int64, 0),
+		interval: 100 * time.Millisecond,   // 每一百毫秒执行一次
+		stopTask: make(chan bool),
+	}
+	go t.task()
+	return t
+}
+
+func main() {
+	t := NewTimeHeap()
+	t.Add(time.Now().UnixNano() + int64(3 * time.Second))
+	t.Add(time.Now().UnixNano() + int64(5 * time.Second))
+	t.Add(time.Now().UnixNano() + int64(6 * time.Second))
+	time.Sleep(15 * time.Second)
+	t.stopTask &lt;- true // 通道指令关闭定时器
+}
+```
+
+!! ''优化方向''
+
+# 可以在''do()''接受设定的回调函数执行
+# 并发情况下''Add()''和''Pop()''都需要考虑加锁
+# 这是运用了''二叉堆''来实现，可以使用更平衡的''四叉堆''来实现
+</pre>
 </div>
 <div author="hacky" created="20200824153038644" modified="20200825070806973" tags="" title="一个简易的内存缓存系统：Go实现" type="text/vnd.tiddlywiki">
 <pre>该程序需要满⾜以下要求：

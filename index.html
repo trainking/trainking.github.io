@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200902025417824" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200902031715185" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15472,7 +15472,34 @@ def heapSort(arr):
         arrLen -=1
         heapify(arr, 0)
     return arr
-```</pre>
+```
+
+!! ''0x08 计数排序''
+
+''计数排序''核心在于将输入数据，转换为减，然后统计每个键的出现的次数，这是一种线性的排序，但是适用范围有限。技术排序要求，排序数据必须是有确定范围的数据，比如排个整数集合。
+
+!!! ''实现''
+
+Python：
+
+```
+def countingSort(arr, maxValue):
+    bucketLen = maxValue+1
+    bucket = [0]*bucketLen
+    sortedIndex =0
+    arrLen = len(arr)
+    for i in range(arrLen):
+        if not bucket[arr[i]]:
+            bucket[arr[i]]=0
+        bucket[arr[i]]+=1
+    for j in range(bucketLen):
+        while bucket[j]&gt;0:
+            arr[sortedIndex] = j
+            sortedIndex+=1
+            bucket[j]-=1
+    return arr
+```
+</pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。

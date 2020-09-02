@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200901145452491" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200902025417824" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15425,7 +15425,54 @@ def swap(arr, i, j):
     arr[i], arr[j]  = arr[j], arr[i]
 
 ```
-</pre>
+
+!! ''0x07 堆排序''
+
+''堆排序''是利用堆这种数据结构所设计的一种排序方法。堆是一种近似完全二叉树的结构，同时要满足''堆积''：即子节点的值总是小于（或大于）它的父节点。因此堆有两种形式：
+
+* ''大顶堆''：每个节点的值总是大于或者等于其子节点的值，因此堆顶是最大元素，排序中可用于''升序''排列
+* ''小顶堆''：每个节点的值总是小于或者等于其子节点的值，因此堆顶是最小元素，排序中可用于''降序''排列
+
+为什么是大顶堆升序，小顶堆降序呢？
+
+因为堆排序的原理是把堆顶与最后一个元素交换，然后再改变除''有序区间''再度构建一个堆。
+
+!!! ''实现''
+
+Python:
+
+```
+def buildMaxHeap(arr):
+    import math
+    for i in range(math.floor(len(arr)/2),-1,-1):
+        heapify(arr,i)
+
+def heapify(arr, i):
+    left = 2*i+1
+    right = 2*i+2
+    largest = i
+    if left &lt; arrLen and arr[left] &gt; arr[largest]:
+        largest = left
+    if right &lt; arrLen and arr[right] &gt; arr[largest]:
+        largest = right
+
+    if largest != i:
+        swap(arr, i, largest)
+        heapify(arr, largest)
+
+def swap(arr, i, j):
+    arr[i], arr[j] = arr[j], arr[i]
+
+def heapSort(arr):
+    global arrLen
+    arrLen = len(arr)
+    buildMaxHeap(arr)
+    for i in range(len(arr)-1,0,-1):
+        swap(arr,0,i)
+        arrLen -=1
+        heapify(arr, 0)
+    return arr
+```</pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。

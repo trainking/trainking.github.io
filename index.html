@@ -15178,7 +15178,7 @@ Java的设计模式实例到处都是，我用PHP做了一个：
 
 </pre>
 </div>
-<div created="20200901072233538" modified="20200902045534143" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
+<div created="20200901072233538" modified="20200902060811935" tags="" title="十大经典排序算法" type="text/vnd.tiddlywiki">
 <pre>''排序算法'' 是《数据结构与算法》中基本的算法之一。
 书中总结了10个最经典的是个排序算法，也是面试中的常考题。
 
@@ -15551,7 +15551,45 @@ function bucketSort(arr, bucketSize) {
 }
 ```
 
+!! ''0x10 基数排序''
 
+''基数排序''是一种非比较型排序算法，例如将一个整数切成成不同的位，例如57，则其10位为5，个位为7，这里的''位''依然是利用''桶''来实现。''计数排序''，''桶排序''，''基数排序''都选择相似的桶结构，不同之处在于：
+
+* ''计数排序''每个桶都是一个位
+* ''桶排序''是一段范围构建一个桶
+* ''基数排序''根据切分的键位来分桶
+
+
+!!! ''实现''
+
+JavaScript：
+
+```
+var counter = [];
+function radixSort(arr, maxDigit) {
+    var mod = 10;
+    var dev = 1;
+    for (var i = 0; i &lt; maxDigit; i++, dev *= 10, mod *= 10) {
+        for(var j = 0; j &lt; arr.length; j++) {
+            var bucket = parseInt((arr[j] % mod) / dev);
+            if(counter[bucket]==null) {
+                counter[bucket] = [];
+            }
+            counter[bucket].push(arr[j]);
+        }
+        var pos = 0;
+        for(var j = 0; j &lt; counter.length; j++) {
+            var value = null;
+            if(counter[j]!=null) {
+                while ((value = counter[j].shift()) != null) {
+                      arr[pos++] = value;
+                }
+          }
+        }
+    }
+    return arr;
+}
+```
 </pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">

@@ -487,6 +487,8 @@ Error message and password prompt
 
 <li>OpenResty笔记</li>
 
+<li>Unix文件描述符：标准输入输出示例</li>
+
 </ul>
 </p>
 
@@ -13900,7 +13902,7 @@ Error message and password prompt
 <div created="20200411032130460" modified="20200411032130460" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Advanced</pre>
 </div>
-<div created="20200410034034397" modified="20200410154504816" title="$:/state/tab--86143343">
+<div created="20200410034034397" modified="20200909083910985" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
 <div created="20200411032841518" modified="20200411032848132" title="$:/state/tab--959111941">
@@ -13918,8 +13920,8 @@ Error message and password prompt
 <div created="20200411024001945" modified="20200411024109381" title="$:/state/tab-1504836261">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
 </div>
-<div created="20200410034029750" modified="20200901080026631" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20200410034029750" modified="20200909083912255" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
 <div created="20200411023905465" modified="20200411023948565" title="$:/state/tab-1856250970">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
@@ -13936,7 +13938,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div list="关于此" title="$:/StoryList">
+<div created="20200909083904011" list="关于此" modified="20200909083904011" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15009,7 +15011,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 * NodeID分配重复，这样的情况直接导致算法无法保障
 * 因为业务拓展，服务ID不够分配，这种情况产生，一是低估了业务的拓张，而是本身业务可能设计不合理。一般来说，当业务拓张到10位存不下了，那么应该考虑到拆分业务，成立新的事物，开发新一套系统。第二种则需要考虑设计的合理</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200904052514822" title="关于此" type="text/vnd.tiddlywiki">
+<div author="hacky" created="20200410154903219" modified="20200909090336664" title="关于此" type="text/vnd.tiddlywiki">
 <pre>此乃个人知识库，属于`hacky`。
 
 !! 个人介绍
@@ -15026,6 +15028,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+* [[Unix文件描述符：标准输入输出示例]]
 * [[延时任务系统：时间轮实现]]
 * [[延时任务系统：时间堆实现]]
 * [[十大经典排序算法]]
@@ -16508,6 +16511,45 @@ location = / {
 }
 ```
 + `redirect`进行连接中的重定向</pre>
+</div>
+<div created="20200909083937668" modified="20200909090258900" tags="" title="Unix文件描述符：标准输入输出示例">
+<pre>''文件描述符''是类Unix系统中的重要概念，因为类Unix系统将''一切都看做文件''（驱动，套接字等等）。因此，许多操作，其实本质都可以简化为文件的操作。那么''文件描述符''是什么呢？
+
+在''ISO C''中，通过''open''函数就可以打开一个文件，然后返回的就是一个int型的''文件描述符''（fd）。为什么返回一个int呢？是因为系统中，有维持一个''打开文件表项''，fd的int值，对应正是''打开文件表项''的索引。
+
+其中，有三个特殊的描述符：
+
+* 0 与进程的标准输入关联
+* 1 与进程的标准输出关联
+* 2 与进程的标准错误关联
+
+新的系统中，会在`/dev/`中，有`/dev/stdin`，`/dev/stdout`，`/dev/stderr`三个文件表示它们，我查看我的系统中：
+
+```
+lrwxrwxrwx 1 root root 15 9月   9 09:16 stderr -&gt; /proc/self/fd/2
+lrwxrwxrwx 1 root root 15 9月   9 09:16 stdin -&gt; /proc/self/fd/0
+lrwxrwxrwx 1 root root 15 9月   9 09:16 stdout -&gt; /proc/self/fd/1
+```
+
+发现这三个是连接到了`/proc`目录下，这个目录下表示的是`虚拟文件系统`，所以必然还有其他指向：
+
+```
+lrwx------ 1 vagrant vagrant 64 9月   9 10:57 0 -&gt; /dev/pts/0
+lrwx------ 1 vagrant vagrant 64 9月   9 10:57 1 -&gt; /dev/pts/0
+lrwx------ 1 vagrant vagrant 64 9月   9 10:57 2 -&gt; /dev/pts/0
+```
+
+果然，这三者又是链接到了`/dev/pts/`目录下，而且三个都链接到了同一个文件之下，`/dev/pts/0`。通过查阅文档得知，`pts`目录下，是ssh或者telnet连接产生的文件，我正是用`ssh`连接的，故而调用到此处。
+
+同时，在`/dev/fd/`目录下，保存着所有fd的文件，因此，我查看：
+
+```
+lrwx------ 1 vagrant vagrant 64 9月   9 11:01 0 -&gt; /dev/pts/0
+lrwx------ 1 vagrant vagrant 64 9月   9 11:01 1 -&gt; /dev/pts/0
+lrwx------ 1 vagrant vagrant 64 9月   9 11:01 2 -&gt; /dev/pts/0
+```
+
+同样的链接。</pre>
 </div>
 
 </div>

@@ -16306,7 +16306,7 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200910102509770" modified="20200910124840541" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
+<div created="20200910102509770" modified="20200910153455064" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
 <pre>!! ''0x01 索引目录''
 
 # [[索引篇]]
@@ -16330,7 +16330,32 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 第二层：包含''解析器''，''查询缓存''，''优化器''。是MySQL的核心服务层，所有内置函数也在这层，所有跨存储引擎的功能也在这层实现：''存储过程''，''触发器''，''视图''
 * 第三层：''存储引擎''负责MySQL中数据的存储和提取，服务器通过API与''储存引擎''通信，不同的''存储引擎''之间不会通信
 
+&gt; ''存储引擎''不会去解析sql，但是''InnoDB''会解析外键定义，因为''MySQL''本身没有实现这个功能
+
 !! ''0x03 连接管理''
+
+每个''客户端连接''都会在服务器中拥有要一个线程。这个''客户端连接''所有操作，都只能在这个线程上完成。这个线程只能轮流在某个CPU上执行，MySQL服务器会负责缓存线程。
+
+MySQL5.5版本以后，支持''线程池''插件，可以用池中少量线程服务大量连接。
+
+
+!!! ''0x02.1 线程池使用'' 
+
+''MySQL5.6''以上版本开启线程池很简单，只需修改一下配置：
+
+```
+#thread pool
+thread_handling=pool-of-threads
+thread_pool_oversubscribe=3
+thread_pool_size=24
+performance_schema=off
+#extra connection
+extra_max_connections = 8
+extra_port = 33333
+```
+这其中`performance_schema=off`，是因为开启''线程池''的情况下，开启此项，会导致内存泄漏。
+
+&gt; Percona server 5.7.21-20 已修复
 
 !! ''0x04 并发控制''
 

@@ -215,6 +215,8 @@ Error message and password prompt
 
 <li>$:/state/editpreviewtype</li>
 
+<li>$:/state/image-picker/system--2117029479</li>
+
 <li>$:/state/image-picker/system-2042070162</li>
 
 <li>$:/state/plugin-info-1088025932-$:/languages/zh-CN</li>
@@ -486,6 +488,8 @@ Error message and password prompt
 <li>一个简易的内存缓存系统：Go实现</li>
 
 <li>C的结构体</li>
+
+<li>Draft of '欢迎'</li>
 
 <li>MySQL知识图谱</li>
 
@@ -13888,13 +13892,16 @@ Error message and password prompt
 <div created="20200410141819779" modified="20200410142904240" title="$:/state/editpreviewtype">
 <pre>$:/core/ui/EditTemplate/body/preview/diffs-current</pre>
 </div>
-<div created="20200411033055331" modified="20200411033055331" title="$:/state/image-picker/system-2042070162">
+<div created="20200910120514513" modified="20200910122042432" title="$:/state/image-picker/system--2117029479">
 <pre>show</pre>
+</div>
+<div created="20200411033055331" modified="20200910120649185" title="$:/state/image-picker/system-2042070162">
+<pre>hide</pre>
 </div>
 <div created="20200410140338047" modified="20200410140338047" title="$:/state/plugin-info-1088025932-$:/languages/zh-CN">
 <pre>yes</pre>
 </div>
-<div created="20200410142030106" modified="20200901073927449" title="$:/state/showeditpreview">
+<div created="20200410142030106" modified="20200910123245123" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
 <div created="20200410141727448" modified="20200411030352279" title="$:/state/sidebar">
@@ -13942,7 +13949,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200910111336822" list="MySQL知识图谱 欢迎光临" modified="20200910113620976" title="$:/StoryList">
+<div created="20200910111336822" list="MySQL知识图谱 欢迎光临" modified="20200910122940186" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -16301,8 +16308,13 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200910102509770" modified="20200910114410307" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
-<pre># [[索引篇]]
+<div created="20200910122423732" draft.title="欢迎光临" modified="20200910122423732" title="Draft of '欢迎'">
+<pre></pre>
+</div>
+<div created="20200910102509770" modified="20200910124311215" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
+<pre>!! ''0x01 索引目录''
+
+# [[索引篇]]
 ## [[索引分类]]
 ## [[索引使用]]
 ## [[索引分类]]
@@ -16312,6 +16324,16 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 # [[集群篇]]
 # [[优化篇]]
 # [[分库分表]]
+
+!! ''0x02 简介''
+
+@@max-width:30%;[img[MySQL服务器逻辑架构图|http://trainking.github.io/img/mysql_con.png]]@@
+
+从上图可以看出''MySQL''服务分为了三层：
+
+* 第一层：''连接/线程处理层''，连接处理，授权认证，安全都在此层
+* 第二层：包含''解析器''，''查询缓存''，''优化器''。是MySQL的核心服务层，所有内置函数也在这层，所有跨存储引擎的功能也在这层实现：''存储过程''，''触发器''，''视图''
+* 第三层：''存储引擎''负责MySQL中数据的存储和提取，服务器通过API与''储存引擎''通信，不同的''存储引擎''之间不会通信
 
 !! ''参考''
 

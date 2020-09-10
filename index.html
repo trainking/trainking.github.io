@@ -465,7 +465,7 @@ Error message and password prompt
 
 <li>分布式ID的实现：snowflake</li>
 
-<li>关于此</li>
+<li>欢迎光临</li>
 
 <li>目录</li>
 
@@ -474,6 +474,8 @@ Error message and password prompt
 <li>设计模式之悟</li>
 
 <li>十大经典排序算法</li>
+
+<li>索引篇</li>
 
 <li>微服务</li>
 
@@ -484,6 +486,8 @@ Error message and password prompt
 <li>一个简易的内存缓存系统：Go实现</li>
 
 <li>C的结构体</li>
+
+<li>MySQL知识图谱</li>
 
 <li>OpenResty笔记</li>
 
@@ -13938,7 +13942,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200909083904011" list="关于此" modified="20200909083904011" title="$:/StoryList">
+<div created="20200910111336822" list="MySQL知识图谱 欢迎光临" modified="20200910113620976" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15011,8 +15015,8 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 * NodeID分配重复，这样的情况直接导致算法无法保障
 * 因为业务拓展，服务ID不够分配，这种情况产生，一是低估了业务的拓张，而是本身业务可能设计不合理。一般来说，当业务拓张到10位存不下了，那么应该考虑到拆分业务，成立新的事物，开发新一套系统。第二种则需要考虑设计的合理</pre>
 </div>
-<div author="hacky" created="20200410154903219" modified="20200909090336664" title="关于此" type="text/vnd.tiddlywiki">
-<pre>此乃个人知识库，属于`hacky`。
+<div author="hacky" created="20200410154903219" modified="20200910114102277" title="欢迎光临" type="text/vnd.tiddlywiki">
+<pre>个人知识库，属于`hacky`。
 
 !! 个人介绍
 
@@ -15028,6 +15032,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 
 !! 传送门
 
+*  [[MySQL知识图谱]]
 * [[Unix文件描述符：标准输入输出示例]]
 * [[延时任务系统：时间轮实现]]
 * [[延时任务系统：时间堆实现]]
@@ -15599,6 +15604,35 @@ function radixSort(arr, maxDigit) {
     return arr;
 }
 ```
+</pre>
+</div>
+<div created="20200910111350127" modified="20200910113543955" tags="MySQL" title="索引篇">
+<pre>''索引''（key）是''存储引擎''用于快速找到记录的一种''数据结构''。在MySQL中，索引是存储引擎层实现，而不是服务器层实现。所以并没有统一的标准：
+
+* 不同引擎的索引工作方式不一样
+* 不是所有的存储引擎都支持所有类型的索引
+* 即使多个存储引擎支持同一种索引，其底层实现也可能不一样
+
+!! ''0x01 索引的优点''
+
+''索引'' 可以让服务器快速定位到表中的指定位置，但是这并不是索引的''唯一作用''。即并不是只有使用`where`条件的时候，使用到索引。例如B-Tree索引，是按照顺序存储数据，所以使用`ORDER BY`和`GROUP BY`的时候，也会使用到索引。
+
+总结下来有三个优点：
+
+# 大大减少服务器需要扫描的数据量（''精确扫描范围''）
+# 可以帮助服务器避免排序和临时表
+# 将''随机IO''变为了''顺序IO''
+
+!! ''0x02 索引的缺点''
+
+''索引''缺点主要集中在，数据量庞大时：
+
+# 索引需要额外的硬盘空间存储，所以会带来容量消耗，很可能会使数据量的数倍
+# 索引提高了查询效率，但是相应地减少了创建更新效率，例如''唯一索引''，则每次插入，都要检查数据是不是唯一的
+
+!! ''0x03 索引是最佳解决方案？''
+
+''索引''并不是最佳解决方案，只有加入索引帮助存储引擎快速查找带来好处，大于额外工作时，索引才是有效的。对于非常小的表，全表扫描更高效。对于中大型的表，索引就非常高效。但是随着数量增加，索引文件也会日益庞大。创建和使用索引的代价随之增长，尤其是索引可能庞大到超过数据量的大小。这种情况下，''分区分表''的方案更优。
 </pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
@@ -16266,6 +16300,22 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
+</div>
+<div created="20200910102509770" modified="20200910114410307" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
+<pre># [[索引篇]]
+## [[索引分类]]
+## [[索引使用]]
+## [[索引分类]]
+# [[架构篇]]
+# [[锁篇]]
+# [[事务篇]]
+# [[集群篇]]
+# [[优化篇]]
+# [[分库分表]]
+
+!! ''参考''
+
+* 《高性能MySQL-High Performance MySQL》（第三版）电子工业出版社</pre>
 </div>
 <div author="hacky" created="20200410141733254" modified="20200411024026820" tags="OpenResty" title="OpenResty笔记" type="text/vnd.tiddlywiki">
 <pre>`OpenResty` 是一个基于Nginx核心和LuaJIT的第三方Nginx Modules。方便于自定义开发网关工具，kong就是一个OpenResty的应用。

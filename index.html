@@ -477,6 +477,8 @@ Error message and password prompt
 
 <li>十大经典排序算法</li>
 
+<li>索引分类</li>
+
 <li>索引篇</li>
 
 <li>微服务</li>
@@ -488,8 +490,6 @@ Error message and password prompt
 <li>一个简易的内存缓存系统：Go实现</li>
 
 <li>C的结构体</li>
-
-<li>Draft of 'MySQL知识图谱'</li>
 
 <li>MySQL知识图谱</li>
 
@@ -13949,7 +13949,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200910124628771" list="[[Draft of 'MySQL知识图谱']] 欢迎光临" modified="20200911042603445" title="$:/StoryList">
+<div created="20200910124628771" list="索引篇 索引分类 MySQL知识图谱 欢迎光临" modified="20200911122953801" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15613,6 +15613,20 @@ function radixSort(arr, maxDigit) {
 ```
 </pre>
 </div>
+<div created="20200911123007241" modified="20200911123621745" tags="MySQL" title="索引分类">
+<pre>''索引''有很多种类型，根据不同的场景来使用。在MySQL中，索引是存储层而不是服务器层实现，所以并没有统一标准。
+
+根据实现方式不同，可以分为''B-Tree索引''，''哈希索引''，''空间索引（R-Tree）''，''全文索引''。
+
+!! ''0x01 B-Tree索引''
+
+!! ''0x02 哈希索引''
+
+!! ''0x03 空间索引（R-Tree）''
+
+!! ''0x04 全文索引''
+</pre>
+</div>
 <div created="20200910111350127" modified="20200910113543955" tags="MySQL" title="索引篇">
 <pre>''索引''（key）是''存储引擎''用于快速找到记录的一种''数据结构''。在MySQL中，索引是存储引擎层实现，而不是服务器层实现。所以并没有统一的标准：
 
@@ -16308,7 +16322,7 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200910102509770" draft.of="MySQL知识图谱" draft.title="MySQL知识图谱" modified="20200911043129572" tags="" title="Draft of 'MySQL知识图谱'" type="text/vnd.tiddlywiki">
+<div created="20200910102509770" modified="20200911113110990" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
 <pre>!! ''0x01 索引目录''
 
 # [[索引篇]]
@@ -16362,67 +16376,6 @@ extra_port = 33333
 !! ''0x04 并发控制''
 
 MySQL在两个层面来实现并发控制：''服务器层''和''存储引擎''层。
-
-!! ''0x05 事务''
-
-!! ''0x06 存储引擎''
-
-!! ''参考''
-
-* 《高性能MySQL-High Performance MySQL》（第三版）电子工业出版社</pre>
-</div>
-<div created="20200910102509770" modified="20200910153455064" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
-<pre>!! ''0x01 索引目录''
-
-# [[索引篇]]
-## [[索引分类]]
-## [[索引使用]]
-## [[索引分类]]
-# [[架构篇]]
-# [[锁篇]]
-# [[事务篇]]
-# [[集群篇]]
-# [[优化篇]]
-# [[分库分表]]
-
-!! ''0x02 简介''
-
-@@max-width:30%;[img[MySQL服务器逻辑架构图|http://trainking.github.io/img/mysql_con.png]]@@
-
-从上图可以看出''MySQL''服务分为了三层：
-
-* 第一层：''连接/线程处理层''，连接处理，授权认证，安全都在此层
-* 第二层：包含''解析器''，''查询缓存''，''优化器''。是MySQL的核心服务层，所有内置函数也在这层，所有跨存储引擎的功能也在这层实现：''存储过程''，''触发器''，''视图''
-* 第三层：''存储引擎''负责MySQL中数据的存储和提取，服务器通过API与''储存引擎''通信，不同的''存储引擎''之间不会通信
-
-&gt; ''存储引擎''不会去解析sql，但是''InnoDB''会解析外键定义，因为''MySQL''本身没有实现这个功能
-
-!! ''0x03 连接管理''
-
-每个''客户端连接''都会在服务器中拥有要一个线程。这个''客户端连接''所有操作，都只能在这个线程上完成。这个线程只能轮流在某个CPU上执行，MySQL服务器会负责缓存线程。
-
-MySQL5.5版本以后，支持''线程池''插件，可以用池中少量线程服务大量连接。
-
-
-!!! ''0x02.1 线程池使用'' 
-
-''MySQL5.6''以上版本开启线程池很简单，只需修改一下配置：
-
-```
-#thread pool
-thread_handling=pool-of-threads
-thread_pool_oversubscribe=3
-thread_pool_size=24
-performance_schema=off
-#extra connection
-extra_max_connections = 8
-extra_port = 33333
-```
-这其中`performance_schema=off`，是因为开启''线程池''的情况下，开启此项，会导致内存泄漏。
-
-&gt; Percona server 5.7.21-20 已修复
-
-!! ''0x04 并发控制''
 
 !! ''0x05 事务''
 

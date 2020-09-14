@@ -13949,7 +13949,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200914113314362" list="索引篇 索引分类 MySQL知识图谱 欢迎光临" modified="20200914113325986" title="$:/StoryList">
+<div created="20200914113314362" list="索引分类 MySQL知识图谱 欢迎光临" modified="20200914113325986" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15613,7 +15613,7 @@ function radixSort(arr, maxDigit) {
 ```
 </pre>
 </div>
-<div created="20200911123007241" modified="20200914130142628" tags="MySQL" title="索引分类">
+<div created="20200911123007241" modified="20200914132819339" tags="MySQL" title="索引分类">
 <pre>''索引''有很多种类型，根据不同的场景来使用。在MySQL中，索引是存储层而不是服务器层实现，所以并没有统一标准。
 
 根据实现方式不同，可以分为''B-Tree索引''，''哈希索引''，''空间索引（R-Tree）''，''全文索引''。
@@ -15648,9 +15648,27 @@ function radixSort(arr, maxDigit) {
 
 !! ''0x02 哈希索引''
 
+''哈希索引''是基于''哈希表''实现，只有精确匹配索引列的查询才有效。
+
+在MySQL中，只有''Memory引擎''显式支持哈希索引。哈希索引也是''Memory引擎''默认的索引方式，尤其是''Memory引擎''是支持''非唯一哈希索引''。
+
+哈希索引在查询上很快，但是也有它的限制：
+
+* 哈希索引只包含哈希值和行指针，所以不会改善读数据效率
+* 哈希索引不是按照顺序存储，所以无法用于排序
+* 哈希索引也不支持部分索引列匹配查找，必须是全匹配的
+* 哈希索引只支持等值查询，包括`=, IN(), &lt;==&gt;`，也不支持查找一个范围
+* 哈希索引访问非常快，但是要小心''哈希冲突''，所以使用哈希索引要考虑数据取值范围大小
+
+''InnoDB''有一个特殊的内部功能叫''自适应哈希索引（adaptive hash index）''，这个功能是''InnoDB''会注意到某些值高频时，创建一个hash索引，改善效率。这是一位自动的，内部行为，用户无法控制和配置，但是如有有必要可以关闭。
+
 !! ''0x03 空间索引（R-Tree）''
 
+''MyISAM''表支持的空间索引，用作地理数据存储。必须使用MySQL的GIS相关函数，但是MySQL的GIS支持并不完善。开源数据库系统中对GIS解决方案做的比较好的是PostgerSQL的PostGIS。
+
 !! ''0x04 全文索引''
+
+''全文索引''是一种特殊的索引，它查找的是文本中的关键词。全文索引做的是类似搜索引擎的事情。
 </pre>
 </div>
 <div created="20200910111350127" modified="20200914124705666" tags="MySQL" title="索引篇">

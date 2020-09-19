@@ -481,6 +481,8 @@ Error message and password prompt
 
 <li>索引篇</li>
 
+<li>索引使用</li>
+
 <li>微服务</li>
 
 <li>延时任务系统：时间堆实现</li>
@@ -13949,7 +13951,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200914113314362" list="索引分类 MySQL知识图谱 欢迎光临" modified="20200914113325986" title="$:/StoryList">
+<div created="20200919144518139" list="索引分类 索引使用 MySQL知识图谱 欢迎光临" modified="20200919144831369" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15613,7 +15615,7 @@ function radixSort(arr, maxDigit) {
 ```
 </pre>
 </div>
-<div created="20200911123007241" modified="20200914132819339" tags="MySQL" title="索引分类">
+<div created="20200911123007241" modified="20200919150050038" tags="MySQL" title="索引分类">
 <pre>''索引''有很多种类型，根据不同的场景来使用。在MySQL中，索引是存储层而不是服务器层实现，所以并没有统一标准。
 
 根据实现方式不同，可以分为''B-Tree索引''，''哈希索引''，''空间索引（R-Tree）''，''全文索引''。
@@ -15623,6 +15625,8 @@ function radixSort(arr, maxDigit) {
 ''B-Tree索引'' 是使用''B-Tree''数据结构构建的索引，''B-Tree''是一种自平衡的多叉树结构，各数据节点之间保持有序，同时对其进行节点增删时，通过平衡算法，改变树各节点位置，保持平衡有序。其遍历方式和二叉树一致都是从根节点开始，因为它是平衡的，所以其遍历时间复杂度稳定。
 
 &gt; 大多数引擎使用的是''B+Tree''树，每个叶子节点包含了指向下一个叶子节点的指针
+&gt; B树是''非叶子节点''和''叶子节点''都存储数据
+&gt; B+树只有''叶子节点''存储数据，且所有的数据都在一行上，数据都是由指针指向的，也就是说是有序的
 
 ''InnoDB''使用的是''B+Tree''，而NDB集群存储引擎使用的是''T-Tree''。虽然使用了不同的数据结构实现，但是MySQL中统一将他们称之为''B-Tree索引''。在DDL建立时，统一使用''B-Tree''。
 
@@ -15669,6 +15673,8 @@ function radixSort(arr, maxDigit) {
 !! ''0x04 全文索引''
 
 ''全文索引''是一种特殊的索引，它查找的是文本中的关键词。全文索引做的是类似搜索引擎的事情。
+
+只有在''MyISAM''，''InnoDB'' （5.6以上版本）才能使用，且只有`CHAR，VACHAR，TEXT`字段上才能使用。
 </pre>
 </div>
 <div created="20200910111350127" modified="20200914124705666" tags="MySQL" title="索引篇">
@@ -15703,6 +15709,13 @@ function radixSort(arr, maxDigit) {
 
 * ''索引''对多个值的''排序''，是依据定义索引列是的顺序。
 </pre>
+</div>
+<div created="20200919144839618" modified="20200919145205775" tags="MySQL" title="索引使用">
+<pre>!! 创建索引
+
+!! 删除索引
+
+!! 查看索引</pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
@@ -16370,13 +16383,12 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200910102509770" modified="20200911113110990" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
+<div created="20200910102509770" modified="20200919145118207" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
 <pre>!! ''0x01 索引目录''
 
 # [[索引篇]]
 ## [[索引分类]]
 ## [[索引使用]]
-## [[索引分类]]
 # [[架构篇]]
 # [[锁篇]]
 # [[事务篇]]

@@ -13958,7 +13958,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200921144718395" list="B-树与B+树 MySQL知识图谱 欢迎光临" modified="20200921144734980" title="$:/StoryList">
+<div created="20200921144718395" list="索引分类 索引使用 MySQL知识图谱 欢迎光临" modified="20200921150131224" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15622,7 +15622,7 @@ function radixSort(arr, maxDigit) {
 ```
 </pre>
 </div>
-<div created="20200911123007241" modified="20200919150050038" tags="MySQL" title="索引分类">
+<div created="20200911123007241" modified="20200921150106458" tags="MySQL" title="索引分类">
 <pre>''索引''有很多种类型，根据不同的场景来使用。在MySQL中，索引是存储层而不是服务器层实现，所以并没有统一标准。
 
 根据实现方式不同，可以分为''B-Tree索引''，''哈希索引''，''空间索引（R-Tree）''，''全文索引''。
@@ -15634,6 +15634,7 @@ function radixSort(arr, maxDigit) {
 &gt; 大多数引擎使用的是''B+Tree''树，每个叶子节点包含了指向下一个叶子节点的指针
 &gt; B树是''非叶子节点''和''叶子节点''都存储数据
 &gt; B+树只有''叶子节点''存储数据，且所有的数据都在一行上，数据都是由指针指向的，也就是说是有序的
+&gt; [[B-树与B+树]]
 
 ''InnoDB''使用的是''B+Tree''，而NDB集群存储引擎使用的是''T-Tree''。虽然使用了不同的数据结构实现，但是MySQL中统一将他们称之为''B-Tree索引''。在DDL建立时，统一使用''B-Tree''。
 
@@ -15717,12 +15718,48 @@ function radixSort(arr, maxDigit) {
 * ''索引''对多个值的''排序''，是依据定义索引列是的顺序。
 </pre>
 </div>
-<div created="20200919144839618" modified="20200919145205775" tags="MySQL" title="索引使用">
+<div created="20200919144839618" modified="20200921150615077" tags="MySQL" title="索引使用">
 <pre>!! 创建索引
+
+* 普通索引
+
+```
+CREATE INDEX index_name ON table(column(length)) ;
+ALTER TABLE table_name ADD INDEX index_name (column(length)) ;
+```
+
+* 唯一索引
+
+```
+CREATE UNIQUE INDEX index_name ON table(column(length)) ;
+alter table table_name add unique index index_name(column);
+```
+
+* 全文索引
+
+```
+CREATE FULLTEXT INDEX index_name ON table(column(length)) ;
+alter table table_name add fulltext index_name(column)
+```
+
+* 组合索引
+
+```
+ALTER TABLE article ADD INDEX index_titme_time (title(50),time(10)) ;
+```
 
 !! 删除索引
 
-!! 查看索引</pre>
+```
+DROP INDEX index_name ON table
+```
+
+!! 查看索引
+
+```
+SHOW INDEX FROM table_name \G
+```
+</pre>
 </div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。

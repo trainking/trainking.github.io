@@ -14995,7 +14995,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200922020639062" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20200922135904239" modified="20200922140945693" tags="MySQL" title="表级锁">
+<div created="20200922135904239" modified="20200922143802091" tags="MySQL" title="表级锁">
 <pre>MySQL的''表级锁''，由`SQL Layer`层实现，有两种：
 
 * 表锁
@@ -15021,6 +15021,33 @@ MySQL [mysql]&gt; show status like 'table%';
 &gt; `Table_locks_waited`：出现''表级锁''争用而发生''等待''的次数
 
 !! ''表锁''
+
+表锁的两种形式，''共享读锁'' 或 ''独占写锁''。
+
+!!! 手动加锁
+
+```
+lock table 表名称 read;
+lock table 表名称 write;
+```
+
+!!! 查看锁情况
+
+```
+MySQL [test]&gt; show open tables like 'run%';
++----------+------------+--------+-------------+
+| Database | Table      | In_use | Name_locked |
++----------+------------+--------+-------------+
+| test     | runoob_tbl |      1 |           0 |
++----------+------------+--------+-------------+
+1 row in set (0.00 sec)
+```
+
+!!! 删除表锁
+
+```
+unlock tables;
+```
 
 !! ''元数据锁''
 

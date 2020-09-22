@@ -14995,7 +14995,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200922020639062" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20200922135904239" modified="20200922145504745" tags="MySQL" title="表级锁">
+<div created="20200922135904239" modified="20200922151214914" tags="MySQL" title="表级锁">
 <pre>MySQL的''表级锁''，由`SQL Layer`层实现，有两种：
 
 * 表锁
@@ -15105,6 +15105,20 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 
 !! ''元数据锁''
 
+''元数据锁（MDL）'' 不需要显式使用，在访问一个表时会被自动加上。MDL的作用是保证读写的''正确性''，例如查询数据时，同时进行了数据结构的变更，拿到的数据与数据结构不一致。
+
+在MySQL 5.5 中，引入了MDL，对一个表做''增删改查''操作时，加''MDL读锁''，当''表结构变更''时，加''MDL写锁''。因为''读锁''共享，而''写锁''排斥，所以当表结构变更时，可以保证表结构的安全性。
+
+!!! ''元数据锁演示''
+
+```
+1、session1: begin;--开启事务
+    select * from mylock;--加MDL读锁
+2、session2: alter table mylock add f int; -- 修改阻塞
+3、session1：commit; --提交事务 或者 rollback 释放读锁
+4、session2：Query OK, 0 rows affected (38.67 sec) --修改完成
+ Records: 0 Duplicates: 0 Warnings: 0
+```
 </pre>
 </div>
 <div created="20200831054416241" modified="20200831063050965" tags="" title="分布式ID的实现：snowflake">

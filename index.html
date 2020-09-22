@@ -14995,7 +14995,7 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410141520195" modified="20200922020639062" title="$:/view">
 <pre>classic</pre>
 </div>
-<div created="20200922135904239" modified="20200922143802091" tags="MySQL" title="表级锁">
+<div created="20200922135904239" modified="20200922145504745" tags="MySQL" title="表级锁">
 <pre>MySQL的''表级锁''，由`SQL Layer`层实现，有两种：
 
 * 表锁
@@ -15047,6 +15047,60 @@ MySQL [test]&gt; show open tables like 'run%';
 
 ```
 unlock tables;
+```
+
+!!! ''表锁演示''
+
+!!!! 环境准备
+
+```
+-- 新建表
+CREATE TABLE mylock (
+id int(11) NOT NULL AUTO_INCREMENT,
+NAME varchar(20) DEFAULT NULL,
+PRIMARY KEY (id)
+);
+INSERT INTO mylock (id,NAME) VALUES (1, 'a');
+INSERT INTO mylock (id,NAME) VALUES (2, 'b');
+INSERT INTO mylock (id,NAME) VALUES (3, 'c');
+INSERT INTO mylock (id,NAME) VALUES (4, 'd');
+```
+
+```
+-- 无关表，仅用来测试
+CREATE TABLE IF NOT EXISTS `runoob_tbl`(
+   `runoob_id` INT UNSIGNED AUTO_INCREMENT,
+   `runoob_title` VARCHAR(100) NOT NULL,
+   `runoob_author` VARCHAR(40) NOT NULL,
+   `submission_date` DATE,
+   PRIMARY KEY ( `runoob_id` )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+```
+
+!!!! 表读锁演示
+
+```
+1、session1: lock table mylock read; -- 给mylock表加读锁
+2、session1: select * from mylock; -- 可以查询
+3、session1：select * from runoob_tbl; --不能访问⾮锁定表
+4、session2：select * from mylock; -- 可以查询 没有锁
+5、session2：update mylock set name='x' where id=2; -- 修改阻塞,⾃动加⾏写锁
+6、session1：unlock tables; -- 释放表锁
+7、session2：Rows matched: 1 Changed: 1 Warnings: 0 -- 修改执⾏完成
+8、session1：select * from runoob_tbl; --可以访问
+```
+
+!!!! 表读锁演示
+
+```
+1、session1: lock table mylock write; -- 给mylock表加写锁
+2、session1: select * from mylock; -- 可以查询
+3、session1：select * from runoob_tbl; --不能访问⾮锁定表
+4、session1：update mylock set name='y' where id=2; --可以执⾏
+5、session2：select * from mylock; -- 查询阻塞
+6、session1：unlock tables; -- 释放表锁
+7、session2：4 rows in set (22.57 sec) -- 查询执⾏完成
+8、session1：select * from runoob_tbl; --可以访问
 ```
 
 !! ''元数据锁''

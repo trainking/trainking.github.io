@@ -467,6 +467,8 @@ Error message and password prompt
 
 <li>$:/view</li>
 
+<li>表级锁</li>
+
 <li>分布式ID的实现：snowflake</li>
 
 <li>欢迎光临</li>
@@ -13964,7 +13966,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200922115644524" list="锁篇 MySQL知识图谱 欢迎光临" modified="20200922124435921" title="$:/StoryList">
+<div created="20200922135856283" list="表级锁 MySQL知识图谱 欢迎光临" modified="20200922135858671" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -14992,6 +14994,37 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 </div>
 <div created="20200410141520195" modified="20200922020639062" title="$:/view">
 <pre>classic</pre>
+</div>
+<div created="20200922135904239" modified="20200922140945693" tags="MySQL" title="表级锁">
+<pre>MySQL的''表级锁''，由`SQL Layer`层实现，有两种：
+
+* 表锁
+* 元数据锁（meta data lock, MDL）
+
+MySQL 查看''表级锁''状态变量：
+
+```
+MySQL [mysql]&gt; show status like 'table%';
++----------------------------+-------+
+| Variable_name              | Value |
++----------------------------+-------+
+| Table_locks_immediate      | 99    |
+| Table_locks_waited         | 0     |
+| Table_open_cache_hits      | 0     |
+| Table_open_cache_misses    | 0     |
+| Table_open_cache_overflows | 0     |
++----------------------------+-------+
+5 rows in set (0.00 sec)
+
+```
+&gt; `Table_locks_immediate` ：产生''表级锁''的次数
+&gt; `Table_locks_waited`：出现''表级锁''争用而发生''等待''的次数
+
+!! ''表锁''
+
+!! ''元数据锁''
+
+</pre>
 </div>
 <div created="20200831054416241" modified="20200831063050965" tags="" title="分布式ID的实现：snowflake">
 <pre>''分布式ID'' 是分布式系统中不可或缺的一部分。在实际业务中，我们常常需要用到id，在单体系统中，可以使用某个自增id的技术来实现，但是到了分布式系统中。因为服务实例分布在不同服务器上，要保证全局id数据的一致性，不出现重复ID是至关重要的。

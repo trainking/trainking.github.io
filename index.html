@@ -13962,7 +13962,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200922020422311" list="MySQL知识图谱 欢迎光临" modified="20200922030310131" title="$:/StoryList">
+<div created="20200922085634261" list="explain指南 MySQL知识图谱 欢迎光临" modified="20200922085636654" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -16473,7 +16473,7 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200922030317532" modified="20200922075008191" tags="MySQL" title="explain指南">
+<div created="20200922030317532" modified="20200922085746652" tags="MySQL" title="explain指南">
 <pre>MySQL 提供了一个''explain''命令，可以对''select''语句的执行计划进行分析。
 
 使⽤explain这个命令来查看⼀个这些SQL语句的执⾏计划，查看该SQL语句有没有使⽤上了''索引''，有没
@@ -16573,7 +16573,7 @@ system, const, eq_ref, ref, fulltext, ref_or_null, unique_subquery, index_subque
 重要的额外信息，有几十种，常用的有：
 
 * ''using temporary''：表示临时表存储了中间结果
-* ''no tables used''：不带from字句或者from dual的查询
+* ''no tables used''：不带from字句或者from dual（`select 1;`）的查询
 * ''using filesort'': 排序无法使用索引
 * ''using index''：查询时不需要回表查询，直接通过索引获取数据，即查询时使用了''覆盖索引''
 * ''using where''：表示''存储引擎''返回的记录并不是所有满足查询条件，需要server层过滤

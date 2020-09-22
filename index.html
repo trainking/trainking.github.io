@@ -467,6 +467,8 @@ Error message and password prompt
 
 <li>$:/view</li>
 
+<li>查询优化</li>
+
 <li>分布式ID的实现：snowflake</li>
 
 <li>欢迎光临</li>
@@ -484,6 +486,8 @@ Error message and password prompt
 <li>索引篇</li>
 
 <li>索引使用</li>
+
+<li>索引问题</li>
 
 <li>微服务</li>
 
@@ -13913,20 +13917,20 @@ Error message and password prompt
 <div created="20200410142030106" modified="20200910123245123" title="$:/state/showeditpreview">
 <pre>no</pre>
 </div>
-<div created="20200410141727448" modified="20200411030352279" title="$:/state/sidebar">
+<div created="20200410141727448" modified="20200922020602271" title="$:/state/sidebar">
 <pre>yes</pre>
 </div>
-<div created="20200410034912082" modified="20200411093356701" title="$:/state/tab--1963855381">
+<div created="20200410034912082" modified="20200922020709100" title="$:/state/tab--1963855381">
 <pre>$:/themes/tiddlywiki/vanilla/themetweaks</pre>
 </div>
-<div created="20200411032130460" modified="20200910124539362" title="$:/state/tab--2112689675">
+<div created="20200411032130460" modified="20200922020549400" title="$:/state/tab--2112689675">
 <pre>$:/core/ui/ControlPanel/Basics</pre>
 </div>
 <div created="20200410034034397" modified="20200909083910985" title="$:/state/tab--86143343">
 <pre>$:/core/ui/ControlPanel/Plugins/Installed/Plugins</pre>
 </div>
-<div created="20200411032841518" modified="20200411032848132" title="$:/state/tab--959111941">
-<pre>$:/core/ui/ControlPanel/EditorTypes</pre>
+<div created="20200411032841518" modified="20200922020457288" title="$:/state/tab--959111941">
+<pre>$:/core/ui/ControlPanel/TiddlerFields</pre>
 </div>
 <div created="20200411024450196" modified="20200411024456220" title="$:/state/tab-1080271194">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
@@ -13940,13 +13944,13 @@ Error message and password prompt
 <div created="20200411024001945" modified="20200411024109381" title="$:/state/tab-1504836261">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
 </div>
-<div created="20200410034029750" modified="20200910124536447" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Info</pre>
+<div created="20200410034029750" modified="20200922020733768" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/KeyboardShortcuts</pre>
 </div>
 <div created="20200411023905465" modified="20200411023948565" title="$:/state/tab-1856250970">
 <pre>$:/core/ui/TiddlerInfo/List</pre>
 </div>
-<div created="20200410141609565" modified="20200910124535382" title="$:/state/tab-2065006209">
+<div created="20200410141609565" modified="20200922020545048" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/General</pre>
 </div>
 <div created="20200410034842659" modified="20200410160752711" title="$:/state/tab/moresidebar-1850697562">
@@ -13955,10 +13959,10 @@ Error message and password prompt
 <div created="20200410034020620" modified="20200901080356361" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/Recent</pre>
 </div>
-<div created="20200411025821730" modified="20200411025824326" title="$:/state/tabs/controlpanel/toolbars-1345989671">
+<div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200921144718395" list="索引分类 索引使用 MySQL知识图谱 欢迎光临" modified="20200921150131224" title="$:/StoryList">
+<div created="20200922020422311" list="查询优化 MySQL知识图谱 欢迎光临" modified="20200922030310131" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -14863,13 +14867,13 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200410034053923" modified="20200901080226155" title="$:/temp/RemoteAssetSearch/$:/config/OfficialPluginLibrary">
 <pre>MathJax</pre>
 </div>
-<div created="20200410142807326" modified="20200410155015113" title="$:/temp/search">
+<div created="20200410142807326" modified="20200922033839955" title="$:/temp/search">
 <pre></pre>
 </div>
 <div created="20200901080236693" modified="20200901080236693" tags="$:/tags/ServerConnection" title="$:/temp/ServerConnection/https://tiddlywiki.com/library/v5.1.21/index.html" url="https://tiddlywiki.com/library/v5.1.21/index.html">
 <pre>loaded</pre>
 </div>
-<div created="20200410144255657" modified="20200410144255657" title="$:/theme">
+<div created="20200410144255657" modified="20200922020658332" title="$:/theme">
 <pre>$:/themes/tiddlywiki/snowwhite</pre>
 </div>
 <div author="JeremyRuston" core-version="&gt;=5.0.0" dependents="$:/themes/tiddlywiki/vanilla" description="Emphasises individual tiddlers" name="Snow White" plugin-priority="0" plugin-type="theme" title="$:/themes/tiddlywiki/snowwhite" type="application/json" version="5.1.21">
@@ -14984,8 +14988,117 @@ This plugin also requires the JSZip plugin ([[$:/plugins/tiddlywiki/jszip]]) to 
 <div created="20200411093359314" modified="20200411093359314" title="$:/themes/tiddlywiki/vanilla/options/sidebarlayout">
 <pre>fluid-fixed</pre>
 </div>
-<div created="20200410141520195" modified="20200410141522952" title="$:/view">
+<div created="20200410141520195" modified="20200922020639062" title="$:/view">
 <pre>classic</pre>
+</div>
+<div created="20200922030317532" modified="20200922042413085" tags="MySQL" title="查询优化">
+<pre>MySQL 提供了一个''explain''命令，可以对''select''语句的执行计划进行分析。
+
+使⽤explain这个命令来查看⼀个这些SQL语句的执⾏计划，查看该SQL语句有没有使⽤上了''索引''，有没
+有做''全表扫描''，这都可以通过explain命令来查看。
+
+''explain''的用法十分简单，只需要在语句前加上就行了：
+
+```
+explain select * from user;
+```
+
+!! ''参数说明''
+
+''explain''的信息有10列，分别是：
+
+```
+id, select_type, table, type，possible_keys, key, key_len, ref, rows, Extra
+```
+
+!!! id
+
+''id'' 是每个select语句都会自动分配一个唯一标识符，当id有值时，有以下三种情况：
+
+* id相同：执行顺序''由上到下''
+* id不同： 如果是''子查询''，''id越大，优先级越高''
+* id相同的，不同的，同时存在
+
+''id''为''null''时表示一个结果集，''无执行计划''。
+
+!!! select_type
+
+表示''查询类型''，其取值含义如下：
+
+* ''simple'': 表示不需要union操作或不包含子查询，只是简单的select查询，''连接查询''外层为''simple''，且''只有一个''
+* ''primary'': 表示此查询为最外层查询
+* ''union'': 表示被union连接的查询，union连接的两个select查询，第一个是primary，其后的都是''union''
+* ''dependent union'': 与''union''一样，取决于外面的查询
+* ''union result'': union查询的结果集
+* ''subquery'': 除了from语句包含的子查询外，其他的都是''subquery''
+* ''derived'': from语句中出现的子查询，也叫派生表
+
+!!! table
+
+表示''表明''，如果使用别名则是别名，为null表示不涉及数据表的操作，用尖括号的是''临时表''，如`&lt;derived2&gt;`，后面的数字，表示''结果产生自此查询''，`&lt;union M,N&gt;` 这样形式表示的是M和N的union结果集
+
+!!! type
+
+判断是否高校查询的重要语句，''从好到差'':
+
+```
+system, const, eq_ref, ref, fulltext, ref_or_null, unique_subquery, index_subquery, range, index_merge, index, ALL
+```
+
+&gt; 除''all''之外，其他type都可以使用到索引
+&gt; 除''index_merge''之外，其他type只可以用到一个索引
+&gt; ''最少''将索引用到''range''级别
+
+各取值含义如下：
+
+* ''system''：表中只有一行数据或者是''空表''
+* ''const''：对使用''唯一索引''或''主键''的等值查询如`id=223`，最多放回一行数据
+* ''eq_ref'': join字段是''主键''或''唯一索引''，意味着前表的每一条数据都''只能匹配到后表的一行结果''
+* ''ref''：针对''非唯一''索引，使用`=`查询非主键，或者使用了''最左前缀规则''
+* ''fulltext''：全文索引检索，全文索引的优先级很高，如果存在''全文索引''，不管代价，优先全文索引
+* ''ref_or_null''：与ref类似，只是增加null值比较
+* ''unique_subquery''：表示`where`语句中`in`子查询，子查询返回''不重复的唯一值''
+* ''index_subquery''：用`in`形式子查询使用了辅助索引或常数列表，子查询可能返回重复值
+* ''range''：索引范围扫描，`&gt;, &lt;, is null, between, in, like`
+* ''index_merge''：查询了两个以上的索引，最后取交集或者并集
+* ''index''：可能没有''完全匹配索引''
+* ''ALL''：全表扫描
+
+!!! possible_keys
+
+此次查询中可能使用的索引，一个或者多个
+
+!!! key
+
+真正使用的索引，`type=index_merge`时，可能出现两个以上索引，其他时候都是一个
+
+!!! key_len
+
+处理查询的索引长度，如果是''单列索引''，返回的是整个长度，如果是''多列索引''，返回使用了索引长度，''可以推断有没有使用到全部列''，只计算`where`条件中使用到的索引列长度
+
+!!! ref
+
+* 如果使用常数查询，这是是`const`
+* 如果是连接查询，被驱动显示驱动表的关联字段
+* 如果使用了表达式或者函数，这里显示`func`
+
+!!! rows
+
+扫描行数，不是精确值
+
+!!! Extra
+
+重要的额外信息，有几十种，常用的有：
+
+* using temporary
+* no tables used
+* using filesort
+* using index
+* using where
+* firstmatch(tb_name)
+* lossescan(m...n)
+* filtered
+</pre>
 </div>
 <div created="20200831054416241" modified="20200831063050965" tags="" title="分布式ID的实现：snowflake">
 <pre>''分布式ID'' 是分布式系统中不可或缺的一部分。在实际业务中，我们常常需要用到id，在单体系统中，可以使用某个自增id的技术来实现，但是到了分布式系统中。因为服务实例分布在不同服务器上，要保证全局id数据的一致性，不出现重复ID是至关重要的。
@@ -15761,6 +15874,31 @@ SHOW INDEX FROM table_name \G
 ```
 </pre>
 </div>
+<div created="20200922020922547" modified="20200922030220592" tags="MySQL" title="索引问题">
+<pre>!! ''哪些情况下需要使用索引？''
+
+# ''主键''自动为''唯一索引''
+# 频繁作为查询条件的字段
+# 多表关联，''on'' 的两端字段都要创建索引
+# 查询中，排序的字段（order by）
+# 频繁被查找的字段
+# 查询中用于''统计''或''分组''的字段（count，sum... | group by）
+
+!! ''哪些情况不需要使用索引？''
+
+# 表记录太少
+# ''增删改''操作大于查操作的表
+# 频繁更新的字段
+# 过滤条件使用不高的字段
+
+!! ''为什么要使用组合索引？''
+
+# 更加''节省空间''和''提高搜索性能''
+# 遵循''最左匹配原则''，例如两个字段`name,cid`组成的组合索引，当`name`作为单列查询时，依旧可以使用上索引
+# 根据业务与查询重要性，建立组合索引的顺序
+
+</pre>
+</div>
 <div author="hacky" created="20200411023602311" modified="20200411030508638" tags="目录" title="微服务">
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
 
@@ -16444,17 +16582,19 @@ pst.fname = (char * ) malloc(strlen(temp) + 1);
 * 《C Primer Plus（第六版）》
 * [[https://zh.cppreference.com/w/%E9%A6%96%E9%A1%B5]]</pre>
 </div>
-<div created="20200910102509770" modified="20200921144728279" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
+<div created="20200910102509770" modified="20200922030307785" tags="" title="MySQL知识图谱" type="text/vnd.tiddlywiki">
 <pre>!! ''0x01 索引目录''
 
 # [[索引篇]]
 ## [[索引分类]]
 ## [[索引使用]]
+## [[索引问题]]
 # [[架构篇]]
 # [[锁篇]]
 # [[事务篇]]
 # [[集群篇]]
 # [[优化篇]]
+## [[查询优化]]
 # [[分库分表]]
 
 !! ''0x02 简介''

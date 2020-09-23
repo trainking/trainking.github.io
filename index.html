@@ -493,6 +493,8 @@ Error message and password prompt
 
 <li>微服务</li>
 
+<li>行级锁</li>
+
 <li>延时任务系统：时间堆实现</li>
 
 <li>延时任务系统：时间轮实现</li>
@@ -13966,7 +13968,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200922135856283" list="表级锁 MySQL知识图谱 欢迎光临" modified="20200922135858671" title="$:/StoryList">
+<div created="20200923135542124" list="行级锁 MySQL知识图谱 欢迎光临" modified="20200923135544277" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15943,6 +15945,38 @@ SHOW INDEX FROM table_name \G
 <pre>微服务学习记录。主要以 `kong` 体系的技术栈。
 
 * [[OpenResty笔记]]</pre>
+</div>
+<div created="20200923135550705" modified="20200923144732017" tags="MySQL" title="行级锁">
+<pre>MySQL 的''行级锁''主要是由''存储引擎''利用索引项来实现，下面是InnoDB的行级锁。
+
+InnoDB的行级锁，按锁定范围来说，分为三种：
+
+* 记录锁（Record Locks）：锁定索引中的一条记录
+* 间隙锁（Gap Locks）：要么锁住索引记录中间的值，要么锁住第一个索引记录前面的值，或者最后一个索引记录后面的值
+* Next-key Locks：是索引记录上记录锁和索引记录之前的间隙锁的组合
+
+InnoDB的行级锁，按功能分：
+
+* 共享锁（s）：允许一个''事务''去读一行，阻止加''排他锁''
+* 排他锁（x）：允许获得排他锁的事务更新数据，阻止其他''事务''取得相同的数据集的共享读锁（''不是读''）和排他写锁
+
+对于`UPDATE，DELETE，INSERT`，InnoDB会自动加排他锁
+
+对于`SELECT`语句，InnoDB不会加任何锁，事务可以通过显式加锁。
+
+''手动加共享锁：''
+
+```
+select * from table_name where ... LOCK IN SHARE MODE
+```
+
+''手动添加排他锁：''
+
+```
+select * from table_name WHERE ... FOR UPDATE
+```
+
+</pre>
 </div>
 <div created="20200902130400615" modified="20200902132445774" tags="" title="延时任务系统：时间堆实现">
 <pre>''延时任务系统''是分布式网络构架中常常用到的一套系统，例如下单成功后，需要在第15分钟检查用户的这笔订单是否完成。其本质是利用''定时器''，实现拓展的CronTab的任务实现。而为什么不直接使用CronTab呢?

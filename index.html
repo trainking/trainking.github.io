@@ -13970,7 +13970,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200924023111063" list="间隙锁 MySQL知识图谱 欢迎光临" modified="20200924023147870" title="$:/StoryList">
+<div created="20200924123917069" list="间隙锁 MySQL知识图谱 欢迎光临" modified="20200924123925359" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15198,8 +15198,57 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 * [[C的结构体]]
 * [[OpenResty笔记]]</pre>
 </div>
-<div created="20200924023154304" modified="20200924023345458" tags="MySQL" title="间隙锁">
-<pre>''间隙锁（Gap Lock）'' 是 InnoDB在事务是''可重复读''的情况下，为了解决''幻读''而引入的锁机制。</pre>
+<div created="20200924023154304" modified="20200924151527927" tags="MySQL" title="间隙锁">
+<pre>''间隙锁（Gap Lock）'' 是 InnoDB在事务是''可重复读''的情况下，为了解决''幻读''而引入的锁机制。
+
+&gt; 幻读是指一个事务(同一个read view)在前后两次查询''同一范围''的时候，后一次查询看到了前一次查询''没有看到''的行。
+
+在''可重复读''的事务隔离级别下，出现幻读，行锁已经不能解决问题了，所以需要使用到''间隙锁''。数据库通过行锁和间隙锁共同组成''next-key lock''。
+规则如下：
+
+# 加锁单位是next-key lock，''前开后闭''原则
+# 插入过程的中访问的对象会增加锁
+# 索引等值查询，给唯一索引加锁时，net-key lock 会升级为''行锁''
+# 索引上的等值查询--向右遍历时最后一个值不满足查询需求时，next-key lock 退化为间隙锁
+# 唯一索引上的范围查询会访问到''不满足条件''的第一个值为止
+
+!! 间隙锁演示
+
+```
+案例演示：
+mysql&gt; create table news (id int, number int,primary key (id));
+mysql&gt; insert into news values(1,2);
+......
+--加⾮唯⼀索引
+mysql&gt; alter table news add index idx_num(number);
+session 1:
+start transaction ;
+select * from news where number=4 for update ;
+session 2:
+start transaction ;
+insert into news value(2,4);#（阻塞）
+insert into news value(2,2);#（阻塞）
+insert into news value(4,4);#（阻塞）
+insert into news value(4,5);#（阻塞）
+insert into news value(7,5);#（执⾏成功）
+insert into news value(9,5);#（执⾏成功）
+insert into news value(11,5);#（执⾏成功）
+````
+注：id和number都在间隙内则阻塞。
+session 1:
+start transaction ;
+select * from news where number=13 for update ;
+（ select * from news where id&gt;1 and id &lt; 8 for update;）
+session 2:
+start transaction ;
+insert into news value(11,5);#(执⾏成功)
+insert into news value(12,11);#(执⾏成功)
+insert into news value(14,11);#(阻塞)
+insert into news value(15,12);#(阻塞)
+检索条件number=13,向左取得最靠近的值11作为左区间，向右由于没有记录因此取得⽆穷⼤作为右区间，
+因此，session 1的间隙锁的范围（11，⽆穷⼤）
+注：⾮主键索引产⽣间隙锁，主键范围
+```</pre>
 </div>
 <div created="20200411022727710" modified="20200411025715829" tags="$:/tags/SideBar" title="目录" type="text/vnd.tiddlywiki">
 <pre>&lt;div class=&quot;tc-table-of-contents&quot;&gt;

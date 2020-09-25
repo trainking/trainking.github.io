@@ -13974,7 +13974,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200925141405197" list="隔离级别 MySQL知识图谱 欢迎光临" modified="20200925143847342" title="$:/StoryList">
+<div created="20200925141405197" list="事务篇 MySQL知识图谱 欢迎光临" modified="20200925154333035" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15860,7 +15860,7 @@ function radixSort(arr, maxDigit) {
 ```
 </pre>
 </div>
-<div created="20200925141424161" modified="20200925144013392" tags="MySQL" title="事务篇">
+<div created="20200925141424161" modified="20200925154930873" tags="MySQL" title="事务篇">
 <pre>数据库的''事务''是指一组sql语句组成的数据库逻辑处理单元，这组sql操作中，要么全部执行陈工，要么全部执行失败。
 
 !! ''ACID事务的四大特性''
@@ -15892,6 +15892,24 @@ function radixSort(arr, maxDigit) {
 
 持久性则是指一个事务提交之后，状态会持久到数据库中，也就是事务提交，对数据新增，更新会持久化到数据库中。
 
+
+!! ''事务操作''
+
+!!! 开启事务
+
+```
+begin 或 start transaction
+```
+
+''事务''的起点并不是`begin/start transaction`而是执行完它们后，第一个sql语句，才表示''事务''真正启动。
+
+!!! 结束事务
+
+```
+commit 或 rollback
+```
+
+成功`commit`，失败`rollback`。
 </pre>
 </div>
 <div created="20200911123007241" modified="20200921150106458" tags="MySQL" title="索引分类">

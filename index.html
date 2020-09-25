@@ -483,6 +483,8 @@ Error message and password prompt
 
 <li>十大经典排序算法</li>
 
+<li>事务篇</li>
+
 <li>索引分类</li>
 
 <li>索引篇</li>
@@ -13970,7 +13972,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200924123917069" list="间隙锁 MySQL知识图谱 欢迎光临" modified="20200924123925359" title="$:/StoryList">
+<div created="20200925141405197" list="事务篇 MySQL知识图谱 欢迎光临" modified="20200925141408664" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15810,6 +15812,40 @@ function radixSort(arr, maxDigit) {
     return arr;
 }
 ```
+</pre>
+</div>
+<div created="20200925141424161" modified="20200925143757559" tags="MySQL" title="事务篇">
+<pre>数据库的''事务''是指一组sql语句组成的数据库逻辑处理单元，这组sql操作中，要么全部执行陈工，要么全部执行失败。
+
+!! ''ACID事务的四大特性''
+
+在MySQL中，''事务''必须满足四大特性：
+
+* 原子性（Atomicity）
+* 一致性（Consistent）
+* 隔离性（Isalotion）
+* 持久性（Durable）
+
+!!! 原子性
+
+原子性是指事物的操作是原子的，对数据的修改要么''全部成功''，要么''全部失败''。实现事务的原子性，是基于日志的`Redo/Undo`机制。
+
+&gt; `Redo/Undo`机制，MySQL 数据库中，所有对数据更新的操作都是写道日志中。`Redo log`用来记录某数据块被修改后的值，用来恢复未写入data file的已成功事务更新的数据；`Undo log` 是用来记录数据更新前的值，保证数据更新失败能够''回滚''。
+
+!!! 一致性
+
+一致性是指执行事务的前后状态要一致，可以理解为数据一致性。即数据修改，成功则是数据改变，失败则是数据回滚到事务开始前状态。
+
+!!! 隔离性
+
+隔离性指事务之间相互隔离，不受影响，与事务的''隔离级别''有密切的关系。
+
+&gt; MySQL 的事务''隔离级别''分为四大等级，`读未提交（READ UNCOMMITTED）`，`读提交（READ COMMITTED）`，`可重复读（REPEATABLE READ）`，`串行化（SERIALIZABLE）`。
+
+!!! 持久性
+
+持久性则是指一个事务提交之后，状态会持久到数据库中，也就是事务提交，对数据新增，更新会持久化到数据库中。
+
 </pre>
 </div>
 <div created="20200911123007241" modified="20200921150106458" tags="MySQL" title="索引分类">

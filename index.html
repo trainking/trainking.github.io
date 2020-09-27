@@ -13984,7 +13984,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200926154627730" list="递归 常用算法总结 欢迎光临" modified="20200926154641934" title="$:/StoryList">
+<div created="20200926154627730" list="递归 常用算法总结 欢迎光临" modified="20200927033430218" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15145,7 +15145,7 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 * [[二分查找]]
 * [[递归]]</pre>
 </div>
-<div created="20200926154650597" modified="20200927025336902" tags="算法" title="递归">
+<div created="20200926154650597" modified="20200927035830526" tags="算法" title="递归">
 <pre>''递归'' 是指在''函数''定义中，调用自身的方式。可以用来替代''迭代''，代码更容易理解。但效率方面，因为递归调用过程，调用栈会一直堆叠，知道''基准条件''触发返回。所以性能消耗上不如迭代。
 
 而''尾递归''方式，编译器会对其优化，使其调用过程中，不压入新的''函数调用''，而是覆盖原有函数调用，性能与''迭代''等同。
@@ -15157,9 +15157,73 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 
 !! 树形递归（二分递归）
 
+''树形递归''也被称之为二分递归，就是逻辑可以拆解为子部分，子部分逻辑与主题并无二异，如''归并排序''。
+
+计算''计算斐波那契数列第n项''示例：
+
+公式示例：
+
+$$f(x)=f(x-1)+f(x-2)$$
+
+Python：
+
+```
+def fib(n):
+    if n &lt;= 1:
+        return 1
+    else:
+        return fib(n-1) + fib(n - 2)
+```
+
 !! 线性递归
 
+''线性递归''是将问题变化为线性函数，其本质是增加一个参数，记录上一步执行结果，然后与下一步求值。
+
+计算''计算斐波那契数列第n项''示例：
+
+公式示例：
+
+$$f(a,b, x)=a + f(b, a+b, x-1)$$
+
+Python：
+
+```
+def fib(a, b, n):
+    if n &lt;= 1:
+        return 1
+    else:
+        return a + fib(b, a+b, n - 1)
+
+def main():
+    print fib(1, 1, 3)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+```
+
 !! 尾递归
+
+''尾递归''是将上一步结果，作为参数传递给下一步，最后一步返回最终结果，''尾递归''要求递归语句在函数末尾，同时调用的就是函数本身，最后一步返回最终值。
+
+计算''计算斐波那契数列第n项''示例：
+
+$$f(a,b, x)=a + f(b, a+b, x-1)$$
+
+Python：
+
+```
+def fib(a, b, n):
+    if n == 0:
+        return a
+    else:
+        return fib(b, a+b, n - 1)
+
+def main():
+    print fib(1, 1, 3)
+
+if __name__ == &quot;__main__&quot;:
+    main() 
+```
 </pre>
 </div>
 <div created="20200926015426175" modified="20200926021025949" tags="查找 算法" title="二分查找">

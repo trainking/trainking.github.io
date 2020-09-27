@@ -477,6 +477,8 @@ Error message and password prompt
 
 <li>分布式ID的实现：snowflake</li>
 
+<li>分库分表</li>
+
 <li>隔离级别</li>
 
 <li>欢迎光临</li>
@@ -13984,7 +13986,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20200926154627730" list="递归 常用算法总结 欢迎光临" modified="20200927033430218" title="$:/StoryList">
+<div created="20200927143120501" list="分库分表 MySQL知识图谱 欢迎光临" modified="20200927143124680" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15303,6 +15305,41 @@ if __name__ == &quot;__main__&quot;:
 
 * NodeID分配重复，这样的情况直接导致算法无法保障
 * 因为业务拓展，服务ID不够分配，这种情况产生，一是低估了业务的拓张，而是本身业务可能设计不合理。一般来说，当业务拓张到10位存不下了，那么应该考虑到拆分业务，成立新的事物，开发新一套系统。第二种则需要考虑设计的合理</pre>
+</div>
+<div created="20200927143134158" modified="20200927145337800" tags="MySQL" title="分库分表">
+<pre>''分库分表''是为了解决''大数据量''，''高并发''，''复杂业务场景''情况下数据库的''高可用''，''一致性''等问题。
+
+!! MySQL的性能瓶颈
+
+* MySQL默认100个连接，单机最大1500个连接
+* 单表数据千万级别，如果有大量索引，需要大量的磁盘
+
+两个重要的性能指标：
+
+&gt; QPS：查询次数/秒
+&gt; TPS：事务执行次数/秒
+
+当单机无法处理时，则需要使用到''分库分表''。
+
+!! 分库分表
+
+* 当''表的数量''达到几百上千张表时，众多业务业务模块都访问这个数据库，压力增大，考虑''分库''
+* 当''表的数据''达到千万级别，再做很多操作都很耗性能，考虑''分库''或者''分表''
+
+!!! 数据切分方案
+
+* ''垂直切分''
+* ''水平切分''
+
+!! 分库分表需要解决的问题
+
+!!! 分布式事务问题
+
+!!! 分布式主键id问题
+
+!!! 跨库join问题
+
+!!! 跨库count，order by，group by问题</pre>
 </div>
 <div created="20200925143858703" modified="20200925155414387" tags="事务 MySQL" title="隔离级别">
 <pre>MySQL 中事务隔离级别分别为`读未提交（READ UNCOMMITTED）`，`读提交（READ COMMITTED）`，`可重复读（REPEATABLE READ）`，`串行化（SERIALIZABLE）`。

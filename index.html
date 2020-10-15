@@ -491,6 +491,8 @@ Error message and password prompt
 
 <li>浅谈携程：Swoole到Go的协程实现分析</li>
 
+<li>散列</li>
+
 <li>设计模式之悟</li>
 
 <li>十大经典排序算法</li>
@@ -13990,7 +13992,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20201015033158328" list="MySQL知识图谱 欢迎光临" modified="20201015033449353" title="$:/StoryList">
+<div created="20201015033158328" list="散列 常用算法总结 欢迎光临" modified="20201015083520056" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15145,11 +15147,12 @@ CREATE TABLE IF NOT EXISTS `runoob_tbl`(
 ```
 </pre>
 </div>
-<div created="20200926015318013" modified="20200926154640183" tags="算法" title="常用算法总结">
+<div created="20200926015318013" modified="20201015083516117" tags="算法" title="常用算法总结">
 <pre>总结常用算法思想，延展它们的应用。
 
 * [[二分查找]]
-* [[递归]]</pre>
+* [[递归]]
+* [[散列]]</pre>
 </div>
 <div created="20200926154650597" modified="20200927035830526" tags="算法" title="递归">
 <pre>''递归'' 是指在''函数''定义中，调用自身的方式。可以用来替代''迭代''，代码更容易理解。但效率方面，因为递归调用过程，调用栈会一直堆叠，知道''基准条件''触发返回。所以性能消耗上不如迭代。
@@ -15596,6 +15599,18 @@ func main()  {
 完全遵照''CSP''实现的，只有''Erlang''，这是一种多协程，不共享内存，甚至连变量都没有的函数式编程语言，''Erlang''从根子上就支持并行，但是这样走极端的后果，就是代码晦涩难懂，学习成本高，所以这门语言也就小众化了。
 
 ''Java'' 的线程是基于JVM的，如果把JVM看作一台虚拟机，那么Java的线程和Pthread没有什么两样，但如果把JVM看作进程，则Java似乎和上面两种是同一级别的东西。但是，Java的线程还是遵照Pthread的模板去实现，本质还是线程。
+</pre>
+</div>
+<div created="20201015083528457" modified="20201015084535254" tags="算法" title="散列">
+<pre>散列（Hash）其本质上是一种映射，压缩映射。即对数据通过''散列（哈希）函数''求出一个对应的值，常用''散列（哈希）表''就是利用此思想，取一个对应的哈希值，作为''key-value''字典结构的key，建立映射关系。
+
+!! 散列（哈希）函数
+
+常用哈希函数，如crc32，将数据映射为一个32位整型，有利于排序和加快检索，不适用''MD5''等强加密函数作为哈希函数，影响检索的性能。
+
+!! 冲突
+
+散列（哈希）本质，其实在有限范围取模，所以爆发冲突是不可避免地，只能通过优化散列（哈希）函数，使得分布均匀，减少空间浪费和冲突。同时，散列表的设计上，要采用字典与链表混合结构，当冲突为出现时，将数据链接到其后。
 </pre>
 </div>
 <div created="20200825094257866" modified="20200831063404638" tags="" title="设计模式之悟">

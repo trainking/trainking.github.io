@@ -13992,7 +13992,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20201015033158328" list="散列 常用算法总结 欢迎光临" modified="20201015083520056" title="$:/StoryList">
+<div created="20201015152211345" list="mycat指南 MySQL知识图谱 欢迎光临" modified="20201015152324014" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -17229,7 +17229,7 @@ system, const, eq_ref, ref, fulltext, ref_or_null, unique_subquery, index_subque
 * ''filtered''：表示存储引擎返回的数据，经server层过滤后，剩下多少记录数量的比列，5.7之后默认有，5.7之前，使用`explain extened`有
 </pre>
 </div>
-<div created="20201014141752676" modified="20201014143953909" tags="MySQL" title="mycat指南">
+<div created="20201014141752676" modified="20201015153201481" tags="MySQL" title="mycat指南">
 <pre>''MyCat''是基于阿里的''Cobar''产品而研发的，高性能，开源的，数据库分库分表中间件。MyCat主要解决海量数据存储和查询优化的问题。
 
 !! ''0x01 核心概念''
@@ -17248,6 +17248,43 @@ system, const, eq_ref, ref, fulltext, ref_or_null, unique_subquery, index_subque
 * ''垂直分片''：一个库中的不同表存储在不同的节点之上
 
 ''MyCat''通过定义表的''分片规则''来实现分片，每个表格可以绑定一个分片规则，每个''分片规则''指定一个分片字段并绑定一个''函数''，来实现''动态分片算法''。
+
+
+!! ''0x03 安装''
+
+&gt; 需要先安装jdk
+
+
+!!! 第一步 下载MyCat：
+
+```
+weget
+```
+
+!!! 第二步 解压缩：
+
+```
+tar
+```
+
+!!! 第三步 使用:
+
+进入`mycat/bin`目录下
+
+```
+- 启动命令：./mycat start
+- 停止命令：./mycat stop
+- 重启命令：./mycat restart
+- 查看状态：./mcat status
+```
+
+!!! 第四步 访问：
+
+
+```
+mysql
+```
+
 
 </pre>
 </div>

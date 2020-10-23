@@ -473,6 +473,8 @@ Error message and password prompt
 
 <li>递归</li>
 
+<li>动态规划</li>
+
 <li>多版本并发控制：MVCC</li>
 
 <li>二分查找</li>
@@ -13994,7 +13996,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20201023123450314" list="贪心 常用算法总结 欢迎光临" modified="20201023123637549" title="$:/StoryList">
+<div created="20201023123450314" list="动态规划 常用算法总结 欢迎光临" modified="20201023124012294" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15239,6 +15241,29 @@ if __name__ == &quot;__main__&quot;:
     main() 
 ```
 </pre>
+</div>
+<div created="20201023124017763" modified="20201023124753536" tags="算法" title="动态规划">
+<pre>动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。
+
+!! 适用情况
+
+# 最有子结构，即可以''网格化''，也就是说问题可以被拆分成最小的子问题解决，如果背包问题中，可以将背包的容量拆成一块块容量
+# 无后效性，即子问题一定确定，不会再改变，不会受之后的决策所影响
+# 子问题重叠，对每一个子问题只计算一次，然后将其计算结果''保存在一个表格中''，当再次需要计算已经计算过的子问题时，只是在表格中简单地查看一下结果，从而获得较高的效率，降低了时间复杂度
+
+!! 实例
+
+背包问题作为NP完全问题，暂时不存在多项式时间算法。动态规划属于背包问题求解最优解的可行方法之一。
+
+C++ 代码：
+
+```
+#define max(x,y) (x)&gt;(y)?(x):(y) //max宏函数，也可以自己寫或者使用algorithm
+for(int i=1;i&lt;=n;i++)
+  for (v=totv;v&gt;=v[i];v--)
+    f[v]=max(f[v],f[v-v[i]]+p[i]);
+printf(&quot;%d&quot;,f[totv]); //或std:cout&lt;&lt;f[totv];
+```</pre>
 </div>
 <div created="20201015033459117" modified="20201015071630964" tags="MySQL" title="多版本并发控制：MVCC">
 <pre>''MVCC''指多版本并发控制。MySQL的大多是''事务型存储引擎''并不是简单的''行级锁''，而是通过保存数据的某个时间节点的''快照''（标记为一个版本）。不仅MySQL，Oracle，PostgreSQL等其他数据库都实现了MVCC，MVCC并没有一个统一的实现，典型的有''乐观（optimistic）''和''悲观（pessimistic）''实现。

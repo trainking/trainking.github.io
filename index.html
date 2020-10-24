@@ -13996,7 +13996,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20201024035306521" list="递归 动态规划 常用算法总结 欢迎光临" modified="20201024035346558" title="$:/StoryList">
+<div created="20201024051853793" list="动态规划 常用算法总结 欢迎光临" modified="20201024051856080" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -15242,7 +15242,7 @@ if __name__ == &quot;__main__&quot;:
 ```
 </pre>
 </div>
-<div created="20201023124017763" modified="20201024040351356" tags="算法" title="动态规划">
+<div created="20201023124017763" modified="20201024053618309" tags="算法" title="动态规划">
 <pre>动态规划（英语：Dynamic programming，简称DP）是一种在数学、管理科学、计算机科学、经济学和生物信息学中使用的，通过把原问题分解为相对简单的子问题的方式求解复杂问题的方法。
 
 !! 适用情况
@@ -15254,6 +15254,40 @@ if __name__ == &quot;__main__&quot;:
 !! 实例
 
 !!! 斐波那契数列
+
+''斐波那契数列''又被叫兔子数列，即数列中，从`n&gt;2`开始，每个数等于前两数之和，即可以推导出：
+
+$$F(n) = \begin{cases}
+   1, n=1 \\
+   1, n=2  \\
+    F(n-1) + F(n-2), n &gt; 2
+\end{cases}$$
+
+求出一个完成的斐波那契数列，可以采用的''一维动态规划''，即每次的求值，参考前两项存起来的值，则这样''无需使用到递归''，但是消耗了''更多的空间''：
+
+Python代码：
+
+```
+def fib(n):
+    F = range(0,n)
+    F[0] = 1
+    F[1] = 1
+    for i in xrange(2, n):
+        F[i] = F[i-1] + F[i-2]
+    return F
+```
+
+如果只求某一位的值，则子问题结构简化为，''保存n-1和n-2''的值：
+
+
+```
+def fib_n(n):
+    f0 = 1  # n-2的值
+    f1 = 1  # n-1的值
+    for i in xrange(2, n):
+        f0,f1 = f1,f0+f1
+    return f1
+```
 
 !!! 最长公共子序列
 

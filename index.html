@@ -14002,7 +14002,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20210710034451037" list="Traefik：开源反向代理工具 欢迎光临" modified="20210710062540549" title="$:/StoryList">
+<div created="20210710073350054" list="Traefik：开源反向代理工具 欢迎光临" modified="20210710073350054" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -17816,7 +17816,7 @@ mysql&gt; DEALLOCATE PREPARE stmt1;
 * `prepare`语句只能使用一个语句，不能多个
 * 在多次使用，复杂语句结构上有一定优势，因为减少了语句''传输和解析的开销''</pre>
 </div>
-<div created="20210710034855257" modified="20210710064018565" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
+<div created="20210710034855257" modified="20210710074038568" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
 <pre>`Traefik` 是一个开源的，边缘路由（即外网路由）的反向代理工具。由`golang`开发，简单易用，实践中可作为`Api Gateway`使用。
 
 !! 0x00 概念
@@ -17863,6 +17863,52 @@ entryPoints:
 
 
 !!! providers
+
+服务提供者，可以通过多种方式来发现服务
+
+!!!! file
+
+通过配置文件的形式，支持`YAML`和`TOML`文件格式。
+
+```
+providers:
+  file:
+    directory: &quot;/path/to/dynamic/conf&quot;
+    # filename: /etc/traefik/dynamic/dynamic_conf.yml
+```
+
+* 可以指定目录也可以指定文件，指定目录会扫描该目录下所有文件
+
+dynamic_conf.yml：
+
+```
+# http routing section
+http:
+  routers:
+    # Define a connection between requests and services
+    to-whoami:
+      # rule: &quot;Host(`example.com`) &amp;&amp; PathPrefix(`/whoami/`)&quot;
+      rule: &quot;PathPrefix(`/whoami/`)&quot;
+       # If the rule matches, applies the middleware
+      middlewares:
+      - test-user
+      # If the rule matches, forward to the whoami service (declared below)
+      service: whoami
+
+  middlewares:
+    # Define an authentication mechanism
+    test-user:
+      basicAuth:
+        users:
+        - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
+
+  services:
+    # Define how to reach an existing service on our infrastructure
+    whoami:
+      loadBalancer:
+        servers:
+        - url: http://192.168.112.1:1323/
+```
 
 !! 0x01 最佳实践
 

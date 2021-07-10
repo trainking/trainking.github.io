@@ -17816,7 +17816,7 @@ mysql&gt; DEALLOCATE PREPARE stmt1;
 * `prepare`语句只能使用一个语句，不能多个
 * 在多次使用，复杂语句结构上有一定优势，因为减少了语句''传输和解析的开销''</pre>
 </div>
-<div created="20210710034855257" modified="20210710074038568" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
+<div created="20210710034855257" modified="20210710074423223" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
 <pre>`Traefik` 是一个开源的，边缘路由（即外网路由）的反向代理工具。由`golang`开发，简单易用，实践中可作为`Api Gateway`使用。
 
 !! 0x00 概念
@@ -17875,9 +17875,11 @@ providers:
   file:
     directory: &quot;/path/to/dynamic/conf&quot;
     # filename: /etc/traefik/dynamic/dynamic_conf.yml
+    # watch: true
 ```
 
 * 可以指定目录也可以指定文件，指定目录会扫描该目录下所有文件
+* `watch`设置为true，Traefik会自动监视配置文件的变更，路径和目录都适用
 
 dynamic_conf.yml：
 
@@ -17900,7 +17902,7 @@ http:
     test-user:
       basicAuth:
         users:
-        - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/
+        - test:$apr1$H6uskkkW$IgXLP6ewTrSuBkTrqE8wj/  #htpasswd
 
   services:
     # Define how to reach an existing service on our infrastructure

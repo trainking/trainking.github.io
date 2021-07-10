@@ -17816,7 +17816,7 @@ mysql&gt; DEALLOCATE PREPARE stmt1;
 * `prepare`语句只能使用一个语句，不能多个
 * 在多次使用，复杂语句结构上有一定优势，因为减少了语句''传输和解析的开销''</pre>
 </div>
-<div created="20210710034855257" modified="20210710063020531" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
+<div created="20210710034855257" modified="20210710064018565" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
 <pre>`Traefik` 是一个开源的，边缘路由（即外网路由）的反向代理工具。由`golang`开发，简单易用，实践中可作为`Api Gateway`使用。
 
 !! 0x00 概念
@@ -17853,12 +17853,34 @@ entryPoints:
 |选项|参考值|说明|
 |name|`web`，`websecure`|任意值，不可重复，''替换键''|
 |address|:8888|[host]:port[/tcp or /udp]，未指定传输协议，使用tcp|
+|transport||传输控制项|
+|lifeCycle||关闭阶段的行为|
+|respondingTimeouts||响应超时|
+|proxyProtocol||代理协议|
 |forwardedHeaders|转发头|`X-Forwarded-*`|
 |insecure|安全模式|true表示始终信任， 默认flase|
 |trustedIPs|Ip白名单|信任的ip白名单|
 
 
 !!! providers
+
+!! 0x01 最佳实践
+
+!!! 将http请求重定向到https
+
+```
+entryPoints:
+  web:
+    address: :80
+    http:
+      redirections:
+        entryPoint:
+          to: websecure
+          scheme: https
+
+  websecure:
+    address: :443
+```
 </pre>
 </div>
 <div created="20200909083937668" modified="20200909090258900" tags="" title="Unix文件描述符：标准输入输出示例">

@@ -14002,7 +14002,7 @@ Error message and password prompt
 <div created="20200411025821730" modified="20200922020707098" title="$:/state/tabs/controlpanel/toolbars-1345989671">
 <pre>$:/core/ui/ControlPanel/Toolbars/ViewToolbar</pre>
 </div>
-<div created="20210710034451037" list="Traefik：开源反向代理工具 欢迎光临" modified="20210710034802511" title="$:/StoryList">
+<div created="20210710034451037" list="欢迎光临" modified="20210710043926533" title="$:/StoryList">
 <pre></pre>
 </div>
 <div color="#bbb" created="20200831054536164" icon="$:/core/images/tag-button" modified="20200831054536164" title="$:/TagManager">
@@ -17816,8 +17816,47 @@ mysql&gt; DEALLOCATE PREPARE stmt1;
 * `prepare`语句只能使用一个语句，不能多个
 * 在多次使用，复杂语句结构上有一定优势，因为减少了语句''传输和解析的开销''</pre>
 </div>
-<div created="20210710034855257" modified="20210710035648508" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
-<pre>`Traefik` 是一个开源的，边缘路由（即外网路由）的反向代理工具。由`golang`开发，简单易用，实践中可作为`Api Gateway`使用。</pre>
+<div created="20210710034855257" modified="20210710043746203" tags="Traefik 反向代理" title="Traefik：开源反向代理工具" type="text/vnd.tiddlywiki">
+<pre>`Traefik` 是一个开源的，边缘路由（即外网路由）的反向代理工具。由`golang`开发，简单易用，实践中可作为`Api Gateway`使用。
+
+!! 0x00 概念
+
+!!! entryPoints
+
+配置项完整参考
+
+```
+## Static configuration
+entryPoints:
+  name:
+    address: &quot;:8888&quot; # same as &quot;:8888/tcp&quot;
+    transport:
+      lifeCycle:
+        requestAcceptGraceTimeout: 42
+        graceTimeOut: 42
+      respondingTimeouts:
+        readTimeout: 42
+        writeTimeout: 42
+        idleTimeout: 42
+    proxyProtocol:
+      insecure: true
+      trustedIPs:
+        - &quot;127.0.0.1&quot;
+        - &quot;192.168.0.1&quot;
+    forwardedHeaders:
+      insecure: true
+      trustedIPs:
+        - &quot;127.0.0.1&quot;
+        - &quot;192.168.0.1&quot;
+```
+
+|选项|参考值|说明|
+|name|`web`，`websecure`|任意值，不可重复，''替换键''|
+|address|:8888|[host]:port[/tcp or /udp]，未指定传输协议，使用tcp|
+
+
+!!! providers
+</pre>
 </div>
 <div created="20200909083937668" modified="20200909090258900" tags="" title="Unix文件描述符：标准输入输出示例">
 <pre>''文件描述符''是类Unix系统中的重要概念，因为类Unix系统将''一切都看做文件''（驱动，套接字等等）。因此，许多操作，其实本质都可以简化为文件的操作。那么''文件描述符''是什么呢？
